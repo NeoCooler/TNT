@@ -9,6 +9,13 @@ TOols Inside:
 
  Application Installer
 
+Android Package
+ -SDK installer
+ -Dsixda's Kitchen
+
+
+System Package
+ -Nvidia Propriétaires
 
 Application for Ubuntu
  -Google Chrome Stable|BETA
