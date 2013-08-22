@@ -1,0 +1,52 @@
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+vers=$1
+
+while : 
+do
+	clear
+
+	echo -e "\033[34m============================================================\033[0m"
+	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
+	echo -e "\033[34m============================================================\033[0m"
+	echo "-> ANDROID MENU"
+	echo
+	echo "     1 - SDK Package installations"
+	echo "     2 - Lancer SDK Updater"
+	echo
+	echo "     3 - Dsixda's Android Kitchen"
+	echo "     4 - Run Kitchen"
+	echo
+	echo "     x - Return MAIN MENU"
+	echo
+	echo
+	echo -n " Choose one option:"
+	read tntoption
+	echo
+	echo
+	echo
+	 
+	case "$tntoption" in
+	    1 ) clear; wget http://dl.google.com/android/android-sdk_r22.0.5-linux.tgz;
+		tar xvzf ~/TNT/android-sdk_r22.0.5-linux.tgz;
+	        rm ~/TNT/android-sdk_r22.0.5-linux.tgz;
+	        mv ~/TNT/android-sdk-linux ~/android-sdk;
+		clear; continue;;
+	    2 ) clear; cd ~/android-sdk/tools; ./android update sdk; clear; continue;;
+	    3 ) clear; sudo apt-get install git-core; git clone git://github.com/dsixda/Android-Kitchen.git ~/kitchen; clear; continue;;
+	    4 ) clear; cd ~/kitchen; ./menu; clear; continue;;
+	    x ) clear; exit 0;;
+	    * ) clear; echo " Chooser another option ?"; continue;;
+	esac
+
+done
+exit 0;

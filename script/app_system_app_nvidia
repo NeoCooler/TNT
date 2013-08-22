@@ -1,0 +1,57 @@
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+vers=$1
+
+while : 
+do
+	clear
+
+	echo -e "\033[34m============================================================\033[0m"
+	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
+	echo -e "\033[34m============================================================\033[0m"
+	echo "-> CHROME MENU"
+	echo
+	echo " Folow step by step:"
+	echo
+	echo "     1 - Install Linux-Source"
+	echo "     2 - Install Linux-Header-generic"
+	echo "     3 - Install Nvidia Current Updates"
+	echo
+	echo " Restart after installation:"
+	echo "	   o - Restart"
+	echo
+	echo "     r - Remouve All(start here if you come form another version)"
+	echo
+	echo "     u - Update Package"
+	echo
+	echo "     x - Return APPLICATIONS MENU"
+	echo
+	echo
+	echo -n " Choose one option:"
+	read tntoption
+	echo
+	echo
+	echo
+	 
+	case "$tntoption" in
+	    1 ) clear; sudo apt-get install linux-source; clear; continue;;
+	    2 ) clear; sudo apt-get install linux-headers-generic; clear; continue;;
+	    3 ) clear; sudo apt-get install nvidia-current-updates; clear; continue;;
+	    o ) clear; sudo reboot; continue;;
+	    r ) clear; sudo apt-get purge nvidia-current nvidia-current-updates nvidia-experimental-304; clear; continue;;
+	    u ) clear; sudo apt-get update; clear; continue;;
+	    x ) clear; exit 0;;
+	    * ) clear; echo " Chooser another option ?"; continue;;
+	esac
+
+done
+exit 0;
