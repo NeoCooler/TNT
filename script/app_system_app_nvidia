@@ -18,7 +18,7 @@ do
 	echo -e "\033[34m============================================================\033[0m"
 	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
 	echo -e "\033[34m============================================================\033[0m"
-	echo "-> CHROME MENU"
+	echo "-> NVIDIA MENU"
 	echo
 	echo " Folow step by step:"
 	echo

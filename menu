@@ -11,7 +11,7 @@
 #
 ############################################################################
 
-version=0.1
+version=0.2
 
 chmod 755 scripts/*
 
@@ -19,13 +19,15 @@ while :
 do
 	clear
 
-	echo "============================================================"
+	echo -e "\033[34m============================================================\033[0m"
 	echo "          TNT V.$version - by NeoCooler aka krisjanne"
-	echo "============================================================"
+	echo -e "\033[34m============================================================\033[0m"
 	echo "-> MAIN MENU"
 	echo
 	echo "     1 - Update Menu"
 	echo "     2 - Applications Menu"
+	echo
+	echo "     k - Run Dsixda's Android Kitchen"
 	echo
 	echo "     x - Exit"
 	echo
@@ -39,6 +41,7 @@ do
 	case "$tntopt" in
 	    1 ) clear; script/update $version; continue;;
 	    2 ) clear; script/app $version; continue;;
+	    k ) clear; cd ~/kitchen; ./menu; clear; continue;;
 	    x ) clear; echo "Goodbey !"; echo; exit 1;;
 	    * ) clear; echo "Invalid option"; continue;;
 	esac
