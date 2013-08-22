@@ -25,7 +25,7 @@ do
 	echo "     x - Return MAIN MENU"
 	echo
 	echo
-	echo -n " Choose one option:"
+	echo -e -n "\033[32m Choose option:\033[0m"
 	read tntoption
 	echo
 	echo

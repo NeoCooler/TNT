@@ -36,7 +36,7 @@ do
 	echo "     x - Return APPLICATIONS MENU"
 	echo
 	echo
-	echo -n " Choose one option:"
+	echo -e -n "\033[33m Choose option:\033[0m"
 	read tntoption
 	echo
 	echo
