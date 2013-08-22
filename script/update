@@ -1,0 +1,45 @@
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+vers=$1
+
+while : 
+do
+	clear
+
+	echo "============================================================"
+	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
+	echo "============================================================"
+	echo "-> UPDATE MENU"
+	echo
+	echo "     1 - Update All Packages"
+	echo "     2 - Upgrade Systeme Packages"
+	echo "     3 - Upgrade & install new Systeme Packages"
+	echo
+	echo "     x - Return MAIN MENU"
+	echo
+	echo
+	echo -n " Choose one option:"
+	read tntoption
+	echo
+	echo
+	echo
+	 
+	case "$tntoption" in
+	    1 ) clear; sudo apt-get update; clear;;
+	    2 ) clear; sudo apt-get upgrade; clear;;
+	    3 ) clear; sudo apt-get dist-upgrade; clear;;
+	    x ) clear; exit 0;;
+	    * ) clear; echo " Chooser another option ?"; continue;;
+	esac
+
+done
+exit 0;
