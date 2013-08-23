@@ -23,6 +23,7 @@ do
 	echo "     1 - Google Chrome"
 	echo "     2 - Gimp"
         echo "     3 - Cheese"
+	echo "     4 - Ubuntu-Tweak"
 	echo
 	echo "     a - Android"
 	echo
@@ -41,6 +42,7 @@ do
 	    1 ) clear; script/app_chrome $vers; continue;;
 	    2 ) clear; script/app_gimp $vers; continue;;
 	    3 ) clear; script/app_cheese $vers; continue;;
+	    4 ) clear; script/app_ubuntutweak $vers; continue;;
 	    a ) clear; script/app_android_app $vers; continue;;
 	    s ) clear; script/app_system_app $vers; continue;;
 	    x ) clear; exit 0;;
