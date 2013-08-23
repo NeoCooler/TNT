@@ -1,0 +1,58 @@
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+vers=$1
+
+while : 
+do
+	clear
+
+	echo -e "\033[34m============================================================\033[0m"
+	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
+	echo -e "\033[34m============================================================\033[0m"
+	echo "-> JAVA INSTALL"
+	echo
+	echo " Folow step by step:"
+	echo
+	echo "     1 - Add Repository source"
+	echo "     2 - Install Java 7"
+	echo
+	echo " Switch to another version:"
+	echo "     3 - Change Java Version"
+	echo "     4 - Change Javac Version"
+	echo "     5 - Chagne Java Plugin Version"
+	echo "     6 - Change Javaws Version"
+ 	echo
+	echo "     u - Update Package"
+	echo
+	echo "     x - Return APPLICATIONS MENU"
+	echo
+	echo
+	echo -e -n "\033[32m Choose option:\033[0m"
+	read tntoption
+	echo
+	echo
+	echo
+	 
+	case "$tntoption" in
+	    1 ) clear; sudo add-apt-repository ppa:webupd8team/java; clear; continue;;
+	    2 ) clear; sudo apt-get install oracle-java7-installer; clear; continue;;
+	    3 ) clear; sudo update-alternatives --config java; clear; continue;;
+	    4 ) clear; sudo update-alternatives --config javac; ckear; continue;;
+	    5 ) clear; sudo update-alternatives --config mozilla-javaplugin.so; ckear; continue;;
+	    6 ) clear; sudo update-alternatives --config javaws; ckear; continue;;
+	    u ) clear; sudo apt-get update; clear; continue;;
+	    x ) clear; exit 0;;
+	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
+	esac
+
+done
+exit 0;
