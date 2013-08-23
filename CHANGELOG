@@ -1,18 +1,20 @@
-[TNT V0.4]
+CHANGELOG
+
+[TNT Version 0.4]
 Fix updater
 Add Gnome15
 
-[TNT V0.3]
+[TNT Version 0.3]
 Fix chmod script
 Add Android -Ubuntu SDK
 Add System -Java
 Add App -Gimp -Cheese
 
-[TNT V0.2]
+[TNT Version 0.2]
 Add Updater
 Add Chrome Installer
 Add Android -SDK -Dsixda
 Add Nvidia
 
-[TNT V0.1]
+[TNT Version 0.1]
 First Release
