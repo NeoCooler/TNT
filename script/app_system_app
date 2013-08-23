@@ -21,6 +21,7 @@ do
 	echo "-> SYSTEM PACKAGES MENU"
 	echo
 	echo "     1 - Nvidia Propiétaires"
+	echo "     2 - Oracle Java"
 	echo
 	echo "     x - Return MAIN MENU"
 	echo
@@ -33,8 +34,9 @@ do
 	 
 	case "$tntoption" in
 	    1 ) clear; script/app_system_app_nvidia $vers; continue;;
+	    2 ) clear; script/app_system_app_java $vers; continue;;
 	    x ) clear; exit 0;;
-	    * ) clear; echo " Chooser another option ?"; continue;;
+	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
 	esac
 
 done

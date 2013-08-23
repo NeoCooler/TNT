@@ -18,7 +18,7 @@ do
 	echo -e "\033[34m============================================================\033[0m"
 	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
 	echo -e "\033[34m============================================================\033[0m"
-	echo "-> NVIDIA MENU"
+	echo "-> NVIDIA INSTALL"
 	echo
 	echo " Folow step by step:"
 	echo
@@ -36,7 +36,7 @@ do
 	echo "     x - Return APPLICATIONS MENU"
 	echo
 	echo
-	echo -e -n "\033[33m Choose option:\033[0m"
+	echo -e -n "\033[32m Choose option:\033[0m"
 	read tntoption
 	echo
 	echo
@@ -50,7 +50,7 @@ do
 	    r ) clear; sudo apt-get purge nvidia-current nvidia-current-updates nvidia-experimental-304; clear; continue;;
 	    u ) clear; sudo apt-get update; clear; continue;;
 	    x ) clear; exit 0;;
-	    * ) clear; echo " Chooser another option ?"; continue;;
+	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
 	esac
 
 done

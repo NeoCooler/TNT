@@ -18,7 +18,7 @@ do
 	echo -e "\033[34m============================================================\033[0m"
 	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
 	echo -e "\033[34m============================================================\033[0m"
-	echo "-> CHROME MENU"
+	echo "-> CHROME INSTALL"
 	echo
 	echo "Your Actual version is:"
 	google-chrome --version
@@ -46,7 +46,7 @@ do
 	    4 ) clear; sudo apt-get install google-chrome-beta; clear; continue;;
 	    u ) clear; sudo apt-get update; clear; continue;;
 	    x ) clear; exit 0;;
-	    * ) clear; echo " Chooser another option ?"; continue;;
+	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
 	esac
 
 done

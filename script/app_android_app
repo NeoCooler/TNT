@@ -26,6 +26,9 @@ do
 	echo "     3 - Dsixda's Android Kitchen"
 	echo "     4 - Run Kitchen"
 	echo
+	echo "     5 - Add Repository Ubuntu SDK"
+	echo "     6 - Install Ubuntu SDK"
+	echo
 	echo "     x - Return MAIN MENU"
 	echo
 	echo
@@ -44,8 +47,10 @@ do
 	    2 ) clear; cd ~/android-sdk/tools; ./android update sdk; clear; continue;;
 	    3 ) clear; sudo apt-get install git-core; git clone git://github.com/dsixda/Android-Kitchen.git ~/kitchen; clear; continue;;
 	    4 ) clear; cd ~/kitchen; ./menu; clear; continue;;
+	    5 ) clear; sudo add-apt-repository ppa:ubuntu-sdk-team/ppa; clear; continue;;
+	    6 ) clear; sudo apt-get install ubuntu-sdk; clear; continue;;
 	    x ) clear; exit 0;;
-	    * ) clear; echo " Chooser another option ?"; continue;;
+	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
 	esac
 
 done

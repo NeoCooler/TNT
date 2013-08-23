@@ -1,21 +1,24 @@
 TNT ToolsNeoTeam
 ===
+TOolS Inside:
 
-Ubuntu Script-Shell
+1) Easy Updater
+-Update all package
+-Update system
+-Update TNT
 
-TOols Inside:
+2) Application Installer
 
- Easy Updater
+[Android Package]
+-Android SDK
+-Dsixda's Kitchen
+-Ubuntu SDK
 
- Application Installer
+[System Package]
+-Nvidia Propriétaires
+-Oracle Java
 
-Android Package
- -SDK installer
- -Dsixda's Kitchen
-
-
-System Package
- -Nvidia Propriétaires
-
-Application for Ubuntu
- -Google Chrome Stable|BETA
+[Application]
+-Google Chrome Stable|BETA
+-Gimp
+-Cheese
