@@ -17,6 +17,7 @@ TOolS Inside:
 [System Package]
 -Nvidia Propriétaires
 -Oracle Java
+-Gnome15
 
 [Application]
 -Google Chrome Stable|BETA
