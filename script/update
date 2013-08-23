@@ -47,7 +47,7 @@ do
 		unzip ~/TNT/TNT.zip -d ~/TNT/;
 		rm ~/TNT/TNT.zip;
 		cp -a ~/TNT/TNT-master/* ~/TNT/;
-		rm ~/TNT/TNT-master
+		rm -r ~/TNT/TNT-master
 	        echo "You need to restart TNT to see update!" clear;;
 	    x ) clear; exit 0;;
 	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
