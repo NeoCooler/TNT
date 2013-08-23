@@ -39,7 +39,17 @@ do
 	    1 ) clear; sudo apt-get update; clear;;
 	    2 ) clear; sudo apt-get upgrade; clear;;
 	    3 ) clear; sudo apt-get dist-upgrade; clear;;
-	    4 ) clear; sudo apt-get install git-core; git clone git://github.com/NeoCooler/TNT.git ~/TNT; echo "You need to restart TNT to see update!" clear;;
+	    4 ) clear; 
+	        sudo apt-get install git-core;
+	        new_file=TNT_v.$vers.zip
+	        url=https://github.com/NeoCooler/TNT/archive/master.zip;
+	        wget --no-check-certificate $url -O $new_file;
+		cp $new_file ~/TNT.zip;
+		unzip ~/TNT.zip -d ~/;
+		rm ~/TNT.zip;
+		cd ~/TNT-master ~/TNT;
+	 	rm -r ~/TNT-master;
+	        echo "You need to restart TNT to see update!" clear;;
 	    x ) clear; exit 0;;
 	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
 	esac
