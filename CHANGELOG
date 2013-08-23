@@ -1,37 +1,26 @@
-			<font size="1"><b>NOTE: Please do not copy the entire first post, release notes, and FAQ pages into your personal thread.  (Yes, people actually do this!) Apply common sense and use the link from here.</b></font><br />
-<br />
 <u><font size="5"><b>Release Notes</b></font></u><br />
 <br />
-<b>Version 0.224 (June 16, 2013):</b><ul><li>Added support for Galaxy S4 variants (AT&amp;T/Rogers/Bell/Telus/T-Mobile) (tested), GT-I9500/I9505 and more (untested)</li>
-<li>Added support for HTC One (m7)</li>
-<li>Fixed an issue where BusyBox entries in updater-script may not be detected, causing kitchen to potentially add another BusyBox entry</li>
-<li>Updated default symlinks list for updater-script</li>
-<li>When backing up app and framework folders during de-odexing, ensure their subdirectories also included</li>
+<b>Version 0.004 (June 16, 2013):</b><ul>
+<li>Fix updater</li>
+<li>Add Gnome15</li>
 </ul><br />
-<b>Version 0.223 (March 12, 2013):</b><ul><li>Fix: Changed method of flashing boot.img in AT&amp;T Galaxy S3 (package_extract_file with no tmp folder)</li>
-<li>Fix: Don't check for tomb.img.ext4 unless Galaxy S2 ROM used</li>
-<li>In Amend/Edify conversion menu, submit a default choice if user presses Enter, depending on whether updater-script or update-script (or nothing) present</li>
-<li>In Amend/Edify conversion menu, show whether user has updater/update-script</li>
-<li>If applicable, show mount point for boot.img after converting to updater-script</li>
-<li>Show kitchen version when showing working folder info</li>
+<b>Version 0.003 (March 12, 2013):</b><ul>
+<li>Fix chmod script</li>
+<li>Add Android -Ubuntu SDK</li>
+<li>Add System -Java</li>
+<li>Add App -Gimp -Cheese</li>
 </ul><br />
-<b>Version 0.222 (March 7, 2013):</b><ul><li>Added support for Qualcomm-based Galaxy S2 Jelly Bean ROMs, including extraction of tomb.img.ext4</li>
-<li>When de-odexing Galaxy S2 Jelly Bean ROMs, keep track of APKs moved from /preload folder, and move them back when done (don't move other files)</li>
-<li>When changing API value for de-odexing, remove the yes/no prompt and proceed straight to entering value (0=cancel)</li>
+<b>Version 0.002 (March 7, 2013):</b><ul>
+<li>Add Updater</li>
+<li>Add Chrome Installer</li>
+<li>Add Android -SDK -Dsixda</li>
+<li>Add Nvidia</li>
 </ul><br />
-<b>Version 0.221 (February 16, 2013):</b><ul><li>Fix missing wi-fi symlink issue in MTK65xx ROMs that use an EXT4-formatted system.img for the base ROM</li>
+<b>Version 0.001 (February 16, 2013):</b><ul>
+<li>First Release
+</li>
 </ul><br />
-<b>Version 0.220 (February 2, 2013):</b><ul><li>Automatically handle how /preload folder's APK/ODEX files are moved before de-odexing Jelly Bean ROMs for Exynos-based Galaxy S2 and Note.</li>
-</ul><br />
-<b>Version 0.219 (January 23, 2013):</b><ul><li>Updated smali/baksmali to 1.4.2 (for de-odexing)</li>
-<li>Updated Zipalign to 21.0.1</li>
-<li>Added support for HTC One V CDMA, HTC One X+ (AT&amp;T and International), HTC Droid DNA</li>
-<li>Updated updater-script definitions for HTC One XL and One X</li>
-</ul><br />
-<br />
-<b>PLEASE DO NOT DUPLICATE THIS POST UNDER YOUR OWN THREAD!</b><br />
-<b>Release notes for all previous versions starting at Version 0.1 are found in the attachment below</b><br />
-<br />
+
 
 CHANGELOG
 
