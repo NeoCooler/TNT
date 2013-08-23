@@ -1,22 +1,20 @@
-<u><font size="5"><b>Release Notes</b></font></u><br />
-<br />
-<b>Version 0.004 (June 16, 2013):</b><ul>
-<li>Fix updater</li>
-<li>Add Gnome15</li>
-</ul><br />
-<b>Version 0.003 (March 12, 2013):</b><ul>
-<li>Fix chmod script</li>
-<li>Add Android -Ubuntu SDK</li>
-<li>Add System -Java</li>
-<li>Add App -Gimp -Cheese</li>
-</ul><br />
-<b>Version 0.002 (March 7, 2013):</b><ul>
-<li>Add Updater</li>
-<li>Add Chrome Installer</li>
-<li>Add Android -SDK -Dsixda</li>
-<li>Add Nvidia</li>
-</ul><br />
-<b>Version 0.001 (February 16, 2013):</b><ul>
-<li>First Release
-</li>
-</ul><br />
+CHANGELOG
+
+Version 0.004 :
+Fix updater
+Add Gnome15
+
+Version 0.003 :
+Fix chmod script
+Add Android -Ubuntu SDK
+Add System -Java
+Add App -Gimp -Cheese
+
+Version 0.002 :
+Add Updater
+Add Chrome Installer
+Add Android -SDK -Dsixda
+Add Nvidia
+
+<b>Version 0.001 :
+First Release
