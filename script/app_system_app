@@ -38,8 +38,10 @@ do
 	    2 ) clear; script/app_system_app_java $vers; continue;;
 	    3 ) clear; script/app_system_app_gnome15 $vers; continue;;
 	    x ) clear; exit 0;;
-	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
+	    * ) echo -e "\033[31m Invalid option\033[0m";;
 	esac
+
+    script/press_enter
 
 done
 exit 0;

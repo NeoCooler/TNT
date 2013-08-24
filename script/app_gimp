@@ -42,8 +42,10 @@ do
 	    2 ) clear; sudo apt-get install gimp; clear; continue;;
 	    u ) clear; sudo apt-get update; clear; continue;;
 	    x ) clear; exit 0;;
-	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
+	    * ) echo -e "\033[31m Invalid option\033[0m";;
 	esac
+
+    script/press_enter
 
 done
 exit 0;

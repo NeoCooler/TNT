@@ -43,32 +43,34 @@ do
 	 
 	case "$tntoption" in
 	    1 ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
-Version: GnuPG v1.4.5 (GNU/Linux)
+		Version: GnuPG v1.4.5 (GNU/Linux)
 
-mQGiBE3HD/cRBACcaW+ghDnPPCDtkuq3QWkGE3hRgfmnbtgLjC3oMqQ+03Pqsy1o
-IHI5XysykjsigP9RECWXjklKEanaCA9susiQgXE9oFROBeD9055r3rtFf4yXi6YJ
-KHgaISFRBMAGmxBg+tYMoc2tzHYmEhfS5fJUigOjtyvdtWlYG0cW4bP46wCgpooY
-RQDp9hYkpOcXRzY8nBbQ55ED/Rp8pVLrMkIu9pzNw5uYLyWHonrOsaUsXkvy9u51
-yza0TbkkKAT/NOy2cQy8E9lBtAlMLSafMDgWjmCPouoMWviMnUKx/gOL3kCsO79V
-ZCONULeU9DVjB3AbcARLVL+qgMdMYHzKcRsIMl7i0Wq3asEoRUw1tatsTpaxi9Rs
-lhSgA/9SJFP3EW8wBm2BeBXk5NjDyMlRRCtDYfFx7NilYxoRVc/TUkKiwEHAvi8D
-7PsL4ofC5eNtXxCoGKeBXct3dfMiuJhlCSrqZbJHJZK7nVPzVgmhB8TfCsxkNh03
-udK61atVUNq54zgQonz6oX/EZHuQe0VnVENULmeGmkaimsfZc7Q+aG9tZTp0YW5r
-dGFydGEgT0JTIFByb2plY3QgPGhvbWU6dGFua3RhcnRhQGJ1aWxkLm9wZW5zdXNl
-Lm9yZz6IZgQTEQIAJgUCTccP9wIbAwUJBB6wAAYLCQgHAwIEFQIIAwQWAgMBAh4B
-AheAAAoJEGi0IqJ7r+i3TAYAnRDUZs0j0fETb6pASV43YffPBYxmAJ9S4pvAF78v
-g9JASGgZ5RkRkKQVdohGBBMRAgAGBQJNxw/3AAoJEDswEbdrnWUjXb8AoIhjj7DO
-yDOm3DM8+NT2Lm78SJijAKCEFeZrWc4R/bw6+vAYVLUNVWFzHA==
-=KcVR
------END PGP PUBLIC KEY BLOCK-----'|sudo apt-key add -; clear; continue;;
+		mQGiBE3HD/cRBACcaW+ghDnPPCDtkuq3QWkGE3hRgfmnbtgLjC3oMqQ+03Pqsy1o
+		IHI5XysykjsigP9RECWXjklKEanaCA9susiQgXE9oFROBeD9055r3rtFf4yXi6YJ
+		KHgaISFRBMAGmxBg+tYMoc2tzHYmEhfS5fJUigOjtyvdtWlYG0cW4bP46wCgpooY
+		RQDp9hYkpOcXRzY8nBbQ55ED/Rp8pVLrMkIu9pzNw5uYLyWHonrOsaUsXkvy9u51
+		yza0TbkkKAT/NOy2cQy8E9lBtAlMLSafMDgWjmCPouoMWviMnUKx/gOL3kCsO79V
+		ZCONULeU9DVjB3AbcARLVL+qgMdMYHzKcRsIMl7i0Wq3asEoRUw1tatsTpaxi9Rs
+		lhSgA/9SJFP3EW8wBm2BeBXk5NjDyMlRRCtDYfFx7NilYxoRVc/TUkKiwEHAvi8D
+		7PsL4ofC5eNtXxCoGKeBXct3dfMiuJhlCSrqZbJHJZK7nVPzVgmhB8TfCsxkNh03
+		udK61atVUNq54zgQonz6oX/EZHuQe0VnVENULmeGmkaimsfZc7Q+aG9tZTp0YW5r
+		dGFydGEgT0JTIFByb2plY3QgPGhvbWU6dGFua3RhcnRhQGJ1aWxkLm9wZW5zdXNl
+		Lm9yZz6IZgQTEQIAJgUCTccP9wIbAwUJBB6wAAYLCQgHAwIEFQIIAwQWAgMBAh4B
+		AheAAAoJEGi0IqJ7r+i3TAYAnRDUZs0j0fETb6pASV43YffPBYxmAJ9S4pvAF78v
+		g9JASGgZ5RkRkKQVdohGBBMRAgAGBQJNxw/3AAoJEDswEbdrnWUjXb8AoIhjj7DO
+		yDOm3DM8+NT2Lm78SJijAKCEFeZrWc4R/bw6+vAYVLUNVWFzHA==
+		=KcVR
+		-----END PGP PUBLIC KEY BLOCK-----'|sudo apt-key add -; clear; continue;;
 	    2 ) clear; sudo sh -c "echo deb http://www.gnome15.org/$(lsb_release -cs) ./ >> /etc/apt/sources.list"; clear; continue;;
 	    3 ) clear; sudo apt-get install gnome15-ubuntu; clear; continue;;
 	    o ) clear; sudo reboot; continue;;
 	    r ) clear; sudo apt-get purge nvidia-current nvidia-current-updates nvidia-experimental-304; clear; continue;;
 	    u ) clear; sudo apt-get update; clear; continue;;
 	    x ) clear; exit 0;;
-	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
+	    * ) echo -e "\033[31m Invalid option\033[0m";;
 	esac
+
+    script/press_enter
 
 done
 exit 0;

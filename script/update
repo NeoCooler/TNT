@@ -41,8 +41,10 @@ do
 	    3 ) clear; sudo apt-get dist-upgrade; clear;;
 	    4 ) clear; script/updater $vers; continue;;
 	    x ) clear; exit 0;;
-	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
+	    * ) echo -e "\033[31m Invalid option\033[0m";;
 	esac
+
+    script/press_enter
 
 done
 exit 0;
