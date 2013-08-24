@@ -1,0 +1,96 @@
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+curr_vers=$1
+
+echo -e "\033[34m============================================================\033[0m"
+echo "          TNT V.$curr_vers - by NeoCooler aka krisjanne"
+echo -e "\033[34m============================================================\033[0m"
+echo "-> ABOUT TNT"
+echo
+echo -e "\033[31m------------------------------------------------------------\033[0m"
+echo
+echo "  For support/community   : http://m1p.fr/xCU"
+echo "  For Paypal donations    : neocooler29@gmail.com"
+echo
+echo -e "\033[31m------------------------------------------------------------\033[0m"
+echo
+echo
+echo -e -n "\033[32m Check online for updates (y/n)? (default: y):\033[0m"
+read check_update
+
+if [ "$check_update" == "n" ]
+then
+  exit 0
+fi
+
+echo 
+echo "Searching for updates ..."
+
+online_vers=`script/check_update`
+ 
+last_vers=`echo $online_vers | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
+
+  curr_major=`echo $curr_vers | sed 's/\([0-9]*\).[0-9]*/\1/'`
+  curr_minor=`echo $curr_vers | sed 's/[0-9]*.//'`
+
+  last_major=`echo $last_vers | sed 's/\([0-9]*\).[0-9]*/\1/'`
+  last_minor=`echo $last_vers | sed 's/[0-9]*.//'`
+
+  update=1
+
+  #
+  # Compare our version with version online
+  #
+  if [ $curr_major -gt $last_major ]
+  then
+    update=0
+  else
+
+    if [ $curr_major -eq $last_major ]
+    then
+      if [ $curr_minor -ge $last_minor ]
+      then
+        update=0
+      fi
+    fi
+  fi
+  if [ $update == 0 ] 
+  then
+    echo "Last version online is $last_vers.  No update required."
+  else
+
+    echo "An update was found ($last_vers)."
+    echo
+    echo "Changelog are found in the CHANGELOG file"
+    echo "                inside TNT folder after update."
+    echo 
+    echo -n "Download (y/n)? (default: y): "
+    read proceed_download
+    if [ "$proceed_download" == "n" ]
+    then
+      exit 0
+    fi
+
+    echo
+    echo "Downloading & Insall $new_file ..."
+    echo
+
+    new_file=TNT_$last_ver.zip
+
+    url=https://github.com/NeoCooler/TNT/archive/master.zip
+    wget --no-check-certificate $url -O $new_file
+    unzip ~/TNT/$new_file -d ~/TNT/
+    rm ~/TNT/$new_file
+    cp -a ~/TNT/TNT-master/* ~/TNT/
+    rm -r ~/TNT/TNT-master
+    echo "You need to restart TNT to see update!" clear
+  fi
