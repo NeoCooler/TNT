@@ -7,7 +7,7 @@ INFO:
 -Update of Application, Ubuntu, TNT.
 -Installing applications and tools.
 
-
+ 
 TO IMPLEMENT TNT, FOLLOW THESE SIMPLE STEPS:
 -------
 

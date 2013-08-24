@@ -11,14 +11,63 @@
 #
 ############################################################################
 
-version=0.006
+version=0.007
+
+online_vers=`script/check_update`
+last_vers=`echo $online_vers | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
+
+  curr_major=`echo $version | sed 's/\([0-9]*\).[0-9]*/\1/'`
+  curr_minor=`echo $version | sed 's/[0-9]*.//'`
+
+  last_major=`echo $last_vers | sed 's/\([0-9]*\).[0-9]*/\1/'`
+  last_minor=`echo $last_vers | sed 's/[0-9]*.//'`
+
+  update=1
+
+  #
+  # Compare our version with version online
+  #
+  if [ $curr_major -gt $last_major ]
+  then
+    update=0
+  else
+
+    if [ $curr_major -eq $last_major ]
+    then
+      if [ $curr_minor -ge $last_minor ]
+      then
+        update=0
+      fi
+    fi
+  fi
+  if [ $update == 0 ] 
+  then
+    info=
+  else
+    info=" - New Version Online ($last_vers).Download it GO->Update Menu -"
+  fi
+if [ ! -e menu ]
+then
+  echo
+  echo "Ensure you run this file from the SAME folder as where it was"
+  echo "installed, otherwise TNT will have problems run."
+  echo "After you 'cd' to TNT folderStart TNT"
+  echo "Start TNT with the ./menu command!!!"
+  exit 0
+fi
 
 chmod 755 script/*
+script/check_install_dir
+
+if [ "$?" == "1" ]
+then
+  exit 0
+fi
 
 while :
 do
 	clear
-
+	echo -e "\033[31m$info\033[0m"
 	echo -e "\033[34m============================================================\033[0m"
 	echo "          TNT V.$version - by NeoCooler aka krisjanne"
 	echo -e "\033[34m============================================================\033[0m"
@@ -32,18 +81,24 @@ do
 	echo "     x - Exit"
 	echo
 	echo
-	echo -e -n "\033[32m Choose option:\033[0m"
+	echo -e -n "\033[32m Choose option: \033[0m"
 	read tntopt
 	echo
 	echo
 
+    if [ "$?" != "1" ]
+      then
 	case "$tntopt" in
 	    1 ) clear; script/update $version; continue;;
 	    2 ) clear; script/app $version; continue;;
 	    k ) clear; cd ~/kitchen; ./menu; clear; continue;;
 	    x ) clear; echo -e "\033[31mGoodbey !\033[0m"; echo; exit 1;;
-	    * ) echo; echo -e "\033[31mInvalid option !!!\033[0m"; continue;;
+	    * ) echo -e "\033[31m Invalid option\033[0m"; continue;;
 	esac
+    fi
+  
+    script/press_enter
+
 done
 
 exit 0;
