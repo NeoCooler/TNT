@@ -1,0 +1,47 @@
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+vers=$1
+
+while : 
+do
+	clear
+
+	echo -e "\033[34m============================================================\033[0m"
+	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
+	echo -e "\033[34m============================================================\033[0m"
+	echo "-> JDOWNLOADER INSTALL"
+	echo
+	echo
+	echo "     1 - Add key to the repository"
+	echo "     2 - Install JDownloader"
+	echo
+	echo "     u - Update Package"
+	echo
+	echo "     x - Return APPLICATIONS MENU"
+	echo
+	echo
+	echo -e -n "\033[32m Choose option:\033[0m"
+	read tntoption
+	echo
+	echo
+	echo
+	 
+	case "$tntoption" in
+	    1 ) clear; sudo add-apt-repository ppa:jd-team/jdownloader; clear; continue;;
+	    2 ) clear; sudo apt-get install jdownloader; clear; continue;;
+	    u ) clear; sudo apt-get update; clear; continue;;
+	    x ) clear; exit 0;;
+	    * ) clear; echo -e "\033[31mInvalid option !!!\033[0m";;
+	esac
+
+done
+exit 0;
