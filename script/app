@@ -24,6 +24,7 @@ do
 	echo "     2 - Gimp"
         echo "     3 - Cheese"
 	echo "     4 - Ubuntu-Tweak"
+	echo "     5 - JDownloader"
 	echo
 	echo "     a - Android"
 	echo
@@ -43,6 +44,7 @@ do
 	    2 ) clear; script/app_gimp $vers; continue;;
 	    3 ) clear; script/app_cheese $vers; continue;;
 	    4 ) clear; script/app_ubuntutweak $vers; continue;;
+	    5 ) clear; script/app_jdownloader $vers; continue;;
 	    a ) clear; script/app_android_app $vers; continue;;
 	    s ) clear; script/app_system_app $vers; continue;;
 	    x ) clear; exit 0;;
