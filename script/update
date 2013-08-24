@@ -24,6 +24,9 @@ do
 	echo "     2 - Upgrade Systeme Packages"
 	echo "     3 - Upgrade & install new Systeme Packages"
 	echo
+	echo "Info System Actuelle:"
+	cat /etc/issue | sed -e 's/n//'\ | sed -e 's/l//'\ | sed -e 's/n//'\;
+	echo
 	echo "     4 - Sync TNT with github Package"
 	echo
 	echo "     x - Return MAIN MENU"

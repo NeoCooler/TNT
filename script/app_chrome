@@ -23,12 +23,12 @@ do
 	echo "Your Actual version is:"
 	google-chrome --version
 	echo
-	echo "     1 - Download Google Linux Repository"
-	echo "     2 - Add key to the repository"
-	echo "     3 - Install Google Chrome Stable"
-	echo "     4 - Install Google Chrome Beta"
+	echo "     i - Install Google Chrome"
+	echo "     u - Update Google Chrome"
 	echo
-	echo "     u - Update Package"
+	echo "     o - Open Google Chrome"
+	echo
+	echo "     r - Remouve Google Chrome"
 	echo
 	echo "     x - Return APPLICATIONS MENU"
 	echo
@@ -39,12 +39,11 @@ do
 	echo
 	echo
 	 
-	case "$tntoption" in
-	    1 ) clear; wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -; clear; continue;;
-	    2 ) clear; sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'; clear; continue;;
-	    3 ) clear; sudo apt-get install google-chrome-stable; clear; continue;;
-	    4 ) clear; sudo apt-get install google-chrome-beta; clear; continue;;
-	    u ) clear; sudo apt-get update; clear; continue;;
+	case "$tntoption" in 	    
+	    i ) clear; wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - | sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' | sudo apt-get install google-chrome-stable; clear; continue;;
+	    u ) clear; sudo apt-get install google-chrome-stable; clear; continue;;
+	    o ) clear; google-chrome-stable;clear; continue;;
+	    r ) clear; sudo apt-get autoremove --purge google-chrome-stable; clear; continue;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "\033[31m Invalid option\033[0m";;
 	esac

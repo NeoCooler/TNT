@@ -23,9 +23,12 @@ do
 	echo "Your Actual version is:"
 	cheese --version
 	echo
-	echo "     1 - Install Cheese"
+	echo "     i - Install Cheese"
+	echo "     u - Update Cheese"
 	echo
-	echo "     u - Update Package"
+	echo "     o - Open Cheese"
+	echo
+	echo "     r - Remouve Cheese"
 	echo
 	echo "     x - Return APPLICATIONS MENU"
 	echo
@@ -37,8 +40,10 @@ do
 	echo
 	 
 	case "$tntoption" in
-	    1 ) clear; sudo apt-get install cheese; clear; continue;;
-	    u ) clear; sudo apt-get update; clear; continue;;
+	    i ) clear; sudo apt-get install cheese; clear; continue;;
+	    u ) clear; sudo apt-get install cheese; clear; continue;;
+	    o ) clear; cheese;clear; continue;;
+	    r ) clear; sudo apt-get autoremove --purge cheese; clear; continue;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "\033[31m Invalid option\033[0m";;
 	esac
