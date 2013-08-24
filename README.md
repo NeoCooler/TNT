@@ -45,6 +45,7 @@ INFO PRODUCT:
  - Gimp
  - Cheese
  - Ubuntu-Tweak
+ - JDownloader
 
  1. ANDROID:
   - Install Android SDK
