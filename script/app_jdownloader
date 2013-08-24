@@ -21,10 +21,13 @@ do
 	echo "-> JDOWNLOADER INSTALL"
 	echo
 	echo
-	echo "     1 - Add key to the repository"
-	echo "     2 - Install JDownloader"
 	echo
-	echo "     u - Update Package"
+	echo "     i - Install JDownloader"
+	echo "     u - Update JDownloader"
+	echo
+	echo "     o - Open JDownloader"
+	echo
+	echo "     r - Remouve JDownloader"
 	echo
 	echo "     x - Return APPLICATIONS MENU"
 	echo
@@ -36,9 +39,12 @@ do
 	echo
 	 
 	case "$tntoption" in
-	    1 ) clear; sudo add-apt-repository ppa:jd-team/jdownloader; clear; continue;;
-	    2 ) clear; sudo apt-get install jdownloader; clear; continue;;
-	    u ) clear; sudo apt-get update; clear; continue;;
+	    i ) clear; sudo add-apt-repository ppa:jd-team/jdownloader;
+	        sudo apt-get update;
+	        sudo apt-get install jdownloader; clear; continue;;
+	    u ) clear; sudo apt-get install jdownloader; clear; continue;;
+	    o ) clear; jdownloader;clear; continue;;
+	    r ) clear; sudo apt-get autoremove --purge jdownloader; clear; continue;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "\033[31m Invalid option\033[0m";;
 	esac
@@ -46,4 +52,5 @@ do
     script/press_enter
 
 done
+
 exit 0;

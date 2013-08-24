@@ -40,7 +40,11 @@ do
 	echo
 	 
 	case "$tntoption" in 	    
-	    i ) clear; wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - | sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' | sudo apt-get install google-chrome-stable; clear; continue;;
+	    i ) clear; wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub;
+                sudo apt-key add -;
+                sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list';
+	        sudo apt-get update;
+                sudo apt-get install google-chrome-stable; clear; continue;;
 	    u ) clear; sudo apt-get install google-chrome-stable; clear; continue;;
 	    o ) clear; google-chrome-stable;clear; continue;;
 	    r ) clear; sudo apt-get autoremove --purge google-chrome-stable; clear; continue;;

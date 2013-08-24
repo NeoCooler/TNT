@@ -23,10 +23,12 @@ do
 	echo "Your Actual version is:"
 	gimp --version
 	echo
-	echo "     1 - Add Repository for gimp"
-	echo "     2 - Install Gimp"
+	echo "     i - Install Gimp"
+	echo "     u - Update Gimp"
 	echo
-	echo "     u - Update Package"
+	echo "     o - Open Gimp"
+	echo
+	echo "     r - Remouve Gimp"
 	echo
 	echo "     x - Return APPLICATIONS MENU"
 	echo
@@ -36,11 +38,14 @@ do
 	echo
 	echo
 	echo
-	 
+
 	case "$tntoption" in
-	    1 ) clear; sudo add-apt-repository ppa:otto-kesselgulasch/gimp; clear; continue;;
-	    2 ) clear; sudo apt-get install gimp; clear; continue;;
-	    u ) clear; sudo apt-get update; clear; continue;;
+	    i ) clear; sudo add-apt-repository ppa:otto-kesselgulasch/gimp;
+	        sudo apt-get update;
+	        sudo apt-get install gimp; clear; continue;;
+	    u ) clear; sudo apt-get install gimp; clear; continue;;
+	    o ) clear; gimp;clear; continue;;
+	    r ) clear; sudo apt-get autoremove --purge gimp; clear; continue;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "\033[31m Invalid option\033[0m";;
 	esac
@@ -48,4 +53,5 @@ do
     script/press_enter
 
 done
+
 exit 0;

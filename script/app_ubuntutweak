@@ -23,10 +23,12 @@ do
 	echo "Your Actual version is:"
 	ubuntu-tweak --version
 	echo
-	echo "     1 - Add Repository for ubuntu-tweak"
-	echo "     2 - Install ubuntu-tweak"
+	echo "     i - Install ubuntu-tweak"
+	echo "     u - Update ubuntu-tweak"
 	echo
-	echo "     u - Update Package"
+	echo "     o - Open ubuntu-tweak"
+	echo
+	echo "     r - Remouve ubuntu-tweak"
 	echo
 	echo "     x - Return APPLICATIONS MENU"
 	echo
@@ -38,9 +40,12 @@ do
 	echo
 	 
 	case "$tntoption" in
-	    1 ) clear; sudo add-apt-repository ppa:tualatrix/ppa; clear; continue;;
-	    2 ) clear; sudo apt-get install ubuntu-tweak; clear; continue;;
-	    u ) clear; sudo apt-get update; clear; continue;;
+	    i ) clear; sudo add-apt-repository ppa:tualatrix/ppa;
+	        sudo apt-get update;
+	        sudo apt-get install ubuntu-tweak; clear; continue;;
+	    u ) clear; sudo apt-get install ubuntu-tweak; clear; continue;;
+	    o ) clear; ubuntu-tweak;clear; continue;;
+	    r ) clear; sudo apt-get autoremove --purge ubuntu-tweak; clear; continue;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "\033[31m Invalid option\033[0m";;
 	esac
@@ -48,4 +53,5 @@ do
     script/press_enter
 
 done
+
 exit 0;
