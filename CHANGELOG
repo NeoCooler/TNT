@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 Version 0.005 :
 Fix updater (with check online version before Push new package)
 
+=======
+>>>>>>> b2bac76de8044d08f6b7ed71fe968f30a5ebe712
 Version 0.004 :
 Fix updater
 Add Gnome15
