@@ -1,18 +1,21 @@
-[TNT V0.4]
+Version 0.005 :
+Fix updater (with check online version before Push new package)
+
+Version 0.004 :
 Fix updater
 Add Gnome15
 
-[TNT V0.3]
+Version 0.003 :
 Fix chmod script
 Add Android -Ubuntu SDK
 Add System -Java
 Add App -Gimp -Cheese
 
-[TNT V0.2]
+Version 0.002 :
 Add Updater
 Add Chrome Installer
 Add Android -SDK -Dsixda
 Add Nvidia
 
-[TNT V0.1]
+Version 0.001 :
 First Release
