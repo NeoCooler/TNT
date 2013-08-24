@@ -20,7 +20,4 @@ then
 	              | sed -e 's/://' \
 	              | sed '2,$ d' \
 
-
-  rm -f Last_CHANGELOG
-
 fi

@@ -11,7 +11,7 @@
 #
 ############################################################################
 
-version=0.008
+version=0.009
 
 
 
@@ -37,6 +37,7 @@ while :
 do
 	clear
 	online_vers=`script/check_update`
+	rm -f Last_CHANGELOG
 	last_vers=`echo $online_vers | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
 
   	curr_major=`echo $version | sed 's/\([0-9]*\).[0-9]*/\1/'`
@@ -68,7 +69,7 @@ do
  	   info=
  	 else
 	echo -e "\033[34m==InfoBox===================================================\033[0m"
-	echo -e "\033[34m|\033[32mNew Update online (V.$last_vers).Download it GO->Update Menu\033[0m"
+	echo -e "\033[34m|\033[32mNew Update online (V.$last_vers). Option (u) = Direct UPDATE\033[0m"
 	 fi
 	echo -e "\033[34m============================================================\033[0m"
 	echo "          TNT V.$version - by NeoCooler aka krisjanne"
@@ -93,6 +94,7 @@ do
 	case "$tntopt" in
 	    1 ) clear; script/update $version; continue;;
 	    2 ) clear; script/app $version; continue;;
+	    u ) clear; script/updater $version; continue;;
 	    k ) clear; cd ~/kitchen; ./menu; clear; continue;;
 	    x ) clear; echo -e "\033[31mGoodbey !\033[0m"; echo; exit 1;;
 	    * ) echo -e "\033[31m Invalid option\033[0m";;
