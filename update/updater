@@ -11,34 +11,37 @@
 
 curr_vers=$1
 
-echo -e "\033[34m============================================================\033[0m"
-echo "          TNT V.$curr_vers - by NeoCooler aka krisjanne"
-echo -e "\033[34m============================================================\033[0m"
-echo "-> ABOUT TNT"
+source script/colors
+echo -e "$NORMALE"
+
+echo -e "$Cyan" "============================================================" "$NORMAL"
+echo -e "     $Green_BU"" ToolsNeoTeam V.$curr_vers - by NeoCooler aka krisjanne" "$NORMAL"
+echo -e "$Cyan" "============================================================" "$NORMAL"
+echo -e "$Cyan" "->$NORMAL$White ABOUT TNT$NORMAL"
+echo -e "$Magenta"
+echo -e "------------------------------------------------------------"
 echo
-echo -e "\033[31m------------------------------------------------------------\033[0m"
+echo -e "$White_K  For support/community   :$Red http://m1p.fr/xCU$Magenta"
+echo -e "$White_K  For Paypal donations    :$Red neocooler29@gmail.com$Magenta"
 echo
-echo "  For support/community   : http://m1p.fr/xCU"
-echo "  For Paypal donations    : neocooler29@gmail.com"
-echo
-echo -e "\033[31m------------------------------------------------------------\033[0m"
+echo -e "------------------------------------------------------------"
 echo
 echo
     while [ "$check_update" != "y" ] 
     do
-        echo -e -n "\033[32m Check online for updates (y/n)?:\033[0m"
+        echo -e -n "$Yellow" "Check online for updates (y/n)?:" "$White_B"
         read check_update
     	case "$check_update" in
 		y ) echo;;
 		n ) echo; exit 0;;
-		* ) echo -e "\033[31m Invalid option\033[0m";;
+		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
     	esac
     done
 
     echo 
-    echo "Searching for updates ..."
+    echo -e "$Red_B" "Searching for updates ..." "$NORMAL"
 
-    online_vers=`script/check_update`
+    online_vers=`update/check_update`
  
     last_vers=`echo $online_vers | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
 
@@ -68,14 +71,14 @@ echo
     fi
     if [ $update == 0 ] 
     then
-    echo "Last version online is $last_vers.  No update required."
+    echo -e "$Red_B" "Last version online is $last_vers.  No update required." "$NORMAL"
     else
     echo
-    echo "An update was found ($last_vers)."
+    echo -e "$Red_B" "An update was found ($last_vers)." "$NORMAL"
     echo
     echo
 
-    	echo -e -n "\033[32m View CHANGELOG-$last_vers (y/n)? (default: n):\033[0m"
+    	echo -e -n "$Yellow" "View CHANGELOG-$last_vers (y/n)? (default: n):" "$White_B"
     	read view_changelog
 	if [ "$view_changelog" == "y" ]
 	then
@@ -88,10 +91,10 @@ echo
 	fi
 	if [ "$view_changelog" == "*" ]
 	then
-	  echo -e "\033[31m Invalid option\033[0m"
+	  echo -e "$Red_B" " Invalid option" "$NORMAL"
 	fi
 
-    	echo -e -n "\033[32m Downloading & Insall (y/n)? (default: y):\033[0m"
+    	echo -e -n "$Yellow" "Downloading & Insall (y/n)? (default: y):" "$White_B"
     	read proceed_download
 	if [ "$proceed_download" == "n" ]
 	then
@@ -100,7 +103,7 @@ echo
 
 
     echo
-    echo "Downloading & Insall $new_file ..."
+    echo -e "$Red_B" "Downloading & Insall $new_file ..." "$NORMAL"
     echo
 
     new_file=TNT_$last_ver.zip
@@ -111,6 +114,8 @@ echo
     rm ~/TNT/$new_file
     cp -a ~/TNT/TNT-master/* ~/TNT/
     rm -r ~/TNT/TNT-master
-    echo "You need to restart TNT to see update!" clear
+    echo -e "$Red_B" "You need to restart TNT to see update!" "$NORMAL" clear
   fi
   rm -f Last_CHANGELOG
+
+script/press_enter
