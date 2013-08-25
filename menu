@@ -11,7 +11,7 @@
 #
 ############################################################################
 
-version=0.009
+version=0.010
 
 
 
@@ -78,6 +78,9 @@ do
 	echo
 	echo "     1 - Update Menu"
 	echo "     2 - Applications Menu"
+	echo "     3 - "
+	echo
+	echo "     b - Android build AOSP"
 	echo
 	echo "     k - Run Dsixda's Android Kitchen"
 	echo
@@ -94,6 +97,7 @@ do
 	case "$tntopt" in
 	    1 ) clear; script/update $version; continue;;
 	    2 ) clear; script/app $version; continue;;
+	    b ) clear; script/build_aosp $version; continue;;
 	    u ) clear; script/updater $version; continue;;
 	    k ) clear; cd ~/kitchen; ./menu; clear; continue;;
 	    x ) clear; echo -e "\033[31mGoodbey !\033[0m"; echo; exit 1;;

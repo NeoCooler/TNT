@@ -1,0 +1,123 @@
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+curr_vers=$1
+
+echo -e "\033[34m============================================================\033[0m"
+echo "          TNT V.$curr_vers - by NeoCooler aka krisjanne"
+echo -e "\033[34m============================================================\033[0m"
+echo "-> ANDROID AOSP"
+echo
+echo -e "\033[31m------------------------------------------------------------\033[0m"
+echo
+echo "  More Info About AOSP    : http://m1p.fr/xG8"
+echo "  More Info Avout aospX   : http://m1p.fr/xG9"
+echo "  For support/community   : http://m1p.fr/xCU"
+echo "  For Paypal donations    : neocooler29@gmail.com"
+echo
+echo -e "\033[31m------------------------------------------------------------\033[0m"
+echo
+echo
+while [ "$install_repo" != "y" ] 
+do
+echo -e -n "\033[32m Installing Repo(+/-1hours) (y/n)?:\033[0m"
+read install_repo
+case "$install_repo" in
+	y ) echo;;
+	n ) echo; exit 0;;
+	* ) echo -e "\033[31m Invalid option\033[0m";;
+esac
+done
+
+clear
+echo 
+echo "Install Repo:"
+echo
+echo "Make sure you have a bin/ directory and included in your path ..."
+echo
+mkdir ~/bin
+PATH=~/bin:$PATH
+
+clear
+echo
+echo "Download the Repo tool and ensure that it is executable ..."
+echo
+curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+
+clear
+echo
+echo "Getting git:"
+echo
+repo init -u git://github.com/aospX/android.git -b ics-devel
+
+clear
+echo
+echo "Initializing a Repo client:"
+echo
+echo "Create an empty directory to hold your working files ..."
+echo
+mkdir ~/aospX
+echo
+cd ~/aospX
+clear
+echo
+echo "Run repo init to bring down the latest version of Repo with all its most recent bug fixes ..."
+echo
+repo init -u git://github.com/aospX/android.git -b ics-devel -m MSM7230MR11001.xml
+
+clear
+echo
+echo "Downloading the Android Source Tree:"
+echo
+while [ "$pull_android_source" != "y" ] 
+do
+echo -e -n "\033[32m Pull down the Android ... (+/-1hours) (y/n)?:\033[0m"
+read pull_android_source
+case "$pull_android_source" in
+	y ) echo;;
+	n ) echo; exit 0;;
+	* ) echo -e "\033[31m Invalid option\033[0m";;
+esac
+done
+echo
+clear
+repo sync -j8
+echo
+
+while [ "$build_system" != "y" ] 
+do
+echo -e -n "\033[32m Building the System(+/-1hours) (y/n)?:\033[0m"
+read build_system
+case "$build_system" in
+	y ) echo;;
+	n ) echo; exit 0;;
+	* ) echo -e "\033[31m Invalid option\033[0m";;
+esac
+done
+
+clear
+echo "Initialize ..."
+echo
+. build/envsetup.sh
+echo
+clear
+echo
+lunch aospx_ace-userdebug    
+echo
+clear
+echo "Build the Code"
+echo
+make -j8 aospx
+echo
+
+
+echo "Flashable zip will be located in out/target/product/ace."

@@ -1,7 +1,11 @@
+Version 0.010 :
+Add aosp tools on menu.
+Build Original aosp.
+Build AOSPX by exitz for DHD.
+
 Version 0.009 :
 Change Info New Version With direct acces to Updater.
 Updater Updater with new questionnaire & option to see changelog before download.
-
 
 Version 0.008 :
 Fix Invalid Option visibilité.
