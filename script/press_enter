@@ -8,8 +8,8 @@
 # Without the permission of the developer.
 #
 ############################################################################
-
+source script/colors
 echo
-echo "Press Enter to continue"
+echo -e "Press$Magenta Enter$NORMAL to continue"
 read enterKey  
 
