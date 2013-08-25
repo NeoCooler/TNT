@@ -32,6 +32,7 @@ do
 	echo -e "     6 -$White_K Nvidia Propietary.$Red [NEW]$Magenta"
 	echo -e "     7 -$White_K Oracle Java.$Red [NEW]$Magenta"
 	echo -e "     8 -$White_K Gnome15.$Red [NEW]$Magenta"
+	echo -e "     9 -$White_K Git Cola.$Red [NEW]$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
@@ -49,6 +50,7 @@ do
 		6 ) clear; tnt_store/apps/administration/nvidia; clear; continue;;
 		7 ) clear; tnt_store/apps/administration/java; clear; continue;;
 		8 ) clear; tnt_store/apps/administration/gnome15; clear; continue;;
+		9 ) clear; tnt_store/apps/tools/git_cola; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

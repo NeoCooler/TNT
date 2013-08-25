@@ -1,0 +1,55 @@
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+vers=$1
+
+while : 
+do
+	clear
+
+	echo -e "\033[34m============================================================\033[0m"
+	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
+	echo -e "\033[34m============================================================\033[0m"
+	echo "-> GIT COLA INSTALL"
+	echo
+	echo "Your Actual version is:"
+	ubuntu-tweak --version
+	echo
+	echo "     i - Install Git Cola"
+	echo "     u - Update Git Cola"
+	echo
+	echo "     o - Open Git Cola"
+	echo
+	echo "     r - Remouve Git Cola"
+	echo
+	echo "     x - Return APPLICATIONS MENU"
+	echo
+	echo
+	echo -e -n "\033[32m Choose option:\033[0m"
+	read tntoption
+	echo
+	echo
+	echo
+	 
+	case "$tntoption" in
+	    i ) clear; sudo apt-get install git-cola; clear; continue;;
+	    u ) clear; sudo apt-get install git-cola; clear; continue;;
+	    o ) clear; git-cola;clear; continue;;
+	    r ) clear; sudo apt-get autoremove --purge git-cola; clear; continue;;
+	    x ) clear; exit 0;;
+	    * ) echo -e "\033[31m Invalid option\033[0m";;
+	esac
+
+    script/press_enter
+
+done
+
+exit 0;

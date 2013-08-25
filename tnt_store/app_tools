@@ -26,6 +26,7 @@ do
 	echo -e "$Magenta"
 	echo -e "     1 -$White_K Ubuntu-Tweak.$Red [NEW]$Magenta"
 	echo -e "     2 -$White_K JDownloader.$Red [NEW]$Magenta"
+	echo -e "     3 -$White_K Git Cola.$Red [NEW]$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
@@ -37,6 +38,7 @@ do
 	case "$tntopt" in
 		1 ) clear; tnt_store/apps/tools/ubuntu_tweak; clear; continue;;
 		2 ) clear; tnt_store/apps/tools/jdownloader; clear; continue;;
+		3 ) clear; tnt_store/apps/tools/git_cola; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
