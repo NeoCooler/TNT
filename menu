@@ -64,7 +64,7 @@ then
 	echo
 else
 	echo -e "$Cyan" "==InfoBox===================================================" "$NORMAL"
-	echo -e "$Red" "New Update online (V.$last_vers). Option (n) = Direct UPDATE" "$NORMAL"
+	echo -e "$Magenta" "New Update online ($Red V.$last_vers$Magenta ) Option (n) => Direct UPDATE !!" "$NORMAL"
 fi
 echo -e "$Cyan" "============================================================" "$NORMAL"
 echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
