@@ -29,32 +29,3 @@ $ cd TNT
 $ ./menu
 
 It's there. You have successfully set up TNT. :-)
-
-INFO PRODUCT:
--------
-
-* Update Menu:
- - Update All Packages
- - Upgrade Systeme Packages
- - Upgrade & Install new System Packages
- - Sync TNT with github to find the last update Package
-
-
-* Applications Menu:
- - Google Chrome
- - Gimp
- - Cheese
- - Ubuntu-Tweak
- - JDownloader
-
- 1. ANDROID:
-  - Install Android SDK
-  - Run Android SDK
-  - Install Dsixda's Android Kitchen
-  - Run Kitchen
-  - Install UbuntuMobil SDK
-
- 2. SYSTEM PACKAGE
-  - Nvidia Proprietary
-  - Oracle JAVA
-  - Gnome15 For Logitech G19Support

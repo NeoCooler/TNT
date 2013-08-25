@@ -36,9 +36,9 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-		1 ) clear; tnt_store/apps/tools/ubuntu_tweak; clear; continue;;
-		2 ) clear; tnt_store/apps/tools/jdownloader; clear; continue;;
-		3 ) clear; tnt_store/apps/tools/git_cola; clear; continue;;
+		1 ) clear; tnt_store/apps/tools/ubuntu_tweak $version; clear; continue;;
+		2 ) clear; tnt_store/apps/tools/jdownloader $version; clear; continue;;
+		3 ) clear; tnt_store/apps/tools/git_cola $version; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

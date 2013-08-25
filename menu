@@ -11,7 +11,7 @@
 #
 ############################################################################
 
-version=0.011
+version=0.012
 
 source script/colors
 echo -e "$NORMALE"
@@ -64,7 +64,7 @@ then
 	echo -e "$Cyan" "==No Update=================================================" "$NORMAL"
 else
 	echo -e "$Cyan" "==InfoBox===================================================" "$NORMAL"
-	echo -e "$Magenta" "New Update online ($Red V.$last_vers$Magenta ) Option (n) => Direct UPDATE !!" "$NORMAL"
+	echo -e "$Magenta" "New Update online ($Red_K V.$last_vers$Magenta ) Option (n) => Direct UPDATE !!" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 fi
 echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"

@@ -9,52 +9,47 @@
 #
 ############################################################################
 
-vers=$1
+version=$1
+
+source script/colors
+echo -e "$NORMALE"
 
 while : 
 do
 	clear
-
-	echo -e "\033[34m============================================================\033[0m"
-	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
-	echo -e "\033[34m============================================================\033[0m"
-	echo "-> JAVA INSTALL"
+	echo -e "$Cyan" "============================================================" "$NORMAL"
+	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
+	echo -e "$Cyan" "============================================================" "$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White JAVA INSTALL$NORMAL"
+	echo -e "$Magenta"
+	echo -e "$White_K Folow step by step:"
+	echo -e "$Magenta"
+	echo -e "     1 -$White_K Add Repository source$Magenta"
+	echo -e "     2 -$White_K Install Java 7$Magenta"
 	echo
-	echo " Folow step by step:"
+	echo -e "$White_K Switch to another version:$Magenta"
 	echo
-	echo "     1 - Add Repository source"
-	echo "     2 - Install Java 7"
+	echo -e "     3 -$White_K Change Java Version$Magenta"
+	echo -e "     4 -$White_K Change Javac Version$Magenta"
+	echo -e "     5 -$White_K Chagne Java Plugin Version$Magenta"
+	echo -e "     6 -$White_K Change Javaws Version$Magenta"
 	echo
-	echo " Switch to another version:"
-	echo "     3 - Change Java Version"
-	echo "     4 - Change Javac Version"
-	echo "     5 - Chagne Java Plugin Version"
-	echo "     6 - Change Javaws Version"
- 	echo
-	echo "     u - Update Package"
+	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
+	echo -e "$NORMAL"
+	echo -e -n "$Yellow" " Choose option:" "$White_B"
+	read tntopt
 	echo
-	echo "     x - Return APPLICATIONS MENU"
-	echo
-	echo
-	echo -e -n "\033[32m Choose option:\033[0m"
-	read tntoption
-	echo
-	echo
-	echo
+	echo -e "$NORMAL"
 	 
-	case "$tntoption" in
+	case "$tntopt" in
 	    1 ) clear; sudo add-apt-repository ppa:webupd8team/java; clear; continue;;
 	    2 ) clear; sudo apt-get install oracle-java7-installer; clear; continue;;
 	    3 ) clear; sudo update-alternatives --config java; clear; continue;;
 	    4 ) clear; sudo update-alternatives --config javac; ckear; continue;;
 	    5 ) clear; sudo update-alternatives --config mozilla-javaplugin.so; ckear; continue;;
 	    6 ) clear; sudo update-alternatives --config javaws; ckear; continue;;
-	    u ) clear; sudo apt-get update; clear; continue;;
 	    x ) clear; exit 0;;
-	    * ) echo -e "\033[31m Invalid option\033[0m";;
+	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
-
     script/press_enter
-
 done
-exit 0;

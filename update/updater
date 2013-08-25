@@ -114,7 +114,7 @@ echo
     rm ~/TNT/$new_file
     cp -a ~/TNT/TNT-master/* ~/TNT/
     rm -r ~/TNT/TNT-master
-    echo -e "$Red_B" "You need to restart TNT to see update!" "$NORMAL" clear
+    echo -e "$Red_B" "You need to restart TNT to see update!" "$NORMAL"
   fi
   rm -f Last_CHANGELOG
 

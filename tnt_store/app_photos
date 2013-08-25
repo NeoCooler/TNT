@@ -34,7 +34,7 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-		1 ) clear; tnt_store/apps/photos/gimp; clear; continue;;
+		1 ) clear; tnt_store/apps/photos/gimp $version; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

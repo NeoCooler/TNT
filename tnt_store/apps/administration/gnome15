@@ -9,40 +9,51 @@
 #
 ############################################################################
 
-vers=$1
+version=$1
+
+source script/colors
+echo -e "$NORMALE"
 
 while : 
 do
 	clear
-
-	echo -e "\033[34m============================================================\033[0m"
-	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
-	echo -e "\033[34m============================================================\033[0m"
-	echo "-> Gnome15 INSTALL"
+	echo -e "$Cyan" "============================================================" "$NORMAL"
+	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
+	echo -e "$Cyan" "============================================================" "$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White Gnome15 INSTALL$NORMAL"
+	echo -e "$Magenta"
+	echo -e "$White_K Folow step by step:"
+	echo -e "$Magenta"
+	echo -e "     rp -$White_K Repository for Ubuntu 12.04 (precise)$Magenta"
+	echo -e "     rq -$White_K Repository for Ubuntu 12.10 (quantal)$Magenta"
+	echo -e "     rr -$White_K Repository for Ubuntu 13.04 (raring)$Magenta"
+	echo -e "$Magenta"
+	echo -e "$White_K Your actual system is:$Red_K"
+	lsb_release -c	
+	echo -e "$Magenta"
+	echo -e "     ig -$White_K Install Gnome15 for Gnome-shell$Magenta"
+	echo -e "     if -$White_K Install Gnome15 for Gnome-fallback$Magenta"
+	echo -e "     ik -$White_K Install Gnome15 for KDE$Magenta"
+	echo -e "     iu -$White_K Install Gnome15 for Unity$Magenta"
+	echo -e "     ix -$White_K Install Gnome15 for XFCE$Magenta"
+	echo -e "     io -$White_K Install Gnome15 for Other$Magenta"
 	echo
-	echo " Folow step by step:"
+	echo -e "     all -$White_K Add/Update all Plugins.$Magenta"
 	echo
-	echo "     i - Install Gnome15"
-
-	
-	
-	echo " Restart after installation:"
-	echo "     o - Restart"
+	echo -e "$White_K Restart after installation:$Magenta"
+	echo -e "     o -$White_K Restart$Magenta"
 	echo
+	echo -e "     r -$White_K Remouve All ($Red_K Start here if you come form another version$White_K )$Magenta"
 	echo
-	echo "     u - Update All Package"
+	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
+	echo -e "$NORMAL"
+	echo -e -n "$Yellow" " Choose option:" "$White_B"
+	read tntopt
 	echo
-	echo "     x - Return APPLICATIONS MENU"
-	echo
-	echo
-	echo -e -n "\033[32m Choose option:\033[0m"
-	read tntoption
-	echo
-	echo
-	echo
+	echo -e "$NORMAL"
 	 
-	case "$tntoption" in
-	    i ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
+	case "$tntopt" in
+	    rp ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.19 (GNU/Linux)
 
 mQENBFFeChUBCADfGbecu2/WP705CJQTlDSGpzeYL/Jev/8Vtb5g8RZhc0tQBQHz
@@ -72,17 +83,126 @@ kGBvGyYNwcMzGWbmuTAAhaVUrHd7UEzC+dvBmS5PAAkj1TNUKAH2bpUTCmC0C6vW
 XrcyClLiKscQqRm7dinsNIGpGcj6U72OrDWepzntK320wSpizJZdP+6OZzxPRmHE
 JZAy9UXt0Vf1Mw==
 =yaAO
------END PGP PUBLIC KEY BLOCK-----'| sudo apt-key add -; sudo sh -c "echo deb http://packages.russo79.com/debian/gnome15 raring main > /etc/apt/sources.list.d/gnome15.list"; sudo apt-get update; sudo apt-get install gnome15-suite-unity; sudo apt-get install gnome15-driver-g19direct; clear; continue;;
-	    2 ) clear; sudo sh -c "echo deb http://www.gnome15.org/$(lsb_release -cs) ./ >> /etc/apt/sources.list"; clear; continue;;
-	    3 ) clear; sudo apt-get install gnome15-ubuntu; clear; continue;;
-	    o ) clear; sudo reboot; continue;;
-	    r ) clear; sudo apt-get purge nvidia-current nvidia-current-updates nvidia-experimental-304; clear; continue;;
-	    u ) clear; sudo apt-get update; clear; continue;;
+-----END PGP PUBLIC KEY BLOCK-----'| sudo apt-key add -; 
+		 sudo sh -c "echo deb http://packages.russo79.com/debian/gnome15 precise main > /etc/apt/sources.list.d/gnome15.list";
+		 sudo apt-get update;;
+	    rq ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.19 (GNU/Linux)
+
+mQENBFFeChUBCADfGbecu2/WP705CJQTlDSGpzeYL/Jev/8Vtb5g8RZhc0tQBQHz
+2SP5wGN1Wkz6UuIam1rjRAatoAFNjl4ndurlMACYeqJssS47UOdU01yxqvg546BJ
+RXLgbQNGAiu0d12ldjaWfo/LULAb2972Wvqal5ANZjkA0B8R48D7PVNVheuijtmd
+XvmlxH8iPonr2Wm/J4oxvMP3BbJL5nOJdh/FDOl2caAHU6R5bVZypizwBFycm/P3
+PUmZbbOsx3Q5vHB08auFTV4p2CqCFWts5FlWqOXwBofjTuO9qSBZ8D94MhZ2MAXO
+H98uNArQd2h1g1rGULafVVB6YNrkZ5QZ7rHhABEBAAG0O051bm8gQXJhdWpvIChQ
+YWNrYWdlIHNpZ25pbmcga2V5KSA8bnVuby5hcmF1am9AcnVzc283OS5jb20+iQE4
+BBMBAgAiBQJRXgoVAhsDBgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRAlQAMb
+zAMRYHQPB/96dlhY79IUZeXfo51U5+OOR+nXJQ+uBwgUxW2yqHf3QBpEzHzwWooQ
+87GH89is8vqjL6rL1HMt3P6/EdltT9pPtr/QIYPHDVgzKGw4GMpF0Ma3RS68uIK8
+RI/iyo6MzBEashIEaMEqB0TRQo8N64hk9OJ7A3wLrPc4T/jHctv0o1i+OfUKzxqw
+7BOGKB2P3a6CNAFqDVxGQSMlnJ6oj33hNFbXq1MZ0jyK7RI4fCIZ4XWRJO1eYLbq
+icHfrcq30C0UZNMOh0lFtJ+i9dbPufATKGcqOix9NItKZJ+fdGDsawByUUFelgbl
+8UWVkDPpiXFiuS2YWJAJwUZS/BzfOQwvuQENBFFeChUBCADQ20hwXNCwzghcuLf9
+1AzUVUUvPimT9QjcijtprpnhCLm84jjMHJsgGZbHmV1ZzpweeINfUwmLKQ605gXb
+vfkMdp5sXcYG3Hpe54OWGsDZzvj1fQvFYBFIyuw4u90k4rhvnl0L2RlHeXQN/yoY
+I4ckN3VVFcqlUwgHjtkM1R/X6kn3PBWJgG/ktdANn7HhmEg4tW+iSWR+I0fkivEy
+hAGvXWBjyhOkVpTE1ym6p4Oi7tjgO+mEMBMzv4RvDTDBn3zxeT9SjsBC/hNB0A9Q
+6EskaR4x9oZzjyfkRqlXFF+iA9GnDS+/lyaQ8l/8xROMsvQ80jgzXl287CHGRSIt
+36mtABEBAAGJAR8EGAECAAkFAlFeChUCGwwACgkQJUADG8wDEWBA7wf+Pm77zBJl
+7DWu+pTwh6a/L/mzWFYKFIDFJ47dr2t2gIo7DfDFZu79nSC1GJfuC3cqwwfmvTRK
+hoZud/QvaCEuqfjrvL3rSZVZ+txXUnPpnsxQzLIZBSPo/i4dNRNDAZZJUgOoTNw7
+IXCzFWB2CMpQvzYUGnQeLHLpTGYXhGFweiRpfacaC93O5d9bVIzTK1QDtVwAgVif
+kGBvGyYNwcMzGWbmuTAAhaVUrHd7UEzC+dvBmS5PAAkj1TNUKAH2bpUTCmC0C6vW
+XrcyClLiKscQqRm7dinsNIGpGcj6U72OrDWepzntK320wSpizJZdP+6OZzxPRmHE
+JZAy9UXt0Vf1Mw==
+=yaAO
+-----END PGP PUBLIC KEY BLOCK-----'| sudo apt-key add -; 
+		 sudo sh -c "echo deb http://packages.russo79.com/debian/gnome15 quantal main > /etc/apt/sources.list.d/gnome15.list";
+		 sudo apt-get update;;
+	    rr ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.19 (GNU/Linux)
+
+mQENBFFeChUBCADfGbecu2/WP705CJQTlDSGpzeYL/Jev/8Vtb5g8RZhc0tQBQHz
+2SP5wGN1Wkz6UuIam1rjRAatoAFNjl4ndurlMACYeqJssS47UOdU01yxqvg546BJ
+RXLgbQNGAiu0d12ldjaWfo/LULAb2972Wvqal5ANZjkA0B8R48D7PVNVheuijtmd
+XvmlxH8iPonr2Wm/J4oxvMP3BbJL5nOJdh/FDOl2caAHU6R5bVZypizwBFycm/P3
+PUmZbbOsx3Q5vHB08auFTV4p2CqCFWts5FlWqOXwBofjTuO9qSBZ8D94MhZ2MAXO
+H98uNArQd2h1g1rGULafVVB6YNrkZ5QZ7rHhABEBAAG0O051bm8gQXJhdWpvIChQ
+YWNrYWdlIHNpZ25pbmcga2V5KSA8bnVuby5hcmF1am9AcnVzc283OS5jb20+iQE4
+BBMBAgAiBQJRXgoVAhsDBgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRAlQAMb
+zAMRYHQPB/96dlhY79IUZeXfo51U5+OOR+nXJQ+uBwgUxW2yqHf3QBpEzHzwWooQ
+87GH89is8vqjL6rL1HMt3P6/EdltT9pPtr/QIYPHDVgzKGw4GMpF0Ma3RS68uIK8
+RI/iyo6MzBEashIEaMEqB0TRQo8N64hk9OJ7A3wLrPc4T/jHctv0o1i+OfUKzxqw
+7BOGKB2P3a6CNAFqDVxGQSMlnJ6oj33hNFbXq1MZ0jyK7RI4fCIZ4XWRJO1eYLbq
+icHfrcq30C0UZNMOh0lFtJ+i9dbPufATKGcqOix9NItKZJ+fdGDsawByUUFelgbl
+8UWVkDPpiXFiuS2YWJAJwUZS/BzfOQwvuQENBFFeChUBCADQ20hwXNCwzghcuLf9
+1AzUVUUvPimT9QjcijtprpnhCLm84jjMHJsgGZbHmV1ZzpweeINfUwmLKQ605gXb
+vfkMdp5sXcYG3Hpe54OWGsDZzvj1fQvFYBFIyuw4u90k4rhvnl0L2RlHeXQN/yoY
+I4ckN3VVFcqlUwgHjtkM1R/X6kn3PBWJgG/ktdANn7HhmEg4tW+iSWR+I0fkivEy
+hAGvXWBjyhOkVpTE1ym6p4Oi7tjgO+mEMBMzv4RvDTDBn3zxeT9SjsBC/hNB0A9Q
+6EskaR4x9oZzjyfkRqlXFF+iA9GnDS+/lyaQ8l/8xROMsvQ80jgzXl287CHGRSIt
+36mtABEBAAGJAR8EGAECAAkFAlFeChUCGwwACgkQJUADG8wDEWBA7wf+Pm77zBJl
+7DWu+pTwh6a/L/mzWFYKFIDFJ47dr2t2gIo7DfDFZu79nSC1GJfuC3cqwwfmvTRK
+hoZud/QvaCEuqfjrvL3rSZVZ+txXUnPpnsxQzLIZBSPo/i4dNRNDAZZJUgOoTNw7
+IXCzFWB2CMpQvzYUGnQeLHLpTGYXhGFweiRpfacaC93O5d9bVIzTK1QDtVwAgVif
+kGBvGyYNwcMzGWbmuTAAhaVUrHd7UEzC+dvBmS5PAAkj1TNUKAH2bpUTCmC0C6vW
+XrcyClLiKscQqRm7dinsNIGpGcj6U72OrDWepzntK320wSpizJZdP+6OZzxPRmHE
+JZAy9UXt0Vf1Mw==
+=yaAO
+-----END PGP PUBLIC KEY BLOCK-----'| sudo apt-key add -;
+		 sudo sh -c "echo deb http://packages.russo79.com/debian/gnome15 raring main > /etc/apt/sources.list.d/gnome15.list";
+		 sudo apt-get update;;
+	    ig ) clear; sudo apt-get install gnome15-suite-gnome-shell;;
+	    if ) clear; sudo apt-get install gnome15-suite-gnome-fallback;;
+	    ik ) clear; sudo apt-get install gnome15-suite-kde;;
+	    iu ) clear; sudo apt-get install gnome15-suite-unity;;
+	    ix ) clear; sudo apt-get install gnome15-suite-xfce;;
+	    io ) clear; sudo apt-get install gnome15-suite-other;;
+	    all ) clear;
+		  sudo apt-get install gnome15-plugin-background;
+		  sudo apt-get install gnome15-plugin-cairo-clock;
+		  sudo apt-get install gnome15-plugin-cal;
+		  sudo apt-get install gnome15-plugin-cal-evolution;
+		  sudo apt-get install gnome15-plugin-cal-google;
+		  sudo apt-get install gnome15-plugin-clock;
+		  sudo apt-get install gnome15-plugin-debug;
+	   	  sudo apt-get install gnome15-plugin-display;
+		  sudo apt-get install gnome15-plugin-fx;
+		  sudo apt-get install gnome15-plugin-g15daemon-server;
+		  sudo apt-get install gnome15-plugin-google-analytics;
+		  sudo apt-get install gnome15-plugin-im;
+		  sudo apt-get install gnome15-plugin-impulse15;
+		  sudo apt-get install gnome15-plugin-indicator-messages;
+		  sudo apt-get install gnome15-plugin-lcdbiff;
+		  sudo apt-get install gnome15-plugin-lcdshot;
+		  sudo apt-get install gnome15-plugin-macro-recorder;
+		  sudo apt-get install gnome15-plugin-macros;
+		  sudo apt-get install gnome15-plugin-mediaplayer;
+		  sudo apt-get install gnome15-plugin-menu;
+		  sudo apt-get install gnome15-plugin-mounts;
+		  sudo apt-get install gnome15-plugin-mpris;
+		  sudo apt-get install gnome15-plugin-notify-lcd;
+		  sudo apt-get install gnome15-plugin-panel;
+		  sudo apt-get install gnome15-plugin-processes;
+		  sudo apt-get install gnome15-plugin-profiles;
+		  sudo apt-get install gnome15-plugin-rss;
+		  sudo apt-get install gnome15-plugin-screensaver;
+		  sudo apt-get install gnome15-plugin-sense;
+		  sudo apt-get install gnome15-plugin-stopwatch;
+		  sudo apt-get install gnome15-plugin-sysmon;
+		  sudo apt-get install gnome15-plugin-tails;
+		  sudo apt-get install gnome15-plugin-trafficstats;
+		  sudo apt-get install gnome15-plugin-tweak;
+		  sudo apt-get install gnome15-plugin-voip;
+		  sudo apt-get install gnome15-plugin-voip-teamspeak3;
+		  sudo apt-get install gnome15-plugin-volume;
+		  sudo apt-get install gnome15-plugin-weather;
+		  sudo apt-get install gnome15-plugin-weather-noaa;
+		  sudo apt-get install gnome15-plugin-weather-yahoo;;
+	    r ) clear; sudo apt-add-repository --remove 'deb http://www.gnome15.org/precise';
+		sudo apt-add-repository --remove 'deb http://www.gnome15.org/quantal';;
 	    x ) clear; exit 0;;
-	    * ) echo -e "\033[31m Invalid option\033[0m";;
+	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
-
     script/press_enter
-
 done
-exit 0;

@@ -9,7 +9,7 @@
 #
 ############################################################################
 
-vers=$1
+version=$1
 
 source script/colors
 echo -e "$NORMALE"
@@ -18,7 +18,7 @@ while :
 do
 clear
 echo -e "$Cyan" "============================================================" "$NORMAL"
-echo -e "     $Green_BU"" ToolsNeoTeam V.$vers - by NeoCooler aka krisjanne" "$NORMAL"
+echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 echo -e "$Cyan" "============================================================" "$NORMAL"
 echo -e "$Cyan" "->$NORMAL$White UPDATE MENU$NORMAL"
 echo -e "$Magenta"
@@ -26,7 +26,9 @@ echo -e "     1 -$White_K Update All Packages.$Magenta"
 echo -e "     2 -$White_K Upgrade Systeme Packages.$Magenta"
 echo -e "     3 -$White_K Upgrade & install new Systeme Packages.$Magenta"
 echo
-echo -e "     4 -$White_K Check update for TNT.$Magenta"
+echo -e "     4 -$White_K Check Ubuntu Release Upgrade.$Magenta"
+echo
+echo -e "     5 -$White_K Check update for TNT.$Magenta"
 echo
 echo -e "     x -$White_K Return MAIN MENU.$Magenta"
 echo -e "$NORMAL"
@@ -38,10 +40,11 @@ echo -e "$NORMAL"
 if [ "$?" != "1" ]
 then
 case "$tntopt" in
-	1 ) clear; sudo apt-get update; clear;;
-	2 ) clear; sudo apt-get upgrade; clear;;
-	3 ) clear; sudo apt-get dist-upgrade; clear;;
-	4 ) clear; update/updater $vers; continue;;
+	1 ) clear; sudo apt-get update;;
+	2 ) clear; sudo apt-get upgrade;;
+	3 ) clear; sudo apt-get dist-upgrade;;
+	4 ) clear; update/release_upgrade $version; continue;;
+	5 ) clear; update/updater $version; continue;;
 	x ) clear; exit 0;;
 	* ) echo -e "\033[31m Invalid option\033[0m";;
 esac

@@ -36,9 +36,9 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-		1 ) clear; tnt_store/apps/administration/nvidia; clear; continue;;
-		2 ) clear; tnt_store/apps/administration/java; clear; continue;;
-		3 ) clear; tnt_store/apps/administration/gnome15; clear; continue;;
+		1 ) clear; tnt_store/apps/administration/nvidia $version; clear; continue;;
+		2 ) clear; tnt_store/apps/administration/java $version; clear; continue;;
+		3 ) clear; tnt_store/apps/administration/gnome15 $version; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

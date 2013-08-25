@@ -9,37 +9,37 @@
 #
 ############################################################################
 
-vers=$1
+version=$1
+
+source script/colors
+echo -e "$NORMALE"
 
 while : 
 do
 	clear
-
-	echo -e "\033[34m============================================================\033[0m"
-	echo "          TNT V.$vers - by NeoCooler aka krisjanne"
-	echo -e "\033[34m============================================================\033[0m"
-	echo "-> GIMP INSTALL"
-	echo
-	echo "Your Actual version is:"
+	echo -e "$Cyan" "============================================================" "$NORMAL"
+	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
+	echo -e "$Cyan" "============================================================" "$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White GIMP INSTALL$NORMAL"
+	echo -e "$Magenta"
+	echo -e "$White_K Your Actual version is:$Red_B"
 	gimp --version
+	echo -e "$Magenta"
+	echo -e "     i -$White_K Install Gimp$Magenta"
+	echo -e "     u -$White_K Update Gimp$Magenta"
 	echo
-	echo "     i - Install Gimp"
-	echo "     u - Update Gimp"
+	echo -e "     o -$White_K Open Gimp$Magenta"
 	echo
-	echo "     o - Open Gimp"
+	echo -e "     r -$White_K Remouve Gimp$Magenta"
 	echo
-	echo "     r - Remouve Gimp"
+	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
+	echo -e "$NORMAL"
+	echo -e -n "$Yellow" " Choose option:" "$White_B"
+	read tntopt
 	echo
-	echo "     x - Return APPLICATIONS MENU"
-	echo
-	echo
-	echo -e -n "\033[32m Choose option:\033[0m"
-	read tntoption
-	echo
-	echo
-	echo
-
-	case "$tntoption" in
+	echo -e "$NORMAL"
+	 
+	case "$tntopt" in
 	    i ) clear; sudo add-apt-repository ppa:otto-kesselgulasch/gimp;
 	        sudo apt-get update;
 	        sudo apt-get install gimp; clear; continue;;
@@ -47,11 +47,7 @@ do
 	    o ) clear; gimp;clear; continue;;
 	    r ) clear; sudo apt-get autoremove --purge gimp; clear; continue;;
 	    x ) clear; exit 0;;
-	    * ) echo -e "\033[31m Invalid option\033[0m";;
+	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
-
     script/press_enter
-
 done
-
-exit 0;
