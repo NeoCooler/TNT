@@ -23,7 +23,7 @@ do
 	echo -e "$Cyan" "->$NORMAL$White GIT COLA INSTALL$NORMAL"
 	echo -e "$Magenta"
 	echo -e "$White_K Your Actual version is:$Red_B"
-	ubuntu-tweak --version
+	git-cola --version
 	echo -e "$Magenta"
 	echo -e "     i -$White_K Install Git Cola$Magenta"
 	echo -e "     u -$White_K Update Git Cola$Magenta"

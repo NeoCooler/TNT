@@ -83,7 +83,7 @@ echo
 	if [ "$view_changelog" == "y" ]
 	then
 	  clear
-	  sed -e '' Last_CHANGELOG
+	  tac Last_CHANGELOG
 	fi
 	if [ "$view_changelog" == "n" ]
 	then
@@ -98,7 +98,7 @@ echo
     	read proceed_download
 	if [ "$proceed_download" == "n" ]
 	then
-	  exit 0n
+	  exit 0
 	fi
 
 

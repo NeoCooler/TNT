@@ -1,16 +1,20 @@
+Version 0.013 :
+Fix viewer Changelog before update.
+Fix git cola version viewer.
+
 Version 0.012 :
-Add Release Upgrade for Ubuntu
-Fix TNT Updater
-Fix Version Viewer
-Theme all app install
-Complete remod gnome15 installer
+Add Release Upgrade for Ubuntu.
+Fix TNT Updater.
+Fix Version Viewer.
+Theme all app install.
+Complete remod gnome15 installer.
 
 Version 0.011 :
-New Theme
-New Menu for app [TNT Store]
-Readapt all menu for app...
+New Theme.
+New Menu for app [TNT Store].
+Readapt all menu for app.
 New script for colorization.
-Add or fix some colors...
+Add or fix some colors.
 
 Version 0.010 :
 Add aosp tools on menu.
@@ -23,34 +27,34 @@ Updater Updater with new questionnaire & option to see changelog before download
 
 Version 0.008 :
 Fix Invalid Option visibilité.
-Change Cheese and Chrome with Install, Update, Open, Remouve Command..
+Change Cheese and Chrome with Install, Update, Open, Remouve Command.
 
 Version 0.007 :
-Add Info new version to first menu
-Add Check_dir script & check command to secure install check
-Add Press_enter script for futur use...
+Add Info new version to first menu.
+Add Check_dir script & check command to secure install check.
+Add Press_enter script for futur use.
 
 Version 0.006 :
-Add Jdownloader
+Add Jdownloader.
 
 Version 0.005 :
-Fix updater (with check online version before Push new package)
+Fix updater (with check online version before Push new package).
 
 Version 0.004 :
-Fix updater
-Add Gnome15
+Fix updater.
+Add Gnome15.
 
 Version 0.003 :
-Fix chmod script
-Add Android -Ubuntu SDK
-Add System -Java
-Add App -Gimp -Cheese
+Fix chmod script.
+Add Android -Ubuntu SDK.
+Add System -Java.
+Add App -Gimp -Cheese.
 
 Version 0.002 :
-Add Updater
-Add Chrome Installer
-Add Android -SDK -Dsixda
-Add Nvidia
+Add Updater.
+Add Chrome Installer.
+Add Android -SDK -Dsixda.
+Add Nvidia.
 
 Version 0.001 :
-First Release
+First Release.
