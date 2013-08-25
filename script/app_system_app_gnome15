@@ -22,15 +22,15 @@ do
 	echo
 	echo " Folow step by step:"
 	echo
-	echo "     1 - Add Public Key"
-	echo "     2 - Add New Repository"
-	echo "     3 - Install Gnome15"
-	echo
+	echo "     i - Install Gnome15"
+
+	
+	
 	echo " Restart after installation:"
 	echo "     o - Restart"
 	echo
 	echo
-	echo "     u - Update Package"
+	echo "     u - Update All Package"
 	echo
 	echo "     x - Return APPLICATIONS MENU"
 	echo
@@ -42,25 +42,37 @@ do
 	echo
 	 
 	case "$tntoption" in
-	    1 ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
-		Version: GnuPG v1.4.5 (GNU/Linux)
+	    i ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.19 (GNU/Linux)
 
-		mQGiBE3HD/cRBACcaW+ghDnPPCDtkuq3QWkGE3hRgfmnbtgLjC3oMqQ+03Pqsy1o
-		IHI5XysykjsigP9RECWXjklKEanaCA9susiQgXE9oFROBeD9055r3rtFf4yXi6YJ
-		KHgaISFRBMAGmxBg+tYMoc2tzHYmEhfS5fJUigOjtyvdtWlYG0cW4bP46wCgpooY
-		RQDp9hYkpOcXRzY8nBbQ55ED/Rp8pVLrMkIu9pzNw5uYLyWHonrOsaUsXkvy9u51
-		yza0TbkkKAT/NOy2cQy8E9lBtAlMLSafMDgWjmCPouoMWviMnUKx/gOL3kCsO79V
-		ZCONULeU9DVjB3AbcARLVL+qgMdMYHzKcRsIMl7i0Wq3asEoRUw1tatsTpaxi9Rs
-		lhSgA/9SJFP3EW8wBm2BeBXk5NjDyMlRRCtDYfFx7NilYxoRVc/TUkKiwEHAvi8D
-		7PsL4ofC5eNtXxCoGKeBXct3dfMiuJhlCSrqZbJHJZK7nVPzVgmhB8TfCsxkNh03
-		udK61atVUNq54zgQonz6oX/EZHuQe0VnVENULmeGmkaimsfZc7Q+aG9tZTp0YW5r
-		dGFydGEgT0JTIFByb2plY3QgPGhvbWU6dGFua3RhcnRhQGJ1aWxkLm9wZW5zdXNl
-		Lm9yZz6IZgQTEQIAJgUCTccP9wIbAwUJBB6wAAYLCQgHAwIEFQIIAwQWAgMBAh4B
-		AheAAAoJEGi0IqJ7r+i3TAYAnRDUZs0j0fETb6pASV43YffPBYxmAJ9S4pvAF78v
-		g9JASGgZ5RkRkKQVdohGBBMRAgAGBQJNxw/3AAoJEDswEbdrnWUjXb8AoIhjj7DO
-		yDOm3DM8+NT2Lm78SJijAKCEFeZrWc4R/bw6+vAYVLUNVWFzHA==
-		=KcVR
-		-----END PGP PUBLIC KEY BLOCK-----'|sudo apt-key add -; clear; continue;;
+mQENBFFeChUBCADfGbecu2/WP705CJQTlDSGpzeYL/Jev/8Vtb5g8RZhc0tQBQHz
+2SP5wGN1Wkz6UuIam1rjRAatoAFNjl4ndurlMACYeqJssS47UOdU01yxqvg546BJ
+RXLgbQNGAiu0d12ldjaWfo/LULAb2972Wvqal5ANZjkA0B8R48D7PVNVheuijtmd
+XvmlxH8iPonr2Wm/J4oxvMP3BbJL5nOJdh/FDOl2caAHU6R5bVZypizwBFycm/P3
+PUmZbbOsx3Q5vHB08auFTV4p2CqCFWts5FlWqOXwBofjTuO9qSBZ8D94MhZ2MAXO
+H98uNArQd2h1g1rGULafVVB6YNrkZ5QZ7rHhABEBAAG0O051bm8gQXJhdWpvIChQ
+YWNrYWdlIHNpZ25pbmcga2V5KSA8bnVuby5hcmF1am9AcnVzc283OS5jb20+iQE4
+BBMBAgAiBQJRXgoVAhsDBgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRAlQAMb
+zAMRYHQPB/96dlhY79IUZeXfo51U5+OOR+nXJQ+uBwgUxW2yqHf3QBpEzHzwWooQ
+87GH89is8vqjL6rL1HMt3P6/EdltT9pPtr/QIYPHDVgzKGw4GMpF0Ma3RS68uIK8
+RI/iyo6MzBEashIEaMEqB0TRQo8N64hk9OJ7A3wLrPc4T/jHctv0o1i+OfUKzxqw
+7BOGKB2P3a6CNAFqDVxGQSMlnJ6oj33hNFbXq1MZ0jyK7RI4fCIZ4XWRJO1eYLbq
+icHfrcq30C0UZNMOh0lFtJ+i9dbPufATKGcqOix9NItKZJ+fdGDsawByUUFelgbl
+8UWVkDPpiXFiuS2YWJAJwUZS/BzfOQwvuQENBFFeChUBCADQ20hwXNCwzghcuLf9
+1AzUVUUvPimT9QjcijtprpnhCLm84jjMHJsgGZbHmV1ZzpweeINfUwmLKQ605gXb
+vfkMdp5sXcYG3Hpe54OWGsDZzvj1fQvFYBFIyuw4u90k4rhvnl0L2RlHeXQN/yoY
+I4ckN3VVFcqlUwgHjtkM1R/X6kn3PBWJgG/ktdANn7HhmEg4tW+iSWR+I0fkivEy
+hAGvXWBjyhOkVpTE1ym6p4Oi7tjgO+mEMBMzv4RvDTDBn3zxeT9SjsBC/hNB0A9Q
+6EskaR4x9oZzjyfkRqlXFF+iA9GnDS+/lyaQ8l/8xROMsvQ80jgzXl287CHGRSIt
+36mtABEBAAGJAR8EGAECAAkFAlFeChUCGwwACgkQJUADG8wDEWBA7wf+Pm77zBJl
+7DWu+pTwh6a/L/mzWFYKFIDFJ47dr2t2gIo7DfDFZu79nSC1GJfuC3cqwwfmvTRK
+hoZud/QvaCEuqfjrvL3rSZVZ+txXUnPpnsxQzLIZBSPo/i4dNRNDAZZJUgOoTNw7
+IXCzFWB2CMpQvzYUGnQeLHLpTGYXhGFweiRpfacaC93O5d9bVIzTK1QDtVwAgVif
+kGBvGyYNwcMzGWbmuTAAhaVUrHd7UEzC+dvBmS5PAAkj1TNUKAH2bpUTCmC0C6vW
+XrcyClLiKscQqRm7dinsNIGpGcj6U72OrDWepzntK320wSpizJZdP+6OZzxPRmHE
+JZAy9UXt0Vf1Mw==
+=yaAO
+-----END PGP PUBLIC KEY BLOCK-----'| sudo apt-key add -; sudo sh -c "echo deb http://packages.russo79.com/debian/gnome15 raring main > /etc/apt/sources.list.d/gnome15.list"; sudo apt-get update; sudo apt-get install gnome15-suite-unity; sudo apt-get install gnome15-driver-g19direct; clear; continue;;
 	    2 ) clear; sudo sh -c "echo deb http://www.gnome15.org/$(lsb_release -cs) ./ >> /etc/apt/sources.list"; clear; continue;;
 	    3 ) clear; sudo apt-get install gnome15-ubuntu; clear; continue;;
 	    o ) clear; sudo reboot; continue;;
