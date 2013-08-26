@@ -28,8 +28,6 @@ do
 	echo -e "     i -$White_K Install Google Chrome$Magenta"
 	echo -e "     u -$White_K Update Google Chrome$Magenta"
 	echo
-	echo -e "     o -$White_K Open Google Chrome$Magenta"
-	echo
 	echo -e "     r -$White_K Remouve Google Chrome$Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
@@ -45,7 +43,6 @@ do
 	        sudo apt-get update;
                 sudo apt-get install google-chrome-stable; clear; continue;;
 	    u ) clear; sudo apt-get install google-chrome-stable; clear; continue;;
-	    o ) clear; google-chrome-stable;clear; continue;;
 	    r ) clear; sudo apt-get autoremove --purge google-chrome-stable; clear; continue;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
