@@ -20,7 +20,7 @@ $ sudo apt-get install git-core
 
 * Download TNT file and place it in a folder named TNT
 
-$ git clone git://github.com//NeoCooler/TNT TNT
+$ git clone http://github.com/NeoCooler/TNT.git TNT
 
 TO START TNT:
 -------
