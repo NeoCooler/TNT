@@ -1,5 +1,3 @@
-#!/bin/bash
-
 ############################################################################
 #
 # Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
@@ -22,11 +20,15 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White TNT Store - PHOTOS$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White ANDROID SDK INSTALL$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     1 -$White_K Gimp.$Magenta"
+	echo -e "     i -$White_K Install Android SDK$Magenta"
 	echo
-	echo -e "     x -$White_K Return MAIN MENU$Magenta"
+	echo -e "     o -$White_K Open Android SDK Updater$Magenta"
+	echo
+	echo -e "     r -$White_K Remouve Android SDK$Magenta"
+	echo
+	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
 	echo -e -n "$Yellow" " Choose option:" "$White_B"
 	read tntopt
@@ -34,11 +36,14 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-		1 ) clear; tnt_store/apps/photos/gimp $version; clear; continue;;
-		x ) clear; exit 1;;
-		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
+	    i ) clear; wget http://dl.google.com/android/android-sdk_r22.0.5-linux.tgz;
+		tar xvzf ~/TNT/android-sdk_r22.0.5-linux.tgz;
+		rm ~/TNT/android-sdk_r22.0.5-linux.tgz;
+		mv ~/TNT/android-sdk-linux ~/android-sdk;;
+	    o ) clear; cd ~/android-sdk/tools; ./android update sdk; clear; continue;;
+	    r ) clear; rm -r ~/android-sdk;;
+	    x ) clear; exit 0;;
+	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
-
-	script/press_enter
-
+    script/press_enter
 done

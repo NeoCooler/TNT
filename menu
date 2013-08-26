@@ -11,7 +11,7 @@
 #
 ############################################################################
 
-version=0.013
+version=0.014
 
 source script/colors
 echo -e "$NORMALE"
@@ -87,7 +87,7 @@ if [ "$?" != "1" ]
 then
 	case "$tntopt" in
 		1 ) clear; tnt_store/tnt_store $version; continue;;
-		2 ) clear; android_tools/app_android_app $version; continue;;
+		2 ) clear; android_tools/android_tools $version; continue;;
 		u ) clear; update/update $version; continue;;
 		n ) clear; update/updater $version; continue;;
 		x ) clear; echo -e "$Blue_B" "Goodbey !" "$NORMAL"; echo; exit 1;;

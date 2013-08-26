@@ -22,9 +22,13 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White TNT Store - PHOTOS$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White ANDROID MENU$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     1 -$White_K Gimp.$Magenta"
+	echo -e "     3 -$White_K Dsixda's Android Kitchen$Magenta"
+	echo -e "     4 -$White_K Run Kitchen$Magenta"
+	echo
+	echo -e "     5 -$White_K Add Repository Ubuntu SDK$Magenta"
+	echo -e "     6 -$White_K Install Ubuntu SDK$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
@@ -34,7 +38,10 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-		1 ) clear; tnt_store/apps/photos/gimp $version; clear; continue;;
+		3 ) clear; sudo apt-get install git-core; git clone git://github.com/dsixda/Android-Kitchen.git ~/kitchen; clear; continue;;
+	    	4 ) clear; cd ~/kitchen; ./menu; clear; continue;;
+		5 ) clear; sudo add-apt-repository ppa:ubuntu-sdk-team/ppa; clear; continue;;
+		6 ) clear; sudo apt-get install ubuntu-sdk; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

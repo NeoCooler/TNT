@@ -24,15 +24,15 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "$Cyan" "->$NORMAL$White TNT Store - NEWS$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     1 -$White_K Gimp.$Red [NEW]$Magenta"
-	echo -e "     2 -$White_K Cheese.$Red [NEW]$Magenta"
-	echo -e "     3 -$White_K Google Chrome.$Red [NEW]$Magenta"
-	echo -e "     4 -$White_K Ubuntu-Tweak.$Red [NEW]$Magenta"
-	echo -e "     5 -$White_K JDownloader.$Red [NEW]$Magenta"
-	echo -e "     6 -$White_K Nvidia Propietary.$Red [NEW]$Magenta"
-	echo -e "     7 -$White_K Oracle Java.$Red [NEW]$Magenta"
-	echo -e "     8 -$White_K Gnome15.$Red [NEW]$Magenta"
-	echo -e "     9 -$White_K Git Cola.$Red [NEW]$Magenta"
+	echo -e "     1 -$White_K Cheese.$Red [NEW]$Magenta"
+	echo -e "     2 -$White_K Google Chrome.$Red [NEW]$Magenta"
+	echo -e "     3 -$White_K Ubuntu-Tweak.$Red [NEW]$Magenta"
+	echo -e "     4 -$White_K JDownloader.$Red [NEW]$Magenta"
+	echo -e "     5 -$White_K Nvidia Propietary.$Red [NEW]$Magenta"
+	echo -e "     6 -$White_K Oracle Java.$Red [NEW]$Magenta"
+	echo -e "     7 -$White_K Gnome15.$Red [NEW]$Magenta"
+	echo -e "     8 -$White_K Git Cola.$Red [NEW]$Magenta"
+	echo -e "     9 -$White_K Git.$Red [NEW]$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
@@ -42,15 +42,15 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-		1 ) clear; tnt_store/apps/photos/gimp $version; clear; continue;;
-		2 ) clear; tnt_store/apps/musiques_videos/cheese $version; clear; continue;;
-		3 ) clear; tnt_store/apps/productivity/chrome $version; clear; continue;;
-		4 ) clear; tnt_store/apps/tools/ubuntu_tweak $version; clear; continue;;
-		5 ) clear; tnt_store/apps/tools/jdownloader $version; clear; continue;;
-		6 ) clear; tnt_store/apps/administration/nvidia $version; clear; continue;;
-		7 ) clear; tnt_store/apps/administration/java $version; clear; continue;;
-		8 ) clear; tnt_store/apps/administration/gnome15 $version; clear; continue;;
-		9 ) clear; tnt_store/apps/tools/git_cola $version; clear; continue;;
+		1 ) clear; tnt_store/apps/musiques_videos/cheese $version; clear; continue;;
+		2 ) clear; tnt_store/apps/productivity/chrome $version; clear; continue;;
+		3 ) clear; tnt_store/apps/tools/ubuntu_tweak $version; clear; continue;;
+		4 ) clear; tnt_store/apps/tools/jdownloader $version; clear; continue;;
+		5 ) clear; tnt_store/apps/administration/nvidia $version; clear; continue;;
+		6 ) clear; tnt_store/apps/administration/java $version; clear; continue;;
+		7 ) clear; tnt_store/apps/administration/gnome15 $version; clear; continue;;
+		8 ) clear; tnt_store/apps/tools/git_cola $version; clear; continue;;
+		9 ) clear; tnt_store/apps/administration/git $version; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
