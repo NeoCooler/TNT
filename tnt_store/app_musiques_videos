@@ -24,7 +24,7 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "$Cyan" "->$NORMAL$White TNT Store - MUSIQUES/VIDEOS$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     1 -$White_K Cheese.$Red [NEW]$Magenta"
+	echo -e "     1 -$White_K Cheese.$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"

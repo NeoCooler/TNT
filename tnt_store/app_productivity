@@ -24,7 +24,7 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "$Cyan" "->$NORMAL$White TNT Store - PRODUCTIVITY$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     1 -$White_K Google Chrome.$Red [NEW]$Magenta"
+	echo -e "     1 -$White_K Google Chrome.$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
