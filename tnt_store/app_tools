@@ -28,6 +28,7 @@ do
 	echo -e "     2 -$White_K JDownloader.$Red [NEW]$Magenta"
 	echo -e "     3 -$White_K Git Cola.$Red [NEW]$Magenta"
 	echo -e "     4 -$White_K Android SDK.$Red [NEW]$Magenta"
+	echo -e "     5 -$White_K Ubuntu Mobil SDK.$Red [NEW]$Magen
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
@@ -41,6 +42,7 @@ do
 		2 ) clear; tnt_store/apps/tools/jdownloader $version; clear; continue;;
 		3 ) clear; tnt_store/apps/tools/git_cola $version; clear; continue;;
 		4 ) clear; tnt_store/apps/tools/android_sdk $version; clear; continue;;
+		5 ) clear; tnt_store/apps/tools/ubuntu_sdk $version; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

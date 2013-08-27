@@ -22,17 +22,17 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White GIT COLA INSTALL$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White UBUNTU MOBIL SDK INSTALL$NORMAL"
 	echo -e "$Magenta"
 	echo -e "$White_K Your Actual version is:$Red_B"
 	git-cola --version
 	echo -e "$Magenta"
-	echo -e "     i -$White_K Install Git Cola$Magenta"
-	echo -e "     u -$White_K Update Git Cola$Magenta"
+	echo -e "     i -$White_K Install Ubuntu Mobil SDK$Magenta"
+	echo -e "     u -$White_K Update Ubuntu Mobil SDK$Magenta"
 	echo
-	echo -e "     o -$White_K Open Git Cola$Magenta"
+	echo -e "     o -$White_K Open Ubuntu Mobil SDK Updater$Magenta"
 	echo
-	echo -e "     r -$White_K Remouve Git Cola$Magenta"
+	echo -e "     r -$White_K Remouve Ubuntu Mobil SDK$Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
@@ -42,10 +42,11 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; sudo apt-get install git-cola; clear; continue;;
-	    u ) clear; sudo apt-get install git-cola; clear; continue;;
-	    o ) clear; git-cola;clear; continue;;
-	    r ) clear; sudo apt-get autoremove --purge git-cola; clear; continue;;
+	    i ) clear; sudo add-apt-repository ppa:ubuntu-sdk-team/ppa;
+		sudo apt-get install ubuntu-sdk;;
+	    u ) clear; sudo apt-get install ubuntu-sdk; clear; continue;;
+	    o ) clear; ubuntu-sdk; clear; continue;;
+	    r ) clear; sudo apt-get autoremove --purge ubuntu-sdk;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
