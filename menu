@@ -11,54 +11,16 @@
 #
 ############################################################################
 
-version=0.016
+version=$1
+update=$2
+last_vers=$3
 
 source script/colors
 echo -e "$NORMALE"
 
-if [ ! -e menu ]
-then
-	echo
-	echo -e "$Red" "Ensure you run this file from the SAME folder as where it was"
-	echo -e "installed, otherwise TNT will have problems run."
-	echo -e "After you 'cd' to TNT folderStart TNT"
-	cho -e "Start TNT with the ./menu command!!!" "$NORMAL"
-	exit 0
-fi
-
-chmod 755 android_tools/*
-chmod 755 script/*
-chmod 755 tnt_store/*
-chmod 755 update/*
-
-if [ "$?" == "1" ]
-then
-	exit 0
-fi
-
+clear
 while :
 do
-	clear
-	online_vers=`update/check_update`
-	rm -f Last_CHANGELOG
-	last_vers=`echo $online_vers | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
-	curr_major=`echo $version | sed 's/\([0-9]*\).[0-9]*/\1/'`
-	curr_minor=`echo $version | sed 's/[0-9]*.//'`
-	last_major=`echo $last_vers | sed 's/\([0-9]*\).[0-9]*/\1/'`
-	last_minor=`echo $last_vers | sed 's/[0-9]*.//'`
-	update=1
-	if [ $curr_major -gt $last_major ]
-	then
-		update=0
-	else
-	if [ $curr_major -eq $last_major ]
-	then
-		if [ $curr_minor -ge $last_minor ]
-		then
-			update=0
-		fi
-	fi
-fi
 if [ $update == 0 ] 
 then
 	echo -e "$Cyan" "==No Update=================================================" "$NORMAL"

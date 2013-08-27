@@ -26,6 +26,6 @@ TO START TNT:
 -------
 
 $ cd TNT
-$ ./menu
+$ ./run
 
 It's there. You have successfully set up TNT. :-)

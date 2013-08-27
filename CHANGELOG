@@ -1,3 +1,7 @@
+Version 0.017 :
+Add Run to start TNT you must use ./run command now
+Simplify First menu method.
+
 Version 0.016 :
 Add Android SDK
 Add Ubuntu Mobil SDK

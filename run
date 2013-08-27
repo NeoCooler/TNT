@@ -1,0 +1,113 @@
+#!/bin/bash
+
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+version=0.017
+
+echo
+echo
+echo
+echo
+echo
+echo -ne "|               Startup TNT - STATUT[ .. ]       | {0%} \r"
+sleep 0.4
+
+echo -ne "|====           Startup TNT - STATUT[ OK ]       | {8%} \r"
+sleep 0.5
+
+echo -ne "|========   COLOR INJECTION - STATUT[ .. ]       | {15%} \r"
+sleep 0.4
+
+source script/colors
+
+echo -ne "|===========COLOR INJECTION - STATUT[$Green OK$NORMAL ]       |$Green_B {23%}$NORMAL \r"
+sleep 0.5
+echo -ne "|=====TEST=STARTING COMMAND - STATUT[$Red ..$NORMAL ]       |$Green_B {31%}$NORMAL \r"
+sleep 0.4
+
+if [ ! -e run ]
+then
+	source */script/colors
+	echo -ne "|=====TEST=STARTING=COMMAND - STATUT[$Red_B ERROR$NORMAL ]    |$Green_B {38%}$NORMAL \r"
+	echo
+	echo -e "$Red" "Ensure you run this file from the SAME folder as where it was"
+	echo -e "installed, otherwise TNT will have problems run."
+	echo	
+	echo -e "After you 'cd' to TNT folderStart TNT"
+	echo
+	echo -e "Start TNT only with the ./run command !!" "$NORMAL"
+	exit 0
+fi
+
+echo -ne "|=====TEST=STARTING=COMMAND - STATUT[$Green OK$NORMAL ]       |$Green_B {38%}$NORMAL \r"
+sleep 0.5
+echo -ne "|==========FIXE=PERMISSIONS - STATUT[$Red ..$NORMAL ]       |$Green_B {46%}$NORMAL \r"
+sleep 0.5
+
+chmod 755 android_tools/*
+chmod 755 script/*
+chmod 755 tnt_store/*
+chmod 755 update/*
+
+echo -ne "|==========FIXE=PERMISSIONS=- STATUT[$Green OK$NORMAL ]       |$Green_B {54%}$NORMAL \r"
+sleep 0.5
+echo -ne "|===============CHECK=ERROR=-=STATUT[$Red ..$NORMAL ]       |$Green_B {62%}$NORMAL \r"
+sleep 0.5
+
+if [ "$?" == "1" ]
+then
+	source */script/colors
+	echo -ne "|===============CHECK ERROR=-=STATUT[$Red_B ERROR$NORMAL ]    |$Green_B {69%}$NORMAL \r"
+	echo
+	echo -e "$Red" "An error was found can continue	!!!" "$NORMAL"
+	exit 0
+fi
+
+echo -ne "|===============CHECK ERROR=-=STATUT[$Green OK$NORMAL ]       |$Green_B {69%}$NORMAL \r"
+sleep 0.5
+echo -ne "|==============CHECK=UPDATE=-=STATUT[$Red ..$NORMAL ]=      |$Green_B {77%}$NORMAL \r"
+sleep 0.5
+
+online_vers=`update/check_update`
+rm -f Last_CHANGELOG
+last_vers=`echo $online_vers | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
+curr_major=`echo $version | sed 's/\([0-9]*\).[0-9]*/\1/'`
+curr_minor=`echo $version | sed 's/[0-9]*.//'`
+last_major=`echo $last_vers | sed 's/\([0-9]*\).[0-9]*/\1/'`
+last_minor=`echo $last_vers | sed 's/[0-9]*.//'`
+update=1
+
+if [ $curr_major -gt $last_major ]
+then
+	update=0
+else
+	if [ $curr_major -eq $last_major ]
+	then
+		if [ $curr_minor -ge $last_minor ]
+		then
+			update=0
+		fi
+	fi
+fi
+
+echo -ne "|==============CHECK=UPDATE=-=STATUT[$Green OK$NORMAL ]=====  |$Green_B {85%}$NORMAL \r"
+sleep 0.5
+echo -ne "|============ALL=IS=DONE===SERVICE=START=========|$Green_B {92%}$NORMAL \r"
+sleep 0.5
+echo -ne "|============ALL=IS=DONE===SERVICE=START=========|$Green_B {100%}$NORMAL \r"
+sleep 0.5
+echo -ne '\n'
+./menu $version $update $last_vers;
+
+clear;
+
+exit 0;
