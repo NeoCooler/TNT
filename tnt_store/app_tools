@@ -29,6 +29,7 @@ do
 	echo -e "     3 -$White_K Git Cola.$Red [NEW]$Magenta"
 	echo -e "     4 -$White_K Android SDK.$Red [NEW]$Magenta"
 	echo -e "     5 -$White_K Ubuntu Mobil SDK.$Red [NEW]$Magenta"
+	echo -e "     6 -$White_K Dsixda's Android Kitchen.$Red [NEW]$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
@@ -43,6 +44,7 @@ do
 		3 ) clear; tnt_store/apps/tools/git_cola $version; clear; continue;;
 		4 ) clear; tnt_store/apps/tools/android_sdk $version; clear; continue;;
 		5 ) clear; tnt_store/apps/tools/ubuntu_sdk $version; clear; continue;;
+		6 ) clear; tnt_store/apps/tools/dsixda $version; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
