@@ -1,0 +1,46 @@
+#!/bin/bash
+
+############################################################################
+#
+# Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
+#
+# TNT(Tools NeoTeam) is 100% free.  This script file is intended for 
+# personal and/or educational use only.  
+# It may not be duplicated for monetary benefit or any other purpose 
+# Without the permission of the developer.
+#
+############################################################################
+
+version=$1
+
+source script/colors
+echo -e "$NORMALE"
+
+while : 
+do
+	clear
+	echo -e "$Cyan" "============================================================" "$NORMAL"
+	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
+	echo -e "$Cyan" "============================================================" "$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White TNT Store - ENVIRONMENTS$NORMAL"
+	echo -e "$Magenta"
+	echo -e "     1 -$White_K Gnome.$Red [NEW]$Magenta"
+	echo -e "     2 -$White_K Unity8.$Red [NEW]$Magenta"
+	echo
+	echo -e "     x -$White_K Return MAIN MENU$Magenta"
+	echo -e "$NORMAL"
+	echo -e -n "$Yellow" " Choose option:" "$White_B"
+	read tntopt
+	echo
+	echo -e "$NORMAL"
+	 
+	case "$tntopt" in
+		1 ) clear; tnt_store/apps/environments/gnome $version; clear; continue;;
+		2 ) clear; tnt_store/apps/environments/unity8 $version; clear; continue;;
+		x ) clear; exit 1;;
+		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
+	esac
+
+	script/press_enter
+
+done
