@@ -33,6 +33,8 @@ do
 	echo -e "     7 -$White_K Productivity.$Magenta"
 	echo -e "     8 -$White_K Tools.$Magenta"
 	echo -e "     9 -$White_K Administration.$Magenta"
+	echo -e "    10 -$White_K Environments.$Magenta"
+	echo -e "    11 -$White_K Themes.$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
@@ -51,6 +53,8 @@ do
 		7 ) clear; tnt_store/app_productivity $version; continue;;
 		8 ) clear; tnt_store/app_tools $version; continue;;
 		9 ) clear; tnt_store/app_administration $version; continue;;
+		10 ) clear; tnt_store/app_environments $version; continue;;
+		11 ) clear; tnt_store/app_themes $version; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
