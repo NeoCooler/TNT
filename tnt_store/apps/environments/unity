@@ -20,9 +20,11 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White UNITY8 INSTALL$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White UNITY INSTALL$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     i -$White_K Install Unity8$Magenta"
+	echo -e "     i -$White_K Install Unity$Magenta"
+	echo
+	echo -e "     r -$White_K Remove Unity$Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
@@ -32,8 +34,9 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; sudo apt-get install unity8; clear; continue;;
-	    x ) clear; exit 0;;
+	    i ) sudo apt-get install unity; clear; continue;;
+	    r ) sudor apt-get autoremove --purge unity; clear; continue;;
+	    x ) exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
     script/press_enter

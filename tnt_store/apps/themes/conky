@@ -34,11 +34,11 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; sudo apt-add-repository -y ppa:teejee2008/ppa;
+	    i ) sudo apt-add-repository -y ppa:teejee2008/ppa;
 		sudo apt-get update;
 		sudo apt-get install conky-manager;;
 	    r ) sudo apt-get autoremove --purge conky-manager;;
-	    x ) clear; exit 0;;
+	    x ) exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
     script/press_enter
