@@ -19,20 +19,20 @@ echo
 echo
 echo
 echo -ne "|               Startup TNT - STATUT[ .. ]       | {0%} \r"
-sleep 0.2
+sleep 0.1
 
 echo -ne "|====           Startup TNT - STATUT[ OK ]       | {8%} \r"
-sleep 0.3
+sleep 0.2
 
 echo -ne "|========   COLOR INJECTION - STATUT[ .. ]       | {15%} \r"
-sleep 0.2
+sleep 0.1
 
 source script/colors
 
 echo -ne "|===========COLOR INJECTION - STATUT[$Green OK$NORMAL ]       |$Green_B {23%}$NORMAL \r"
-sleep 0.3
-echo -ne "|=====TEST=STARTING COMMAND - STATUT[$Red ..$NORMAL ]       |$Green_B {31%}$NORMAL \r"
 sleep 0.2
+echo -ne "|=====TEST=STARTING COMMAND - STATUT[$Red ..$NORMAL ]       |$Green_B {31%}$NORMAL \r"
+sleep 0.1
 
 if [ ! -e run ]
 then
@@ -49,9 +49,9 @@ then
 fi
 
 echo -ne "|=====TEST=STARTING=COMMAND - STATUT[$Green OK$NORMAL ]       |$Green_B {38%}$NORMAL \r"
-sleep 0.3
-echo -ne "|==========FIXE=PERMISSIONS - STATUT[$Red ..$NORMAL ]       |$Green_B {46%}$NORMAL \r"
 sleep 0.2
+echo -ne "|==========FIXE=PERMISSIONS - STATUT[$Red ..$NORMAL ]       |$Green_B {46%}$NORMAL \r"
+sleep 0.1
 
 chmod 755 android_tools/*
 chmod 755 script/*
@@ -59,9 +59,9 @@ chmod 755 tnt_store/*
 chmod 755 update/*
 
 echo -ne "|==========FIXE=PERMISSIONS=- STATUT[$Green OK$NORMAL ]       |$Green_B {54%}$NORMAL \r"
-sleep 0.3
-echo -ne "|===============CHECK=ERROR=-=STATUT[$Red ..$NORMAL ]       |$Green_B {62%}$NORMAL \r"
 sleep 0.2
+echo -ne "|===============CHECK=ERROR=-=STATUT[$Red ..$NORMAL ]       |$Green_B {62%}$NORMAL \r"
+sleep 0.1
 
 if [ "$?" == "1" ]
 then
@@ -73,9 +73,9 @@ then
 fi
 
 echo -ne "|===============CHECK ERROR=-=STATUT[$Green OK$NORMAL ]       |$Green_B {69%}$NORMAL \r"
-sleep 0.3
-echo -ne "|==============CHECK=UPDATE=-=STATUT[$Red ..$NORMAL ]=      |$Green_B {77%}$NORMAL \r"
 sleep 0.2
+echo -ne "|==============CHECK=UPDATE=-=STATUT[$Red ..$NORMAL ]=      |$Green_B {77%}$NORMAL \r"
+sleep 0.1
 
 online_vers=`update/check_update`
 rm -f Last_CHANGELOG
@@ -100,11 +100,11 @@ else
 fi
 
 echo -ne "|==============CHECK=UPDATE=-=STATUT[$Green OK$NORMAL ]=====  |$Green_B {85%}$NORMAL \r"
-sleep 0.3
-echo -ne "|============ALL=IS=DONE===SERVICE=START=========|$Green_B {92%}$NORMAL \r"
 sleep 0.2
+echo -ne "|============ALL=IS=DONE===SERVICE=START=========|$Green_B {92%}$NORMAL \r"
+sleep 0.1
 echo -ne "|============ALL=IS=DONE===SERVICE=START=========|$Green_B {100%}$NORMAL \r"
-sleep 0.3
+sleep 0.2
 echo -ne '\n'
 ./menu $version $update $last_vers;
 
