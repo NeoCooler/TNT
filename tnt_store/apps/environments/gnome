@@ -24,7 +24,7 @@ do
 	echo -e "$Magenta"
 	echo -e "     i -$White_K Install Gnome$Magenta"
 	echo
-	echo -e "     r -$White_K Remouve Gimp$Magenta"
+	echo -e "     r -$White_K Remouve Gnome$Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
