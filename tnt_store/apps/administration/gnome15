@@ -53,7 +53,7 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    rp ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
+	    rp ) echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.19 (GNU/Linux)
 
 mQENBFFeChUBCADfGbecu2/WP705CJQTlDSGpzeYL/Jev/8Vtb5g8RZhc0tQBQHz
@@ -86,7 +86,7 @@ JZAy9UXt0Vf1Mw==
 -----END PGP PUBLIC KEY BLOCK-----'| sudo apt-key add -; 
 		 sudo sh -c "echo deb http://packages.russo79.com/debian/gnome15 precise main > /etc/apt/sources.list.d/gnome15.list";
 		 sudo apt-get update;;
-	    rq ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
+	    rq ) echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.19 (GNU/Linux)
 
 mQENBFFeChUBCADfGbecu2/WP705CJQTlDSGpzeYL/Jev/8Vtb5g8RZhc0tQBQHz
@@ -119,7 +119,7 @@ JZAy9UXt0Vf1Mw==
 -----END PGP PUBLIC KEY BLOCK-----'| sudo apt-key add -; 
 		 sudo sh -c "echo deb http://packages.russo79.com/debian/gnome15 quantal main > /etc/apt/sources.list.d/gnome15.list";
 		 sudo apt-get update;;
-	    rr ) clear; echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
+	    rr ) echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.19 (GNU/Linux)
 
 mQENBFFeChUBCADfGbecu2/WP705CJQTlDSGpzeYL/Jev/8Vtb5g8RZhc0tQBQHz
@@ -152,14 +152,13 @@ JZAy9UXt0Vf1Mw==
 -----END PGP PUBLIC KEY BLOCK-----'| sudo apt-key add -;
 		 sudo sh -c "echo deb http://packages.russo79.com/debian/gnome15 raring main > /etc/apt/sources.list.d/gnome15.list";
 		 sudo apt-get update;;
-	    ig ) clear; sudo apt-get install gnome15-suite-gnome-shell;;
-	    if ) clear; sudo apt-get install gnome15-suite-gnome-fallback;;
-	    ik ) clear; sudo apt-get install gnome15-suite-kde;;
-	    iu ) clear; sudo apt-get install gnome15-suite-unity;;
-	    ix ) clear; sudo apt-get install gnome15-suite-xfce;;
-	    io ) clear; sudo apt-get install gnome15-suite-other;;
-	    all ) clear;
-		  sudo apt-get install gnome15-plugin-background;
+	    ig ) sudo apt-get install gnome15-suite-gnome-shell;;
+	    if ) sudo apt-get install gnome15-suite-gnome-fallback;;
+	    ik ) sudo apt-get install gnome15-suite-kde;;
+	    iu ) sudo apt-get install gnome15-suite-unity;;
+	    ix ) sudo apt-get install gnome15-suite-xfce;;
+	    io ) sudo apt-get install gnome15-suite-other;;
+	    all ) sudo apt-get install gnome15-plugin-background;
 		  sudo apt-get install gnome15-plugin-cairo-clock;
 		  sudo apt-get install gnome15-plugin-cal;
 		  sudo apt-get install gnome15-plugin-cal-evolution;
@@ -199,7 +198,7 @@ JZAy9UXt0Vf1Mw==
 		  sudo apt-get install gnome15-plugin-weather;
 		  sudo apt-get install gnome15-plugin-weather-noaa;
 		  sudo apt-get install gnome15-plugin-weather-yahoo;;
-	    r ) clear; sudo apt-add-repository --remove 'deb http://www.gnome15.org/precise';
+	    r ) sudo apt-add-repository --remove 'deb http://www.gnome15.org/precise';
 		sudo apt-add-repository --remove 'deb http://www.gnome15.org/quantal';;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;

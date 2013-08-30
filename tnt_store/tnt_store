@@ -24,17 +24,16 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "$Cyan" "->$NORMAL$White TNT Store$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     1 -$White_K IX Last.$Red [NEWS]$Magenta"
-	echo -e "     2 -$White_K Games.$Magenta"
-        echo -e "     3 -$White_K Social.$Magenta"
-	echo -e "     4 -$White_K Entertaining.$Magenta"
-	echo -e "     5 -$White_K Photos.$Magenta"
-	echo -e "     6 -$White_K Musiques/Videos.$Magenta"
-	echo -e "     7 -$White_K Productivity.$Magenta"
-	echo -e "     8 -$White_K Tools.$Magenta"
-	echo -e "     9 -$White_K Administration.$Magenta"
-	echo -e "    10 -$White_K Environments.$Magenta"
-	echo -e "    11 -$White_K Themes.$Magenta"
+	echo -e "     1 -$White_K Games.$Magenta"
+        echo -e "     2 -$White_K Social.$Magenta"
+	echo -e "     3 -$White_K Entertaining.$Magenta"
+	echo -e "     4 -$White_K Photos.$Magenta"
+	echo -e "     5 -$White_K Musiques/Videos.$Magenta"
+	echo -e "     6 -$White_K Productivity.$Magenta"
+	echo -e "     7 -$White_K Tools.$Magenta"
+	echo -e "     8 -$White_K Administration.$Magenta"
+	echo -e "     9 -$White_K Environments.$Magenta"
+	echo -e "    10 -$White_K Themes.$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
@@ -44,17 +43,16 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	   	1 ) clear; tnt_store/app_news $version; continue;;
-	   	2 ) clear; tnt_store/app_games $version; continue;;
-		3 ) clear; tnt_store/app_social $version; continue;;
-		4 ) clear; tnt_store/app_entertaining $version; continue;;
-		5 ) clear; tnt_store/app_photos $version; continue;;
-		6 ) clear; tnt_store/app_musiques_videos $version; continue;;
-		7 ) clear; tnt_store/app_productivity $version; continue;;
-		8 ) clear; tnt_store/app_tools $version; continue;;
-		9 ) clear; tnt_store/app_administration $version; continue;;
-		10 ) clear; tnt_store/app_environments $version; continue;;
-		11 ) clear; tnt_store/app_themes $version; continue;;
+	   	1 ) clear; tnt_store/app_games $version; continue;;
+		2 ) clear; tnt_store/app_social $version; continue;;
+		3 ) clear; tnt_store/app_entertaining $version; continue;;
+		4 ) clear; tnt_store/app_photos $version; continue;;
+		5 ) clear; tnt_store/app_musiques_videos $version; continue;;
+		6 ) clear; tnt_store/app_productivity $version; continue;;
+		7 ) clear; tnt_store/app_tools $version; continue;;
+		8 ) clear; tnt_store/app_administration $version; continue;;
+		9 ) clear; tnt_store/app_environments $version; continue;;
+		10 ) clear; tnt_store/app_themes $version; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

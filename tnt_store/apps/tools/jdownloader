@@ -40,12 +40,12 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; sudo add-apt-repository ppa:jd-team/jdownloader;
-	        sudo apt-get update;
-	        sudo apt-get install jdownloader; clear; continue;;
-	    u ) clear; sudo apt-get install jdownloader; clear; continue;;
-	    o ) clear; jdownloader;clear; continue;;
-	    r ) clear; sudo apt-get autoremove --purge jdownloader; clear; continue;;
+	    i ) sudo add-apt-repository ppa:jd-team/jdownloader;
+	        apt-get update;
+	        apt-get install jdownloader;;
+	    u ) sudo apt-get install jdownloader;;
+	    o ) jdownloader;;
+	    r ) sudo apt-get autoremove --purge jdownloader;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

@@ -40,11 +40,11 @@ echo -e "$NORMAL"
 if [ "$?" != "1" ]
 then
 case "$tntopt" in
-	1 ) clear; sudo apt-get update;;
-	2 ) clear; sudo apt-get upgrade;;
-	3 ) clear; sudo apt-get dist-upgrade;;
-	4 ) clear; update/release_upgrade $version; continue;;
-	5 ) clear; update/updater $version; continue;;
+	1 ) sudo apt-get update;;
+	2 ) sudo apt-get upgrade;;
+	3 ) sudo apt-get dist-upgrade;;
+	4 ) update/release_upgrade $version; continue;;
+	5 ) update/updater $version; continue;;
 	x ) clear; exit 0;;
 	* ) echo -e "\033[31m Invalid option\033[0m";;
 esac

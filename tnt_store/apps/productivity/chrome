@@ -38,12 +38,12 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in	    
-	    i ) clear; wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -;
+	    i ) wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -;
                 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list';
 	        sudo apt-get update;
-                sudo apt-get install google-chrome-stable; clear; continue;;
-	    u ) clear; sudo apt-get install google-chrome-stable; clear; continue;;
-	    r ) clear; sudo apt-get autoremove --purge google-chrome-stable; clear; continue;;
+                sudo apt-get install google-chrome-stable;;
+	    u ) sudo apt-get install google-chrome-stable;;
+	    r ) sudo apt-get autoremove --purge google-chrome-stable;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

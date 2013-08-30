@@ -38,7 +38,7 @@ do
 		sudo apt-get update;
 		sudo apt-get install conky-manager;;
 	    r ) sudo apt-get autoremove --purge conky-manager;;
-	    x ) exit 0;;
+	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
     script/press_enter

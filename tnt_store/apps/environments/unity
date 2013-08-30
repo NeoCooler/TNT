@@ -34,8 +34,8 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) sudo apt-get install unity; clear; continue;;
-	    r ) sudor apt-get autoremove --purge unity; clear; continue;;
+	    i ) sudo apt-get install unity;;
+	    r ) sudor apt-get autoremove --purge unity;;
 	    x ) exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

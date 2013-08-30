@@ -24,7 +24,19 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "$Cyan" "->$NORMAL$White TNT Store - THEMES$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     1 -$White_K Conky Manager.$Red [NEW]$Magenta"
+	echo -e "     1 -$White_K Conky Manager.$Magenta"
+	echo -e "     2 -$White_K Gnome-Tweak-Tool.$Red [NEW]$Magenta"
+#	echo -e "     3 -$White_K My Unity.$Red [NEW]$Magenta"
+#	echo -e "     4 -$White_K Oceanik Dark.$Red [NEW]$Magenta"
+#	echo -e "     5 -$White_K Light Greyness.$Red [NEW]$Magenta"
+#	echo -e "     6 -$White_K Darkfire Zuki.$Red [NEW]$Magenta"
+#	echo -e "     7 -$White_K Elementary GTK.$Red [NEW]$Magenta"
+#	echo -e "     8 -$White_K Gnomishgray.$Red [NEW]$Magenta"
+#	echo -e "     9 -$White_K Zukitwo.$Red [NEW]$Magenta"
+#	echo -e "    10 -$White_K Zukiwi.$Red [NEW]$Magenta"
+#	echo -e "    11 -$White_K Mac OS X Lion.$Red [NEW]$Magenta"
+#	echo -e "    12 -$White_K Ice Redux.$Red [NEW]$Magenta"
+#	echo -e "    13 -$White_K Ice Cream.$Red [NEW]$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"
 	echo -e "$NORMAL"
@@ -35,6 +47,18 @@ do
 	 
 	case "$tntopt" in
 		1 ) clear; tnt_store/apps/themes/conky $version; clear; continue;;
+		2 ) clear; tnt_store/apps/themes/gnome_tweak_tool $version; clear; continue;;
+#		3 ) clear; tnt_store/apps/themes/my_unity $version; clear; continue;;
+#		4 ) clear; tnt_store/apps/themes/oceanik_dark $version; clear; continue;;
+#		5 ) clear; tnt_store/apps/themes/light_greyness $version; clear; continue;;
+#		6 ) clear; tnt_store/apps/themes/darkfire_zuki $version; clear; continue;;
+#		7 ) clear; tnt_store/apps/themes/elementary_gtk $version; clear; continue;;
+#		8 ) clear; tnt_store/apps/themes/gnomishgray $version; clear; continue;;
+#		9 ) clear; tnt_store/apps/themes/zukitwo $version; clear; continue;;
+#		10 ) clear; tnt_store/apps/themes/zukiwi $version; clear; continue;;
+#		11 ) clear; tnt_store/apps/themes/mac_os_x_lion $version; clear; continue;;
+#		12 ) clear; tnt_store/apps/themes/ice_redux $version; clear; continue;;
+#		13 ) clear; tnt_store/apps/themes/ice_cream $version; clear; continue;;
 		x ) clear; exit 1;;
 		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

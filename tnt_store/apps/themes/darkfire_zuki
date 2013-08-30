@@ -20,17 +20,11 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White UBUNTU-TWEAK INSTALL$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White DARKFIRE ZUKI INSTALL$NORMAL"
 	echo -e "$Magenta"
-	echo -e "$White_K Your Actual version is:$Red_B"
-	ubuntu-tweak --version
-	echo -e "$Magenta"
-	echo -e "     i -$White_K Install ubuntu-tweak$Magenta"
-	echo -e "     u -$White_K Update ubuntu-tweak$Magenta"
+	echo -e "     i -$White_K Install/Active Darkfire Zuki$Magenta"
 	echo
-	echo -e "     o -$White_K Open ubuntu-tweak$Magenta"
-	echo
-	echo -e "     r -$White_K Remouve ubuntu-tweak$Magenta"
+	echo -e "     r -$White_K Remove Darkfire Zuki$Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
@@ -40,13 +34,15 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) sudo add-apt-repository ppa:tualatrix/ppa;
-	        sudo apt-get update;
-	        sudo apt-get install ubuntu-tweak;;
-	    u ) sudo apt-get install ubuntu-tweak;;
-	    o ) ubuntu-tweak;;
-	    r ) sudo apt-get autoremove --purge ubuntu-tweak;;
-	    x ) clear; exit 0;;
+	    i ) sudo add-apt-repository ppa:upubuntu-com/gtk3;
+		sudo apt-get update;
+		sudo apt-get install drakfire-zuki;
+		gsettings set org.gnome.desktop.interface gtk-theme ‘Drakfire-Zuki’;
+		gconftool-2 –set –type string /apps/metacity/general/theme ‘Drakfire-Zuki’;;
+	    r ) sudo apt-get autoremove --purge oceanic-dark;
+		gsettings set org.gnome.desktop.interface gtk-theme ‘Ambiance’;
+		gconftool-2 –set –type string /apps/metacity/general/theme ‘Ambiance’;;
+	    x ) exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
     script/press_enter

@@ -40,12 +40,12 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; sudo add-apt-repository ppa:otto-kesselgulasch/gimp;
+	    i ) sudo add-apt-repository ppa:otto-kesselgulasch/gimp;
 	        sudo apt-get update;
-	        sudo apt-get install gimp; clear; continue;;
-	    u ) clear; sudo apt-get install gimp; clear; continue;;
-	    o ) clear; gimp;clear; continue;;
-	    r ) clear; sudo apt-get autoremove --purge gimp; clear; continue;;
+	        sudo apt-get install gimp;;
+	    u ) sudo apt-get install gimp;;
+	    o ) gimp;;
+	    r ) sudo apt-get autoremove --purge gimp;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

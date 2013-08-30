@@ -34,11 +34,11 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; sudo add-apt-repository ppa:gnome3-team/gnome3;
+	    i ) sudo add-apt-repository ppa:gnome3-team/gnome3;
 	        sudo apt-get update;
 		sudo apt-get upgrade;
-	        sudo apt-get install gnome-shell ubuntu-gnome-desktop; clear; continue;;
-	    r ) clear; sudo apt-get autoremove --purge gnome-shell ubuntu-gnome-desktop; clear; continue;;
+	        sudo apt-get install gnome-shell ubuntu-gnome-desktop;;
+	    r ) clear; sudo apt-get autoremove --purge gnome-shell ubuntu-gnome-desktop;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

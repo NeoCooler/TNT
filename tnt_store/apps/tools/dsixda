@@ -36,9 +36,10 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; git clone git://github.com/dsixda/Android-Kitchen.git ~/kitchen; clear; continue;;
-	    o ) clear; cd ~/kitchen; ./menu; clear; continue;;
-	    r ) clear; rm -rf  ~/kitchen; echo -e "$Red_B" " Kitchen is removed" "$NORMAL";;
+	    i ) git clone git://github.com/dsixda/Android-Kitchen.git ~/kitchen;;
+	    o ) cd ~/kitchen; ./menu;;
+	    r ) rm -rf  ~/kitchen; 
+		echo -e "$Red_B" " Kitchen is removed" "$NORMAL";;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

@@ -42,12 +42,12 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    1 ) clear; sudo add-apt-repository ppa:webupd8team/java; clear; continue;;
-	    2 ) clear; sudo apt-get install oracle-java7-installer; clear; continue;;
-	    3 ) clear; sudo update-alternatives --config java; clear; continue;;
-	    4 ) clear; sudo update-alternatives --config javac; ckear; continue;;
-	    5 ) clear; sudo update-alternatives --config mozilla-javaplugin.so; ckear; continue;;
-	    6 ) clear; sudo update-alternatives --config javaws; ckear; continue;;
+	    1 ) sudo add-apt-repository ppa:webupd8team/java;;
+	    2 ) sudo apt-get install oracle-java7-installer;;
+	    3 ) sudo update-alternatives --config java;;
+	    4 ) sudo update-alternatives --config javac;;
+	    5 ) sudo update-alternatives --config mozilla-javaplugin.so;;
+	    6 ) sudo update-alternatives --config javaws;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

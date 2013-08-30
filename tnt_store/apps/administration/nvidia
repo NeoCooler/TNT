@@ -41,11 +41,11 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    1 ) clear; sudo apt-get install linux-source; clear; continue;;
-	    2 ) clear; sudo apt-get install linux-headers-generic; clear; continue;;
-	    3 ) clear; sudo apt-get install nvidia-current-updates; clear; continue;;
-	    o ) clear; sudo reboot; continue;;
-	    r ) clear; sudo apt-get purge nvidia-current nvidia-current-updates nvidia-experimental-304; clear; continue;;
+	    1 ) sudo apt-get install linux-source;;
+	    2 ) sudo apt-get install linux-headers-generic;;
+	    3 ) sudo apt-get install nvidia-current-updates;;
+	    o ) sudo reboot;;
+	    r ) sudo apt-get purge nvidia-current nvidia-current-updates nvidia-experimental-304;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

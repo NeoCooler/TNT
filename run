@@ -11,15 +11,23 @@
 #
 ############################################################################
 
-version=0.017
-
-echo
-echo
-echo
-echo
-echo
+clear
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
 echo -ne "|               Startup TNT - STATUT[ .. ]       | {0%} \r"
 sleep 0.1
+
+version=0.018
 
 echo -ne "|====           Startup TNT - STATUT[ OK ]       | {8%} \r"
 sleep 0.2

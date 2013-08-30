@@ -24,9 +24,9 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "$Cyan" "->$NORMAL$White TNT Store - ADMINISTRATION$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     1 -$White_K Nvidia Propietary.$Red [NEW]$Magenta"
-	echo -e "     2 -$White_K Oracle Java.$Red [NEW]$Magenta"
-	echo -e "     3 -$White_K Gnome15.$Red [NEW]$Magenta"
+	echo -e "     1 -$White_K Nvidia Propietary.$Magenta"
+	echo -e "     2 -$White_K Oracle Java.$Magenta"
+	echo -e "     3 -$White_K Gnome15.$Magenta"
 	echo -e "     4 -$White_K Git.$Red [NEW]$Magenta"
 	echo
 	echo -e "     x -$White_K Return MAIN MENU$Magenta"

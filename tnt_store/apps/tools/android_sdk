@@ -36,12 +36,12 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; wget http://dl.google.com/android/android-sdk_r22.0.5-linux.tgz;
+	    i ) wget http://dl.google.com/android/android-sdk_r22.0.5-linux.tgz;
 		tar xvzf ~/TNT/android-sdk_r22.0.5-linux.tgz;
 		rm ~/TNT/android-sdk_r22.0.5-linux.tgz;
 		mv ~/TNT/android-sdk-linux ~/android-sdk;;
-	    o ) clear; cd ~/android-sdk/tools; ./android update sdk; clear; continue;;
-	    r ) clear; rm -r ~/android-sdk;;
+	    o ) cd ~/android-sdk/tools; ./android update sdk;;
+	    r ) rm -r ~/android-sdk;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

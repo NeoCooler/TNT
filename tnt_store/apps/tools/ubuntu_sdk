@@ -42,11 +42,11 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; sudo add-apt-repository ppa:ubuntu-sdk-team/ppa;
+	    i ) sudo add-apt-repository ppa:ubuntu-sdk-team/ppa;
 		sudo apt-get install ubuntu-sdk;;
-	    u ) clear; sudo apt-get install ubuntu-sdk; clear; continue;;
-	    o ) clear; ubuntu-sdk; clear; continue;;
-	    r ) clear; sudo apt-get autoremove --purge ubuntu-sdk;;
+	    u ) sudo apt-get install ubuntu-sdk;;
+	    o ) ubuntu-sdk;;
+	    r ) sudo apt-get autoremove --purge ubuntu-sdk;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

@@ -35,9 +35,11 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; sudo apt-get install git-core; apt-get install git; clear; continue;;
-	    u ) clear; git clone https://github.com/git/git.git; clear; continue;;
-	    r ) clear; sudo apt-get autoremove --purge git-core; sudo apt-get autoremove --purge git; clear; continue;;
+	    i ) sudo apt-get install git-core; 
+		apt-get install git;;
+	    u ) git clone https://github.com/git/git.git;;
+	    r ) sudo apt-get autoremove --purge git-core; 
+		sudo apt-get autoremove --purge git;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

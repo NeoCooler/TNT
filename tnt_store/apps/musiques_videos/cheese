@@ -40,10 +40,10 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) clear; sudo apt-get install cheese; clear; continue;;
-	    u ) clear; sudo apt-get install cheese; clear; continue;;
-	    o ) clear; cheese;clear; continue;;
-	    r ) clear; sudo apt-get autoremove --purge cheese; clear; continue;;
+	    i ) sudo apt-get install cheese;;
+	    u ) sudo apt-get install cheese;;
+	    o ) cheese;;
+	    r ) sudo apt-get autoremove --purge cheese;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
