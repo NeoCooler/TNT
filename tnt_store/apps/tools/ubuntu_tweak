@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ############################################################################
 #
 # Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
@@ -11,6 +13,9 @@
 
 version=$1
 
+app_b_title="UBUNTU-TWEAK"
+app_title="Ubuntu-Tweak"
+
 source script/colors
 echo -e "$NORMALE"
 
@@ -20,17 +25,17 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White UBUNTU-TWEAK INSTALL$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White $app_b_title INSTALL$NORMAL"
 	echo -e "$Magenta"
 	echo -e "$White_K Your Actual version is:$Red_B"
 	ubuntu-tweak --version
 	echo -e "$Magenta"
-	echo -e "     i -$White_K Install ubuntu-tweak$Magenta"
-	echo -e "     u -$White_K Update ubuntu-tweak$Magenta"
+	echo -e "     i -$White_K Install $app_title $Magenta"
+	echo -e "     u -$White_K Update $app_title $Magenta"
 	echo
-	echo -e "     o -$White_K Open ubuntu-tweak$Magenta"
+	echo -e "     o -$White_K Open $app_title $Magenta"
 	echo
-	echo -e "     r -$White_K Remouve ubuntu-tweak$Magenta"
+	echo -e "     r -$White_K Remouve $app_title $Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
@@ -40,12 +45,13 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) sudo add-apt-repository ppa:tualatrix/ppa;
+	    i ) sudo add-apt-repository -y ppa:tualatrix/ppa;
 	        sudo apt-get update;
-	        sudo apt-get install ubuntu-tweak;;
-	    u ) sudo apt-get install ubuntu-tweak;;
+	        sudo apt-get install -y ubuntu-tweak;;
+	    u ) sudo apt-get install -y ubuntu-tweak;;
 	    o ) ubuntu-tweak;;
-	    r ) sudo apt-get autoremove --purge ubuntu-tweak;;
+	    r ) sudo apt-get-repository --remove -y ppa:tualatrix/ppa;
+		sudo apt-get autoremove --purge -y ubuntu-tweak;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

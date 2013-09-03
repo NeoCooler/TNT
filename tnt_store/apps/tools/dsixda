@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ############################################################################
 #
 # Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
@@ -11,6 +13,9 @@
 
 version=$1
 
+app_b_title="DSIXDA's ANDROID KITCHEN"
+app_title="DSIxda's Android Kitchen"
+
 source script/colors
 echo -e "$NORMALE"
 
@@ -20,13 +25,13 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White DSIXDA'S KITCHEN INSTALL$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White $app_b_title INSTALL$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     i -$White_K Install Dsixda's Android Kitchen.$Magenta"
+	echo -e "     i -$White_K Install $app_title $Magenta"
 	echo
-	echo -e "     o -$White_K Open Dsixda's Android Kitchen.$Magenta"
+	echo -e "     o -$White_K Open $app_title $Magenta"
 	echo
-	echo -e "     r -$White_K Remouve Dsixda's Android Kitchen. Backup your job before!!!$Magenta"
+	echo -e "     r -$White_K Remouve $app_title $Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"

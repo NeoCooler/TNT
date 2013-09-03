@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ############################################################################
 #
 # Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
@@ -11,6 +13,9 @@
 
 version=$1
 
+app_b_title="CONKY MANAGER"
+app_title="Conky Manager"
+
 source script/colors
 echo -e "$NORMALE"
 
@@ -20,11 +25,12 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White CONKY MANAGER INSTALL$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White $app_b_title INSTALL$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     i -$White_K Install Conky Manager$Magenta"
+	echo -e "     i -$White_K Install $app_title $Magenta"
+	echo -e "     u -$White_K Update $app_title $Magenta"
 	echo
-	echo -e "     r -$White_K Remove Conky Manager$Magenta"
+	echo -e "     r -$White_K Remouve $app_title $Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
@@ -36,8 +42,10 @@ do
 	case "$tntopt" in
 	    i ) sudo apt-add-repository -y ppa:teejee2008/ppa;
 		sudo apt-get update;
-		sudo apt-get install conky-manager;;
-	    r ) sudo apt-get autoremove --purge conky-manager;;
+		sudo apt-get install -y conky-manager;;
+	    u ) sudo apt-get install -y conky-manager;;
+	    r ) sudo apt-get-repository --remove -y ppa:teejess2008/ppa;
+		sudo apt-get autoremove --purge -y conky-manager;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

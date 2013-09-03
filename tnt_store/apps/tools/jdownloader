@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ############################################################################
 #
 # Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com)
@@ -11,6 +13,9 @@
 
 version=$1
 
+app_b_title="JDOWNLOADER"
+app_title="JDownloader"
+
 source script/colors
 echo -e "$NORMALE"
 
@@ -20,17 +25,14 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White JDOWNLOADER INSTALL$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White $app_b_title INSTALL$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     i -$White_K Install JDownloader$Magenta"
-	echo -e "     u -$White_K Update JDownloader$Magenta"
+	echo -e "     i -$White_K Install $app_title $Magenta"
+	echo -e "     u -$White_K Update $app_title $Magenta"
 	echo
-	echo -e "     o -$White_K Open JDownloader$Magenta"
+	echo -e "     o -$White_K Open $app_title $Magenta"
 	echo
-	echo -e "     r -$White_K Remouve JDownloader$Magenta"
-	echo
-	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
-	echo
+	echo -e "     r -$White_K Remouve $app_title $Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
@@ -40,12 +42,13 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) sudo add-apt-repository ppa:jd-team/jdownloader;
-	        apt-get update;
-	        apt-get install jdownloader;;
-	    u ) sudo apt-get install jdownloader;;
+	    i ) sudo add-apt-repository -y ppa:jd-team/jdownloader;
+	        sudo apt-get update;
+	        sudo apt-get install -y jdownloader;;
+	    u ) sudo apt-get install -y jdownloader;;
 	    o ) jdownloader;;
-	    r ) sudo apt-get autoremove --purge jdownloader;;
+	    r ) sudo apt-get-repository --remove -y ppa:jd-team/jdownloader;
+		sudo apt-get autoremove --purge -y jdownloader;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

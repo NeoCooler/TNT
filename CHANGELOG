@@ -1,9 +1,12 @@
+Version 0.019 :
+Auto Install Application.
+Sync Run & Menu in one use ./run command.
+Add Test internet connection.
+
 Version 0.018 :
 Clean All installer command.
 Remouve News app section.
 Add Gnome Tweak Tool.
-
-
 
 Version 0.017 :
 Add Run to start TNT you must use ./run command now

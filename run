@@ -12,41 +12,24 @@
 ############################################################################
 
 clear
-echo -e ""
-echo -e ""
-echo -e ""
-echo -e ""
-echo -e ""
-echo -e ""
-echo -e ""
-echo -e ""
-echo -e ""
-echo -e ""
-echo -e ""
-echo -e ""
-echo -ne "|               Startup TNT - STATUT[ .. ]       | {0%} \r"
-sleep 0.1
 
+#Start TNT
+echo -ne "$Cyan" "==Startup TNT===============================================" "$NORMAL \r"
 version=0.019
+sleep 0.1;
 
-echo -ne "|====           Startup TNT - STATUT[ OK ]       | {8%} \r"
-sleep 0.2
-
-echo -ne "|========   COLOR INJECTION - STATUT[ .. ]       | {15%} \r"
-sleep 0.1
-
+#Add Colors
+echo -ne "$Cyan" "==Colors Injection==========================================" "$NORMAL \r"
 source script/colors
+sleep 0.1;
 
-echo -ne "|===========COLOR INJECTION - STATUT[$Green OK$NORMAL ]       |$Green_B {23%}$NORMAL \r"
-sleep 0.2
-echo -ne "|=====TEST=STARTING COMMAND - STATUT[$Red ..$NORMAL ]       |$Green_B {31%}$NORMAL \r"
-sleep 0.1
-
+#Test start command
+echo -ne "$Cyan" "==Test Starting Command=====================================" "$NORMAL \r"
 if [ ! -e run ]
 then
-	source */script/colors
-	echo -ne "|=====TEST=STARTING=COMMAND - STATUT[$Red_B ERROR$NORMAL ]    |$Green_B {38%}$NORMAL \r"
-	echo
+	clear
+	echo -ne "$Cyan" "==Test Starting Command==========================[$Red_B ERROR$Cyan ]==" "$NORMAL \r"
+	echo -ne '\n'
 	echo -e "$Red" "Ensure you run this file from the SAME folder as where it was"
 	echo -e "installed, otherwise TNT will have problems run."
 	echo	
@@ -55,67 +38,99 @@ then
 	echo -e "Start TNT only with the ./run command !!" "$NORMAL"
 	exit 0
 fi
+sleep 0.1;
 
-echo -ne "|=====TEST=STARTING=COMMAND - STATUT[$Green OK$NORMAL ]       |$Green_B {38%}$NORMAL \r"
-sleep 0.2
-echo -ne "|==========FIXE=PERMISSIONS - STATUT[$Red ..$NORMAL ]       |$Green_B {46%}$NORMAL \r"
-sleep 0.1
-
+#Fixe all permissions
+echo -ne "$Cyan" "==Fixe All Permissions======================================" "$NORMAL \r"
 chmod 755 android_tools/*
 chmod 755 script/*
 chmod 755 tnt_store/*
 chmod 755 update/*
+sleep 0.1;
 
-echo -ne "|==========FIXE=PERMISSIONS=- STATUT[$Green OK$NORMAL ]       |$Green_B {54%}$NORMAL \r"
-sleep 0.2
-echo -ne "|===============CHECK=ERROR=-=STATUT[$Red ..$NORMAL ]       |$Green_B {62%}$NORMAL \r"
-sleep 0.1
-
+#Check for Error
+echo -ne "$Cyan" "==Check For Error===========================================" "$NORMAL \r"
 if [ "$?" == "1" ]
 then
-	source */script/colors
-	echo -ne "|===============CHECK ERROR=-=STATUT[$Red_B ERROR$NORMAL ]    |$Green_B {69%}$NORMAL \r"
-	echo
+	clear
+	echo -ne "$Cyan" "==Check For Error================================[$Red_B ERROR$Cyan ]==" "$NORMAL \r"
+	echo -ne '\n'
 	echo -e "$Red" "An error was found can continue	!!!" "$NORMAL"
 	exit 0
 fi
+sleep 0.1;
 
-echo -ne "|===============CHECK ERROR=-=STATUT[$Green OK$NORMAL ]       |$Green_B {69%}$NORMAL \r"
-sleep 0.2
-echo -ne "|==============CHECK=UPDATE=-=STATUT[$Red ..$NORMAL ]=      |$Green_B {77%}$NORMAL \r"
-sleep 0.1
-
-online_vers=`update/check_update`
-rm -f Last_CHANGELOG
-last_vers=`echo $online_vers | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
-curr_major=`echo $version | sed 's/\([0-9]*\).[0-9]*/\1/'`
-curr_minor=`echo $version | sed 's/[0-9]*.//'`
-last_major=`echo $last_vers | sed 's/\([0-9]*\).[0-9]*/\1/'`
-last_minor=`echo $last_vers | sed 's/[0-9]*.//'`
-update=1
-
-if [ $curr_major -gt $last_major ]
+#Check Internet connection
+echo -ne "$Cyan" "==Check Internet Connection=================================" "$NORMAL \r"
+if ping -W 5 -c 1 8.8.4.4 >/dev/null; 
 then
-	update=0
-else
-	if [ $curr_major -eq $last_major ]
+	sleep 0.1;
+	#Check for update
+	echo -ne "$Cyan" "==Check for Update==========================================" "$NORMAL \r"
+	online_vers=`update/check_update`
+	rm -f Last_CHANGELOG
+	last_vers=`echo $online_vers | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
+	curr_major=`echo $version | sed 's/\([0-9]*\).[0-9]*/\1/'`
+	curr_minor=`echo $version | sed 's/[0-9]*.//'`
+	last_major=`echo $last_vers | sed 's/\([0-9]*\).[0-9]*/\1/'`
+	last_minor=`echo $last_vers | sed 's/[0-9]*.//'`
+	update=1
+	if [ $curr_major -gt $last_major ]
 	then
-		if [ $curr_minor -ge $last_minor ]
+		update=0
+	else
+		if [ $curr_major -eq $last_major ]
 		then
-			update=0
+			if [ $curr_minor -ge $last_minor ]
+			then
+				update=0
+			fi
 		fi
 	fi
+else
+	clear
+	echo -ne "$Cyan" "==Check Internet Connection======================[$Red_B ERROR$Cyan ]==" "$NORMAL \r"
+	echo -ne '\n'
+	echo -e "$Red" "Internet connection not found !!!"
+	echo -e "Check your internet connection and restart this script." "$NORMAL"
+	exit 0
 fi
 
-echo -ne "|==============CHECK=UPDATE=-=STATUT[$Green OK$NORMAL ]=====  |$Green_B {85%}$NORMAL \r"
-sleep 0.2
-echo -ne "|============ALL=IS=DONE===SERVICE=START=========|$Green_B {92%}$NORMAL \r"
-sleep 0.1
-echo -ne "|============ALL=IS=DONE===SERVICE=START=========|$Green_B {100%}$NORMAL \r"
-sleep 0.2
+while :
+do
+if [ $update == 0 ] 
+then
+	echo -ne "$Cyan" "==No Update=================================================" "$NORMAL \r"
+else
+	echo -ne "$Cyan" "==New Update ($Red_K V. $last_vers$Cyan ) Push (N) => Direct Update=========" "$NORMAL \r"
+fi
 echo -ne '\n'
-./menu $version $update $last_vers;
+echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
+echo -e "$Cyan" "============================================================" "$NORMAL"
+echo -e "$Cyan" "->$NORMAL$White MAIN MENU$NORMAL"
+echo -e "$Magenta"
+echo -e "     1 -$White_K TNT Store.$Magenta"
+echo -e "     2 -$White_K Android Tools.$Magenta"
+echo
+echo -e "     u -$White_K Updates.$Magenta"
+echo
+echo -e "     x -$White_K Exit.$Magenta"
+echo -e "$NORMAL"
+echo -e -n "$Yellow" " Choose option:" "$White_B"
+read tntopt
+echo
+echo -e "$NORMAL"
 
-clear;
-
-exit 0;
+if [ "$?" != "1" ]
+then
+	case "$tntopt" in
+		1 ) clear; tnt_store/tnt_store $version; continue;;
+		2 ) clear; android_tools/android_tools $version; continue;;
+		u ) clear; update/update $version; continue;;
+		n ) clear; update/updater $version; continue;;
+		x ) clear; echo -e "$Blue_B" "Goodbey !" "$NORMAL"; echo; exit 1;;
+		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
+	esac
+fi
+script/press_enter
+done

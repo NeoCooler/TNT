@@ -13,6 +13,9 @@
 
 version=$1
 
+app_b_title="GIT COLA"
+app_title="Git Cola"
+
 source script/colors
 echo -e "$NORMALE"
 
@@ -22,17 +25,17 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White GIT COLA INSTALL$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White $app_b_title INSTALL$NORMAL"
 	echo -e "$Magenta"
 	echo -e "$White_K Your Actual version is:$Red_B"
 	git-cola --version
 	echo -e "$Magenta"
-	echo -e "     i -$White_K Install Git Cola$Magenta"
-	echo -e "     u -$White_K Update Git Cola$Magenta"
+	echo -e "     i -$White_K Install $app_title $Magenta"
+	echo -e "     u -$White_K Update $app_title $Magenta"
 	echo
-	echo -e "     o -$White_K Open Git Cola$Magenta"
+	echo -e "     o -$White_K Open $app_title $Magenta"
 	echo
-	echo -e "     r -$White_K Remouve Git Cola$Magenta"
+	echo -e "     r -$White_K Remouve $app_title $Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
@@ -42,10 +45,10 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) sudo apt-get install git-cola;;
-	    u ) sudo apt-get install git-cola;;
+	    i ) sudo apt-get install -y git-cola;;
+	    u ) sudo apt-get install -y git-cola;;
 	    o ) git-cola;clear; continue;;
-	    r ) sudo apt-get autoremove --purge git-cola;;
+	    r ) sudo apt-get autoremove --purge -y git-cola;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac

@@ -13,6 +13,9 @@
 
 version=$1
 
+app_b_title="UBUNTU MOBIL SDK"
+app_title="Ubuntu Mobil SDK"
+
 source script/colors
 echo -e "$NORMALE"
 
@@ -22,17 +25,17 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White UBUNTU MOBIL SDK INSTALL$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White $app_b_title INSTALL$NORMAL"
 	echo -e "$Magenta"
 	echo -e "$White_K Your Actual version is:$Red_B"
-	git-cola --version
+	ubuntu-sdk --version
 	echo -e "$Magenta"
-	echo -e "     i -$White_K Install Ubuntu Mobil SDK$Magenta"
-	echo -e "     u -$White_K Update Ubuntu Mobil SDK$Magenta"
+	echo -e "     i -$White_K Install $app_title $Magenta"
+	echo -e "     u -$White_K Update $app_title $Magenta"
 	echo
-	echo -e "     o -$White_K Open Ubuntu Mobil SDK Updater$Magenta"
+	echo -e "     o -$White_K Open $app_title $Magenta"
 	echo
-	echo -e "     r -$White_K Remouve Ubuntu Mobil SDK$Magenta"
+	echo -e "     r -$White_K Remouve $app_title $Magenta"
 	echo
 	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
@@ -42,11 +45,12 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-	    i ) sudo add-apt-repository ppa:ubuntu-sdk-team/ppa;
-		sudo apt-get install ubuntu-sdk;;
-	    u ) sudo apt-get install ubuntu-sdk;;
+	    i ) sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa;
+		sudo apt-get install -y ubuntu-sdk;;
+	    u ) sudo apt-get install -y ubuntu-sdk;;
 	    o ) ubuntu-sdk;;
-	    r ) sudo apt-get autoremove --purge ubuntu-sdk;;
+	    r ) sudo apt-get-repository --remove -y ubuntu-sdk;
+		sudo apt-get autoremove --purge -y ubuntu-sdk;;
 	    x ) clear; exit 0;;
 	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
