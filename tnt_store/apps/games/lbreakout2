@@ -13,6 +13,9 @@
 
 version=$1
 
+app_b_title="LBREAKOUT2"
+app_title="LBreakout 2"
+
 source script/colors
 echo -e "$NORMALE"
 
@@ -24,12 +27,16 @@ do
 	echo -e "$Cyan" "============================================================" "$NORMAL"
 	echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
 	echo -e "$Cyan" "============================================================" "$NORMAL"
-	echo -e "$Cyan" "->$NORMAL$White TNT Store - GAMES$NORMAL"
+	echo -e "$Cyan" "->$NORMAL$White $app_b_title INSTALL$NORMAL"
 	echo -e "$Magenta"
-	echo -e "     1 -$White_K Open Arena.$Magenta"
-	echo -e "     2 -$White_K LBreakOut.$Magenta"
+	echo -e "     i -$White_K Install $app_title $Magenta"
+	echo -e "     u -$White_K Update $app_title $Magenta"
 	echo
-	echo -e "     x -$White_K Return MAIN MENU$Magenta"
+	echo -e "     o -$White_K Open $app_title $Magenta"
+	echo
+	echo -e "     r -$White_K Remouve $app_title $Magenta"
+	echo
+	echo -e "     x -$White_K Return APPLICATIONS MENU$Magenta"
 	echo -e "$NORMAL"
 	echo -e -n "$Yellow" " Choose option:" "$White_B"
 	read tntopt
@@ -37,12 +44,12 @@ do
 	echo -e "$NORMAL"
 	 
 	case "$tntopt" in
-		1 ) clear; tnt_store/apps/games/openarena $version; clear; continue;;
-		2 ) clear; tnt_store/apps/games/lbreakout2 $version; clear; continue;;
-		x ) clear; exit 1;;
-		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
+	    i ) sudo apt-get install -qq lbreakout2;;
+	    u ) sudo apt-get install -qq lbreakout2;;
+	    o ) lbreakout2;clear; continue;;
+	    r ) sudo apt-get autoremove --purge -qq lbreakout2;;
+	    x ) clear; exit 0;;
+	    * ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
 	esac
-
-	script/press_enter
-
+    script/press_enter
 done
