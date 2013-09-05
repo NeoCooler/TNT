@@ -15,13 +15,31 @@ clear
 
 #Start TNT
 echo -ne "$Cyan" "==Startup TNT===============================================" "$NORMAL \r"
-version=0.019
-sleep 0.1;
+version=0.020
 
 #Add Colors
 echo -ne "$Cyan" "==Colors Injection==========================================" "$NORMAL \r"
 source script/colors
-sleep 0.1;
+
+#TEST root access
+echo -ne "$Cyan" "==Test Root Password========================================" "$NORMAL \r"
+while : 
+do
+sudo_test=$(echo $PASSWORD | sudo -S uptime 2|grep "load"|wc -l)
+if [ $sudo_test -gt 0 ]
+then
+	clear
+	echo -ne "$Cyan" "==Root Password is OK=======================================" "$NORMAL \r"
+	break;
+else
+	#Add root access
+	clear
+	echo -ne "$Cyan" "==No/Bad Password===========================================" "$NORMAL \r"
+	clear
+	echo -ne "$Cyan" "==Add Root Password=========================================" "$NORMAL \r"
+	PASSWORD=$(zenity --password)
+fi
+done
 
 #Test start command
 echo -ne "$Cyan" "==Test Starting Command=====================================" "$NORMAL \r"
@@ -38,7 +56,6 @@ then
 	echo -e "Start TNT only with the ./run command !!" "$NORMAL"
 	exit 0
 fi
-sleep 0.1;
 
 #Fixe all permissions
 echo -ne "$Cyan" "==Fixe All Permissions======================================" "$NORMAL \r"
@@ -46,7 +63,6 @@ chmod 755 android_tools/*
 chmod 755 script/*
 chmod 755 tnt_store/*
 chmod 755 update/*
-sleep 0.1;
 
 #Check for Error
 echo -ne "$Cyan" "==Check For Error===========================================" "$NORMAL \r"
@@ -58,13 +74,11 @@ then
 	echo -e "$Red" "An error was found can continue	!!!" "$NORMAL"
 	exit 0
 fi
-sleep 0.1;
 
 #Check Internet connection
 echo -ne "$Cyan" "==Check Internet Connection=================================" "$NORMAL \r"
 if ping -W 5 -c 1 8.8.4.4 >/dev/null; 
 then
-	sleep 0.1;
 	#Check for update
 	echo -ne "$Cyan" "==Check for Update==========================================" "$NORMAL \r"
 	online_vers=`update/check_update`

@@ -19,6 +19,8 @@ app_title="Ubuntu-Tweak"
 source script/colors
 echo -e "$NORMALE"
 
+source script/check_root
+
 while : 
 do
 	clear

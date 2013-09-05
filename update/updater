@@ -16,6 +16,8 @@ curr_vers=$1
 source script/colors
 echo -e "$NORMALE"
 
+source script/check_root
+
 echo -e "$Cyan" "============================================================" "$NORMAL"
 echo -e "     $Green_BU"" ToolsNeoTeam V.$curr_vers - by NeoCooler aka krisjanne" "$NORMAL"
 echo -e "$Cyan" "============================================================" "$NORMAL"

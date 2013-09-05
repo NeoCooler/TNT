@@ -1,3 +1,7 @@
+Version 0.020 :
+Fix Some error.
+Add Test root access.
+
 Version 0.019 :
 Auto Install Application.
 Sync Run & Menu in one use ./run command.
