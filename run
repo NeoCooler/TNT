@@ -27,9 +27,6 @@ echo -e "#######################################################################
 
 VERSION=0.021
 
-/usr/bin/notify-send "Startup TNT  V. $VERSION"
-
-
 DISTRIBUTION="raring"
 ARCHITECTURE=`uname -m`
 RESTART="NO"
@@ -38,21 +35,117 @@ UPDATEREQUIRED="NO"
 CODENAME=$(lsb_release -cs)
 PASSWORD=
 
-function LBreakout()
+function GimpPrep()
 {
-	echo -ne $GREEN"-> Installing LBreakout 2$NORMAL\r"
-	sudo apt-get -qq install lbreakout2
-	echo -ne '\n'
+	if [ -f /etc/apt/sources.list.d/otto-kesselgulasch-gimp-$DISTRIBUTION.list ]
+		then
+			echo -e $MAGENTA"<-> Gimp Repository Found"$NORMAL
+		else
+			echo -e $BLUE"-> Adding The Gimp Repository"$NORMAL
+			sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+		fi
+		UPDATEREQUIRED="YES"
+		return
+}
+
+function GoogleChromePrep()
+{
+	if [ -f /etc/apt/sources.list.d/google-chrome.list ]
+		then
+			echo -e $MAGENTA"<-> Google Chrome Repository Found"$NORMAL
+		else
+			echo -e $BLUE"-> Adding The Google Chrome Repository"$NORMAL
+			wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+			sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+		fi
+		UPDATEREQUIRED="YES"
+		return
+}
+
+#############################################################
+
+function LBreakout()
+{	
+	if [ -e /usr/games/lbreakout2 ]
+	then
+		echo -e $MAGENTA"<-> Update LBreakout 2$NORMAL"
+		sudo apt-get -qq install lbreakout2
+	else
+		echo -e $GREEN"-> Installing LBreakout 2$NORMAL"
+		sudo apt-get -qq install lbreakout2
+	fi
 	return
 }
 
 function OpenArena()
 {
-	echo -ne $GREEN"-> Installing Open Arena$NORMAL\r"
-	sudo apt-get -qq install openarena
-	echo -ne '\n'
+	if [ -e /usr/games/openarena ]
+	then
+		echo -e $MAGENTA"<-> Update Open Arena$NORMAL"
+		sudo apt-get -qq install openarena
+	else
+		echo -e $GREEN"-> Installing Open Arena$NORMAL"
+		sudo apt-get -qq install openarena
+	fi
 	return
 }
+
+function Cheese()
+{
+	if [ -e /usr/bin/cheese ]
+	then
+		echo -e $MAGENTA"<-> Update Cheese$NORMAL"
+		sudo apt-get -qq install cheese
+	else
+		echo -e $GREEN"-> Installing Cheese$NORMAL"
+		sudo apt-get -qq install cheese
+	fi
+	return
+}
+
+function Gimp()
+{
+	if [ -e /usr/bin/gimp ]
+	then
+		echo -e $MAGENTA"<-> Update Gimp$NORMAL"
+		sudo apt-get -qq install gimp
+	else
+		echo -e $GREEN"-> Installing Gimp$NORMAL"
+		sudo apt-get -qq install gimp
+	fi
+	return
+}
+
+function GoogleChrome()
+{
+	if [ -e /usr/bin/google-chrome ]
+	then
+		echo -e $MAGENTA"<-> Update Google Chrome$NORMAL"
+		sudo apt-get -qq install google-chrome-stable
+	else
+		echo -e $GREEN"-> Installing Google Chrome$NORMAL"
+		sudo apt-get -qq install google-chrome-stable
+	fi
+	return
+}
+
+function Nvidia()
+{
+	if [ -e /usr/bin/nvidia-smi ]
+	then
+		echo -e $MAGENTA"<-> Update Nvidia$NORMAL"
+		sudo apt-get -qq install nvidia-current-updates
+	else
+		echo -e $GREEN"-> Installing Nvidia$NORMAL"
+		sudo apt-get -qq install linux-source
+		sudo apt-get -qq install linux-headers-generic
+		sudo apt-get -qq install nvidia-current-updates
+	fi
+	REBOOT="YES"
+	return
+}
+
+
 
 
 
@@ -243,7 +336,19 @@ fi
 
 while :
 do
-ans=$(zenity  --list  --width=350 --height=335 --text "TNT $VERSION MAIN MENU" --cancel-label "Exit" --column "Options" "Installations/Modifications" "Android" "Update")
+ans=$(zenity  --list \
+	--width=350 \
+	--height=335 \
+	--title "TNT $VERSION MAIN MENU" \
+	--text "Choose a options:" \
+	--cancel-label "Exit" \
+	--column "Actions" \
+	"Installations/Modifications" \
+	"Remove" \
+	"Android" \
+	"Clean" \
+	"Update"
+)
 if [ $? == 1 ]
 then
 	unset BLACK
@@ -286,28 +391,52 @@ for x in $menu
 do
 	if [ $x = "Installations/Modifications" ]
 	then
-		ans=$(zenity  --list  --width=600 --height=670 --text "TNT $VERSION Installations & Modifications" --cancel-label "Back" --checklist  --column "Select" --column "Options" FALSE "LBreakout" FALSE "OpenArena" --separator=":")
+		ans=$(zenity  --list \
+			--width=600 \
+			--height=670 \
+			--title "TNT $VERSION Installations/Modifications" \
+			--text "Select what you need:" \
+			--cancel-label "Back" \
+			--ok-label "Install Selected" \
+			--checklist \
+			--column "Select" --column "App. Name" --column "Informations" \
+			FALSE "LBreakout" "A clone of the classic game Breakout." \
+			FALSE "OpenArena" "Games Like Quake 3." \
+			FALSE "Cheese" "WebCam Application." \
+			FALSE "Gimp" "GNU Image Manipulation Program." \
+			FALSE "Google-Chrome" "A fast and free Web browser." \
+			FALSE "Nvidia" "Official owner of nvidia driver." \
+			--separator=":"
+		)
 		if [ $? == 1 ]
 		then
 			echo
 		fi
 		arr=$(echo $ans | tr "\:" "\n")
 
-		echo -e $BLUE"#"
-		echo -e $BLUE"# Installer Info:"
-		echo -e $BLUE"#$NORMAL"
+		if [ $? == 0 ]
+		then
+			echo -e $BLUE"#"
+			echo -e $BLUE"# Installer Info:"
+			echo -e $BLUE"#$NORMAL"
+		fi
+
 
 		for x in $arr
 		do
-			if [ $x = "WebDevelopmentPrep" ]
+			if [ $x = "Gimp" ]
 			then
-				WebDevelopmentPrep
+				GimpPrep
+			fi
+			if [ $x = "Google-Chrome" ]
+			then
+				GoogleChromePrep
 			fi
 		done
 
 		if [ $UPDATEREQUIRED = "YES" ]
 		then
-			sudo apt-get -q update
+			sudo apt-get -qq update
 		fi
 
 		for x in $arr
@@ -320,12 +449,41 @@ do
 			then
 				OpenArena
 			fi
+			if [ $x = "Cheese" ]
+			then
+				Cheese
+			fi
+			if [ $x = "Gimp" ]
+			then
+				Gimp
+			fi
+			if [ $x = "Google-Chrome" ]
+			then
+				GoogleChrome
+			fi
+			if [ $x = "Nvidia" ]
+			then
+				Nvidia
+			fi
 		done
 	fi
+
+	if [ $x = "Uninstall" ]
+	then
+		echo "Uninstall MENU"
+		/usr/bin/notify-send "Coming soon"
+	fi
+
 
 	if [ $x = "Android" ]
 	then
 		echo "Android MENU"
+		/usr/bin/notify-send "Coming soon"
+	fi
+
+	if [ $x = "Clean" ]
+	then
+		echo "Clean MENU"
 		/usr/bin/notify-send "Coming soon"
 	fi
 
