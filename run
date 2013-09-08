@@ -217,18 +217,19 @@ else
 		zenity --question --text="You are using BleedingEdge $VERSION .\n\nThe latest version available is $LAST_VERSION .\n\nDo you wish to download version $LAST_VERSION ?"
 		if [ $? == 0 ]
 		then
-			new_file=TNT_$LAST_VERSION.zip
-			url=https://github.com/NeoCooler/TNT/archive/master.zip
-			wget --no-check-certificate $url -O $new_file
-			unzip ~/TNT/$new_file -d ~/TNT/
-			rm ~/TNT/$new_file
+			NEW_FILE=TNT_$LAST_VERSION.zip
+			URL=https://github.com/NeoCooler/TNT/archive/master.zip
+			wget --no-check-certificate $URL -O $NEW_FILE
+			unzip ~/TNT/$NEW_FILE -d ~/TNT/
+			rm ~/TNT/$NEW_FILE
 			cp -a ~/TNT/TNT-master/* ~/TNT/
+			rm -r ~/TNT/TNT-master			
 			echo -e $BLUE"Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION"$NORMAL
-			/usr/bin/notify-send "Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION"
+			/usr/bin/notify-send "Done! TNT is up to date. You need to restart TNT to run last version $LAST_VERSION"
 		fi
 fi
 
-zenity --question --text="TNT for Ubuntu version $VERSION\n\nCopyright (c) 2013 - NeoTeam (neocooler29@gmail.com)\n\nRun this script in a terminal.\n\nThis script adds software/tools from sources which are not under its control.\n\nNo warranty or guarantee of suitability exists for this software.\n\nUse at your own risk.\n\nAre you sure you wish to proceed?"
+zenity --question --text="TNT for Ubuntu version $VERSION\n\nCopyright 2013 - NeoTeam\n\nRun this script in a terminal.\n\nThis script adds software/tools from sources which are not under its control.\n\nNo warranty or guarantee of suitability exists for this software.\n\nUse at your own risk.\n\nAre you sure you wish to proceed?"
 if [ $? == 1 ]
 then
 	/usr/bin/notify-send "TNT Terminated"
