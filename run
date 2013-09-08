@@ -1,150 +1,339 @@
 #!/bin/bash
-
-#############################################################################################
-#  -----------------------------------                                                      #
-#  | ######## ###   ## ########      | Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) #
-#  |    ##    ####  ##    ##         ---                                                    #
-#  |    ##    ## ## ##    ##            |-¸¸¸ ¸¸¸ ¸¸¸ ¸¸¸ ¸¸¸ ¸¸¸ ¸¸¸ ¸¸¸ ¸¸¸ ¸¸¸           #
-#  |    ##    ##  ####    ##         ---    ``` ``` ``` ``` ``` ``` ``` ``` ``` ```***      #
-#  |    ##    ##   ###    ##         | TNT(Tools NeoTeam) is 100% free.                     #
-#  ----------------------------------- It may not be duplicated for monetary benefit or any #
-#                                    other purpose Without the permission of the developer. #
-#############################################################################################
-
 clear
+echo -ne '\e[8;13;93t'
 
-#Start TNT
-echo -ne "$Cyan" "==Startup TNT===============================================" "$NORMAL \r"
-version=0.020
+BLACK="\033[0;30m"
+RED="\033[0;31m"
+GREEN="\033[1;32m"
+YELLOW="\033[0;33m"
+BLUE="\033[0;34m"
+MAGENTA="\033[0;35m"
+CYAN="\033[0;36m"
+WHITE="\033[1;37m"
 
-#Add Colors
-echo -ne "$Cyan" "==Colors Injection==========================================" "$NORMAL \r"
-source script/colors
+NORMAL="\033[0;0m"
+echo
+echo
+echo -e "$BLUE#############################################################################################"
+echo -e "#$NORMAL  $RED-----------------------------------                                                      $BLUE#"
+echo -e "#$NORMAL  $RED| $GREEN######## ###   ## ########      $RED|$GREEN Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) $BLUE#"
+echo -e "#$NORMAL  $RED|    $GREEN##    ####  ##    ##         $RED---                                                    $BLUE#"
+echo -e "#$NORMAL  $RED|    $GREEN##    ## ## ##    ##            $RED|-,,, ,,, ,,, ,,, ,,, ,,, ,,, ,,, ,,, ,,, $YELLOW,,,       $BLUE#"
+echo -e "#$NORMAL  $RED|    $GREEN##    ##  ####    ##         $RED---                                                    $BLUE#"
+echo -e "#$NORMAL  $RED|    $GREEN##    ##   ###    ##         $RED|$GREEN TNT(Tools NeoTeam) is 100% free.                     $BLUE#"
+echo -e "#$NORMAL  $RED-----------------------------------$GREEN It may not be duplicated for monetary benefit or any $BLUE#"
+echo -e "#$NORMAL                                   $GREEN other purpose Without the permission of the developer. $BLUE#"
+echo -e "#############################################################################################$NORMAL"
+
+VERSION=0.021
+
+/usr/bin/notify-send "Startup TNT  V. $VERSION"
+
+
+DISTRIBUTION="raring"
+ARCHITECTURE=`uname -m`
+RESTART="NO"
+REBOOT="NO"
+UPDATEREQUIRED="NO"
+CODENAME=$(lsb_release -cs)
+PASSWORD=
+
+function LBreakout()
+{
+	echo -ne $GREEN"-> Installing LBreakout 2$NORMAL\r"
+	/usr/bin/notify-send "Installing LBreakout 2"
+	sudo apt-get -qq install lbreakout2
+	echo -ne '\n'
+	return
+}
+
+function OpenArena()
+{
+	echo -ne $GREEN"-> Installing Open Arena$NORMAL\r"
+	/usr/bin/notify-send "Installing Open Arena"
+	sudo apt-get -qq install openarena
+	echo -ne '\n'
+	return
+}
+
+
+
+echo -e $BLUE"#"
+echo -e $BLUE"# Debug Return:"
+echo -e $BLUE"#$NORMAL"
 
 #TEST root access
-echo -ne "$Cyan" "==Test Root Password========================================" "$NORMAL \r"
 while : 
 do
 sudo_test=$(echo $PASSWORD | sudo -S uptime 2|grep "load"|wc -l)
 if [ $sudo_test -gt 0 ]
 then
-	clear
-	echo -ne "$Cyan" "==Root Password is OK=======================================" "$NORMAL \r"
+	echo -e $GREEN"-> Root Access Verified"$NORMAL
 	break;
 else
 	#Add root access
-	clear
-	echo -ne "$Cyan" "==No/Bad Password===========================================" "$NORMAL \r"
-	clear
-	echo -ne "$Cyan" "==Add Root Password=========================================" "$NORMAL \r"
+	/usr/bin/notify-send "Set Your Root Password."
 	PASSWORD=$(zenity --password)
 fi
 done
 
-#Test start command
-echo -ne "$Cyan" "==Test Starting Command=====================================" "$NORMAL \r"
-if [ ! -e run ]
+#Check Distro
+if [ $CODENAME != $DISTRIBUTION ]
 then
-	clear
-	echo -ne "$Cyan" "==Test Starting Command==========================[$Red_B ERROR$Cyan ]==" "$NORMAL \r"
-	echo -ne '\n'
-	echo -e "$Red" "Ensure you run this file from the SAME folder as where it was"
-	echo -e "installed, otherwise TNT will have problems run."
-	echo	
-	echo -e "After you 'cd' to TNT folderStart TNT"
-	echo
-	echo -e "Start TNT only with the ./run command !!" "$NORMAL"
-	exit 0
+	echo -e  $RED"Sorry, you are using $CODENAME.  Only Ubuntu $DISTRIBUTION is supported."$NORMAL
+	/usr/bin/notify-send "Sorry, you are using $CODENAME.  Only Ubuntu $DISTRIBUTION is supported."
+	read -sn 1 -p "Press any key to terminate."
+	echo -e "\n"
+	exit 1
+else
+	echo -e $GREEN"-> Distribution Verified"$NORMAL
 fi
 
-#Fixe all permissions
-echo -ne "$Cyan" "==Fixe All Permissions======================================" "$NORMAL \r"
-chmod 755 android_tools/*
-chmod 755 script/*
-chmod 755 tnt_store/*
-chmod 755 update/*
-
-#Check for Error
-echo -ne "$Cyan" "==Check For Error===========================================" "$NORMAL \r"
-if [ "$?" == "1" ]
+#Check Architecture
+if [ $ARCHITECTURE != "i686" ]
 then
-	clear
-	echo -ne "$Cyan" "==Check For Error================================[$Red_B ERROR$Cyan ]==" "$NORMAL \r"
-	echo -ne '\n'
-	echo -e "$Red" "An error was found can continue	!!!" "$NORMAL"
-	exit 0
-fi
-
-#Check Internet connection
-echo -ne "$Cyan" "==Check Internet Connection=================================" "$NORMAL \r"
-if ping -W 5 -c 1 8.8.4.4 >/dev/null; 
-then
-	#Check for update
-	echo -ne "$Cyan" "==Check for Update==========================================" "$NORMAL \r"
-	online_vers=`update/check_update`
-	rm -f Last_CHANGELOG
-	last_vers=`echo $online_vers | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
-	curr_major=`echo $version | sed 's/\([0-9]*\).[0-9]*/\1/'`
-	curr_minor=`echo $version | sed 's/[0-9]*.//'`
-	last_major=`echo $last_vers | sed 's/\([0-9]*\).[0-9]*/\1/'`
-	last_minor=`echo $last_vers | sed 's/[0-9]*.//'`
-	update=1
-	if [ $curr_major -gt $last_major ]
+	if [ $ARCHITECTURE != "x86_64" ]
 	then
-		update=0
-	else
-		if [ $curr_major -eq $last_major ]
-		then
-			if [ $curr_minor -ge $last_minor ]
-			then
-				update=0
-			fi
-		fi
+	echo -e  $RED"Sorry, only i686 and x86_64 architectures are supported."$NORMAL
+	/usr/bin/notify-send "Sorry, only i686 and x86_64 architectures are supported."
+	sleep 5
+	exit 1
 	fi
 else
-	clear
-	echo -ne "$Cyan" "==Check Internet Connection======================[$Red_B ERROR$Cyan ]==" "$NORMAL \r"
-	echo -ne '\n'
-	echo -e "$Red" "Internet connection not found !!!"
-	echo -e "Check your internet connection and restart this script." "$NORMAL"
+	echo -e $GREEN"-> Architecture Verified"$NORMAL
+fi
+
+#Check programm open
+while ps -U root -u root u | grep "synaptic" | grep -v grep > /dev/null;
+	do 
+	echo -e $RED"Installation can't continue. Please close Synaptic first then try again."$NORMAL
+	/usr/bin/notify-send "Installation can't continue. Please close Synaptic first then try again."
+	read -sn 1 -p "Press any key to continue…
+"
+done
+while ps -e | grep "update-manager" | grep -v grep > /dev/null;
+	do
+	echo -e $RED"Installation can't continue. Please close Update Manager first then try again."$NORMAL
+	/usr/bin/notify-send "Installation can't continue. Please close Update Manager first then try again."
+	read -sn 1 -p "Press any key to continue…
+"
+done
+while ps -U root -u root u | grep "software-center" | grep -v grep > /dev/null;
+	do 
+	echo -e $RED"Installation can't continue. Please close Software Center first then try again."$NORMAL
+	/usr/bin/notify-send "Installation can't continue. Please close Software Center first then try again."
+	read -sn 1 -p "Press any key to continue…
+"
+done
+while ps -U root -u root u | grep "apt-get" | grep -v grep > /dev/null;
+	do
+	echo -e $RED"Installation can't continue. Please wait for apt-get to finish running, or terminate the process, then try again."$NORMAL
+	/usr/bin/notify-send "Installation can't continue. Please wait for apt-get to finish running, or terminate the process, then try again."
+	read -sn 1 -p "Press any key to continue…
+"
+done
+while ps -U root -u root u | grep "dpkg" | grep -v grep > /dev/null;
+	do 
+	echo -e $RED"Installation can't continue. Wait for dpkg to finish running, or exit it, then try again."$NORMAL
+	/usr/bin/notify-send "Installation can't continue. Wait for dpkg to finish running, or exit it, then try again."
+	read -sn 1 -p "Press any key to continue…
+"
+done
+
+#Check Internet connection
+if ping -W 5 -c 1 8.8.4.4 >/dev/null; 
+then
+	echo -e $GREEN"-> Internet Connection Verified"$NORMAL
+else
+	echo -e $RED"Internet connection not found !!!\n\nCheck your internet connection and restart this script."$NORMAL
+	/usr/bin/notify-send "Internet connection not found !!!\n\nCheck your internet connection and restart this script."
+fi
+
+#Check wget installation
+if [ -e /usr/bin/wget ]
+then
+	echo -e $GREEN"-> Wget Verified"$NORMAL
+else
+	echo -e $RED"Wget is needed for this script to run properly.  Installing wget"$NORMAL
+	sudo apt-get -qq install wget
+fi
+
+#Check zenity installation
+if [ -e /usr/bin/zenity ]
+then
+	echo -e $GREEN"-> Zenity Verified"$NORMAL
+else
+	echo -e $RED"Zenity is needed for this script to run properly.  Installing Zenity"$NORMAL
+	sudo apt-get -qq install zenity
+fi
+
+#Check notigy-osd installation
+if [ -e /usr/bin/notify-send ]
+then
+	echo -e  $GREEN"-> Notify-osd Verified"$NORMAL
+else
+	echo -e  $RED"notify-osd is needed for this script to run properly.  Installing notify-osd"$NORMAL
+	sudo apt-get -qq install notify-osd libnotify-bin
+fi
+
+#Check for update
+CURR_MAJOR=`echo $VERSION | sed 's/\([0-9]*\).[0-9]*/\1/'`
+CURR_MINOR=`echo $VERSION | sed 's/[0-9]*.//'`
+
+wget -q https://raw.github.com/NeoCooler/TNT/master/CHANGELOG -O ONLINE_CHANGELOG
+
+if [ "$?" == "0" ]
+then
+  
+  
+  ONLINE_VERSION=`more ONLINE_CHANGELOG | sed -e 's/Version//' \
+	         		        | sed -e 's/://' \
+	         		        | sed '2,$ d'`
+fi
+
+
+rm -f ONLINE_CHANGELOG
+LAST_VERSION=`echo $ONLINE_VERSION | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
+LAST_MAJOR=`echo $LAST_VERSION | sed 's/\([0-9]*\).[0-9]*/\1/'`
+LAST_MINOR=`echo $LAST_VERSION | sed 's/[0-9]*.//'`
+UPDATE=1
+if [ $CURR_MAJOR -gt $LAST_MAJOR ]
+then
+	UPDATE=0
+else
+	if [ $CURR_MAJOR -eq $LAST_MAJOR ]
+	then
+		if [ $CURR_MINOR -ge $LAST_MINOR ]
+		then
+			UPDATE=0
+		fi
+	fi
+fi
+if [ $UPDATE == 0 ] 
+then
+	echo -e  $GREEN"-> Latest Version Verified"$NORMAL
+else
+	echo -e  $RED"TNT Version $VERSION is obsolete.  Latest version available is $LAST_VERSION"$NORMAL
+		zenity --question --text="You are using BleedingEdge $VERSION .\n\nThe latest version available is $LAST_VERSION .\n\nDo you wish to download version $LAST_VERSION ?"
+		if [ $? == 0 ]
+		then
+			new_file=TNT_$LAST_VERSION.zip
+			url=https://github.com/NeoCooler/TNT/archive/master.zip
+			wget --no-check-certificate $url -O $new_file
+			unzip ~/TNT/$new_file -d ~/TNT/
+			rm ~/TNT/$new_file
+			cp -a ~/TNT/TNT-master/* ~/TNT/
+			echo -e $BLUE"Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION"$NORMAL
+			/usr/bin/notify-send "Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION"
+		fi
+fi
+
+zenity --question --text="TNT for Ubuntu version $VERSION\n\nCopyright (c) 2013 - NeoTeam (neocooler29@gmail.com)\n\nRun this script in a terminal.\n\nThis script adds software/tools from sources which are not under its control.\n\nNo warranty or guarantee of suitability exists for this software.\n\nUse at your own risk.\n\nAre you sure you wish to proceed?"
+if [ $? == 1 ]
+then
+	/usr/bin/notify-send "TNT Terminated"
 	exit 0
+fi
+
+zenity --question --text="Updates may be required before continuing\n\nDo you wish to update?"
+if [ $? == 0 ]
+then
+	sudo apt-get -qq update
+	echo -e  $GREEN"-> Latest Package Version Verified"$NORMAL
 fi
 
 while :
 do
-if [ $update == 0 ] 
+ans=$(zenity  --list  --width=350 --height=335 --text "TNT $VERSION MAIN MENU" --cancel-label "Exit" --column "Options" "Installations/Modifications" "Android" "Update")
+if [ $? == 1 ]
 then
-	echo -ne "$Cyan" "==No Update=================================================" "$NORMAL \r"
-else
-	echo -ne "$Cyan" "==New Update ($Red_K V. $last_vers$Cyan ) Push (N) => Direct Update=========" "$NORMAL \r"
+	unset BLACK
+	unset RED
+	unset YEllOW
+	unset MAGENTA
+	unset CYAN
+	unset WHITE
+	unset VERSION
+	unset DISTRIBUTION
+	unset ARCHITECTURE
+	unset UPDATEREQUIRED
+	unset CODENAME
+	unset PASSWORD
+	if [ $REBOOT = "YES" ]
+	then
+		clear
+		echo -e $BLUE"Done! Your computer auto-restart in 5 seconds to apply the changes."$NORMAL
+		/usr/bin/notify-send "Done! Your computer auto-restart in 5 seconds to apply the changes."
+		unset RESTART
+		unset NORMAL
+		unset BLUE
+		unset GREEN
+		sleep 5
+		sudo reboot
+	else
+		clear
+		echo -e $GREEN"Done!  TNT will end in 5 seconds."$NORMAL
+		/usr/bin/notify-send "Done!  TNT will end in 5 seconds."
+		unset RESTART
+		unset NORMAL
+		unset BLUE
+		unset GREEN
+		sleep 5
+		exit 0
+	fi
 fi
-echo -ne '\n'
-echo -e "     $Green_BU"" ToolsNeoTeam V.$version - by NeoCooler aka krisjanne" "$NORMAL"
-echo -e "$Cyan" "============================================================" "$NORMAL"
-echo -e "$Cyan" "->$NORMAL$White MAIN MENU$NORMAL"
-echo -e "$Magenta"
-echo -e "     1 -$White_K TNT Store.$Magenta"
-echo -e "     2 -$White_K Android Tools.$Magenta"
-echo
-echo -e "     u -$White_K Updates.$Magenta"
-echo
-echo -e "     x -$White_K Exit.$Magenta"
-echo -e "$NORMAL"
-echo -e -n "$Yellow" " Choose option:" "$White_B"
-read tntopt
-echo
-echo -e "$NORMAL"
+menu=$(echo $ans | tr "\:" "\n")
+for x in $menu
+do
+	if [ $x = "Installations/Modifications" ]
+	then
+		ans=$(zenity  --list  --width=600 --height=670 --text "TNT $VERSION Installations & Modifications" --cancel-label "Back" --checklist  --column "Select" --column "Options" FALSE "LBreakout" FALSE "OpenArena" --separator=":")
+		if [ $? == 1 ]
+		then
+			echo
+		fi
+		arr=$(echo $ans | tr "\:" "\n")
 
-if [ "$?" != "1" ]
-then
-	case "$tntopt" in
-		1 ) clear; tnt_store/tnt_store $version; continue;;
-		2 ) clear; android_tools/android_tools $version; continue;;
-		u ) clear; update/update $version; continue;;
-		n ) clear; update/updater $version; continue;;
-		x ) clear; echo -e "$Blue_B" "Goodbey !" "$NORMAL"; echo; exit 1;;
-		* ) echo -e "$Red_B" " Invalid option" "$NORMAL";;
-	esac
-fi
-script/press_enter
+		echo -e $BLUE"#"
+		echo -e $BLUE"# Installer Info:"
+		echo -e $BLUE"#$NORMAL"
+
+		for x in $arr
+		do
+			if [ $x = "WebDevelopmentPrep" ]
+			then
+				WebDevelopmentPrep
+			fi
+		done
+
+		if [ $UPDATEREQUIRED = "YES" ]
+		then
+			sudo apt-get -q update
+		fi
+
+		for x in $arr
+		do
+			if [ $x = "LBreakout" ]
+			then
+				LBreakout
+			fi
+			if [ $x = "OpenArena" ]
+			then
+				OpenArena
+			fi
+		done
+	fi
+
+	if [ $x = "Android" ]
+	then
+		echo "Android MENU"
+		/usr/bin/notify-send "Coming soon"
+	fi
+
+	if [ $x = "Update" ]
+	then
+		echo "Update MENU"
+		/usr/bin/notify-send "Coming soon"
+	fi
+done
 done
