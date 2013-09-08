@@ -41,7 +41,6 @@ PASSWORD=
 function LBreakout()
 {
 	echo -ne $GREEN"-> Installing LBreakout 2$NORMAL\r"
-	/usr/bin/notify-send "Installing LBreakout 2"
 	sudo apt-get -qq install lbreakout2
 	echo -ne '\n'
 	return
@@ -50,7 +49,6 @@ function LBreakout()
 function OpenArena()
 {
 	echo -ne $GREEN"-> Installing Open Arena$NORMAL\r"
-	/usr/bin/notify-send "Installing Open Arena"
 	sudo apt-get -qq install openarena
 	echo -ne '\n'
 	return
@@ -180,20 +178,20 @@ fi
 CURR_MAJOR=`echo $VERSION | sed 's/\([0-9]*\).[0-9]*/\1/'`
 CURR_MINOR=`echo $VERSION | sed 's/[0-9]*.//'`
 
-wget -q https://raw.github.com/NeoCooler/TNT/master/CHANGELOG -O ONLINE_CHANGELOG
+wget -q https://raw.github.com/NeoCooler/TNT/master/run -O ONLINE_FILE
 
 if [ "$?" == "0" ]
 then
   
   
-  ONLINE_VERSION=`more ONLINE_CHANGELOG | sed -e 's/Version//' \
-	         		        | sed -e 's/://' \
-	         		        | sed '2,$ d'`
+  ONLINE_VERSION=`more ONLINE_FILE | sed -e '/^VERSION/!d' \
+				   | sed -e 's/VERSION//' \
+				   | sed -e 's/=//'`
 fi
 
 
-rm -f ONLINE_CHANGELOG
-LAST_VERSION=`echo $ONLINE_VERSION | sed -e 's/.*Version[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
+rm -f ONLINE_FILE
+LAST_VERSION=`echo $ONLINE_VERSION | sed -e 's/.*VERSION[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
 LAST_MAJOR=`echo $LAST_VERSION | sed 's/\([0-9]*\).[0-9]*/\1/'`
 LAST_MINOR=`echo $LAST_VERSION | sed 's/[0-9]*.//'`
 UPDATE=1
