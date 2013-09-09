@@ -1,7 +1,8 @@
 #!/bin/bash
 clear
+#Ajust Terminal Dimension
 echo -ne '\e[8;13;93t'
-
+#Color injection
 BLACK="\033[0;30m"
 RED="\033[0;31m"
 GREEN="\033[1;32m"
@@ -10,8 +11,20 @@ BLUE="\033[0;34m"
 MAGENTA="\033[0;35m"
 CYAN="\033[0;36m"
 WHITE="\033[1;37m"
-
 NORMAL="\033[0;0m"
+#Icone injection
+ICO_INFO=/usr/share/app-install/icons/gtk-info.svg
+
+#System info
+VERSION=0.022
+
+DISTRIBUTION="raring"
+ARCHITECTURE=`uname -m`
+RESTART="NO"
+REBOOT="NO"
+UPDATEREQUIRED="NO"
+CODENAME=$(lsb_release -cs)
+PASSWORD=
 echo
 echo
 echo -e "$BLUE#############################################################################################"
@@ -25,23 +38,61 @@ echo -e "#$NORMAL  $RED-----------------------------------$GREEN It may not be d
 echo -e "#$NORMAL                                   $GREEN other purpose Without the permission of the developer. $BLUE#"
 echo -e "#############################################################################################$NORMAL"
 
-VERSION=0.021
+#System Fonction
+#############################################################
+function quit()
+{
+	if [ $REBOOT = "YES" ]
+	then
+		zenity --question --text="Done! Your computer need to restart to apply the change.\n\nDo you want reboot now???"
+		if [ $? == 0 ]
+			notify-send -i $ICO_INFO "INFO" "Your computer will reboot in 5 seconds"
+			sleep 5
+			sudo reboot
+		then
+			clear
+			echo -ne "$GREEN Done!  TNT will end in 3 seconds.$NORMAL\r"
+			sleep 1
+			echo -ne "$GREEN Done!  TNT will end in 2 seconds.$NORMAL\r"
+			sleep 1			
+			echo -ne "$GREEN Done!  TNT will end in 1 seconds.$NORMAL\r"
+			sleep 1			
+			echo -ne "$GREEN Done!  TNT will end in 0 seconds.$NORMAL\r"
+			echo -ne "\n"
+			clear			
+			exit 0
+		fi
+	else
+			clear
+			echo -ne "$GREEN Done!  TNT will end in 3 seconds.$NORMAL\r"
+			sleep 1
+			echo -ne "$GREEN Done!  TNT will end in 2 seconds.$NORMAL\r"
+			sleep 1			
+			echo -ne "$GREEN Done!  TNT will end in 1 seconds.$NORMAL\r"
+			sleep 1			
+			echo -ne "$GREEN Done!  TNT will end in 0 seconds.$NORMAL\r"
+			echo -ne "\n"
+			clear
+			exit 0
+	fi	
+}
 
-DISTRIBUTION="raring"
-ARCHITECTURE=`uname -m`
-RESTART="NO"
-REBOOT="NO"
-UPDATEREQUIRED="NO"
-CODENAME=$(lsb_release -cs)
-PASSWORD=
+function touchanykey()
+{
+	read -sn 1 -p "Press any key to continue…"
+}
 
+
+
+#Fonctions with update
+#############################################################
 function GimpPrep()
 {
 	if [ -f /etc/apt/sources.list.d/otto-kesselgulasch-gimp-$DISTRIBUTION.list ]
 		then
-			echo -e $MAGENTA"<-> Gimp Repository Found"$NORMAL
+			echo -e $GREEN"-> Gimp Repository Found"$NORMAL 
 		else
-			echo -e $BLUE"-> Adding The Gimp Repository"$NORMAL
+			echo -e $BLUE"  <-> Adding The Gimp Repository"$NORMAL
 			sudo add-apt-repository ppa:otto-kesselgulasch/gimp
 		fi
 		UPDATEREQUIRED="YES"
@@ -52,9 +103,10 @@ function GoogleChromePrep()
 {
 	if [ -f /etc/apt/sources.list.d/google-chrome.list ]
 		then
-			echo -e $MAGENTA"<-> Google Chrome Repository Found"$NORMAL
+			echo -e $GREEN"-> Google Chrome Repository Found"$NORMAL
 		else
-			echo -e $BLUE"-> Adding The Google Chrome Repository"$NORMAL
+			echo -e $BLUE"  <-> Adding The Google Chrome Repository"$NORMAL
+			notify-send -i $ICO_CHROME -c TNT "Installer:" "Adding The Google Chrome Repository"
 			wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 			sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 		fi
@@ -62,16 +114,35 @@ function GoogleChromePrep()
 		return
 }
 
+#Function with reboot
+#############################################################
+function Nvidia()
+{
+	if [ -e /usr/bin/nvidia-smi ]
+	then
+		echo -e $GREEN"-> Update Nvidia$NORMAL"
+		sudo apt-get -qq install nvidia-current-updates
+	else
+		echo -e $BLUE"  <-> Installing Nvidia$NORMAL"
+		sudo apt-get -qq install linux-source
+		sudo apt-get -qq install linux-headers-generic
+		sudo apt-get -qq install nvidia-current-updates
+	fi
+	REBOOT="YES"
+	return
+}
+
+#Fonctions
 #############################################################
 
 function LBreakout()
 {	
 	if [ -e /usr/games/lbreakout2 ]
 	then
-		echo -e $MAGENTA"<-> Update LBreakout 2$NORMAL"
+		echo -e $GREEN"-> LBreakout 2 is up to date!$NORMAL"
 		sudo apt-get -qq install lbreakout2
 	else
-		echo -e $GREEN"-> Installing LBreakout 2$NORMAL"
+		echo -e $BLUE"  <-> Installing LBreakout 2$NORMAL"
 		sudo apt-get -qq install lbreakout2
 	fi
 	return
@@ -81,10 +152,10 @@ function OpenArena()
 {
 	if [ -e /usr/games/openarena ]
 	then
-		echo -e $MAGENTA"<-> Update Open Arena$NORMAL"
+		echo -e $GREEN"-> Open Arena is up to date!$NORMAL"
 		sudo apt-get -qq install openarena
 	else
-		echo -e $GREEN"-> Installing Open Arena$NORMAL"
+		echo -e $BLUE"  <-> Installing Open Arena$NORMAL"
 		sudo apt-get -qq install openarena
 	fi
 	return
@@ -94,10 +165,10 @@ function Cheese()
 {
 	if [ -e /usr/bin/cheese ]
 	then
-		echo -e $MAGENTA"<-> Update Cheese$NORMAL"
+		echo -e $GREEN"-> Cheese is up to date!$NORMAL"
 		sudo apt-get -qq install cheese
 	else
-		echo -e $GREEN"-> Installing Cheese$NORMAL"
+		echo -e $BLUE"  <-> Installing Cheese$NORMAL"
 		sudo apt-get -qq install cheese
 	fi
 	return
@@ -107,10 +178,10 @@ function Gimp()
 {
 	if [ -e /usr/bin/gimp ]
 	then
-		echo -e $MAGENTA"<-> Update Gimp$NORMAL"
+		echo -e $GRENN"-> Gimp is up to date!$NORMAL"
 		sudo apt-get -qq install gimp
 	else
-		echo -e $GREEN"-> Installing Gimp$NORMAL"
+		echo -e $BLUE"  <-> Installing Gimp$NORMAL"
 		sudo apt-get -qq install gimp
 	fi
 	return
@@ -120,34 +191,93 @@ function GoogleChrome()
 {
 	if [ -e /usr/bin/google-chrome ]
 	then
-		echo -e $MAGENTA"<-> Update Google Chrome$NORMAL"
+		echo -e $GREEN"-> Google Chrome is up to date!$NORMAL"
 		sudo apt-get -qq install google-chrome-stable
 	else
-		echo -e $GREEN"-> Installing Google Chrome$NORMAL"
+		echo -e $BLUE"  <-> Installing Google Chrome$NORMAL"
 		sudo apt-get -qq install google-chrome-stable
 	fi
 	return
 }
 
-function Nvidia()
-{
-	if [ -e /usr/bin/nvidia-smi ]
+#Fonctions to remove
+#############################################################
+
+function RMLBreakout()
+{	
+	if [ -e /usr/games/lbreakout2 ]
 	then
-		echo -e $MAGENTA"<-> Update Nvidia$NORMAL"
-		sudo apt-get -qq install nvidia-current-updates
+		echo -e $BLUE"-> Removing LBreakout 2$NORMAL"
+		sudo apt-get -qq autoremove --purge lbreakout2
 	else
-		echo -e $GREEN"-> Installing Nvidia$NORMAL"
-		sudo apt-get -qq install linux-source
-		sudo apt-get -qq install linux-headers-generic
-		sudo apt-get -qq install nvidia-current-updates
+		echo -e $RED"  !-> LBreakout 2 Not Found!!$NORMAL"
 	fi
-	REBOOT="YES"
 	return
 }
 
+function RMOpenArena()
+{
+	if [ -e /usr/games/openarena ]
+	then
+		echo -e $BLUE"-> Removing Open Arena$NORMAL"
+		sudo apt-get -qq autoremove --purge openarena
+	else
+		echo -e $RED"  !-> Open Arena Not Found!!$NORMAL"
+	fi
+	return
+}
 
+function RMCheese()
+{
+	if [ -e /usr/bin/cheese ]
+	then
+		echo -e $BLUE"-> Removing Cheese$NORMAL"
+		sudo apt-get -qq autoremove --purge cheese
+	else
+		echo -e $RED"  !-> Cheese Not Found!!$NORMAL"
+	fi
+	return
+}
 
+function RMGimp()
+{
+	if [ -e /usr/bin/gimp ]
+	then
+		echo -e $BLUE"-> Removing Gimp$NORMAL"
+		sudo apt-get -qq autoremove --purge gimp
+		if [ -f /etc/apt/sources.list.d/otto-kesselgulasch-gimp-$DISTRIBUTION.list ]
+		then
+			echo -e $BLUE"-> Removing Gimp Repository"$NORMAL
+			sudo apt-get-repository --remove -y ppa:otto-kesselgulasch/gimp
+		else
+			echo -e $RED"  !-> Gimp Repository Not Found!!$NORMAL"
+		fi
+	elserem
+		echo -e $RED"  !-> Gimp Not Found!!$NORMAL"
+	fi
+	return
+}
 
+function RMGoogleChrome()
+{
+	if [ -e /usr/bin/google-chrome ]
+	then
+		echo -e $BLUE"-> Removing Google Chrome$NORMAL"
+		sudo apt-get -qq autoremove --purge google-chrome-stable
+		if [ -f /etc/apt/sources.list.d/google-chrome.list ]
+		then
+			echo -e $BLUE"-> Removing Google Chrome Repository"$NORMAL
+			sudo apt-get autoremove
+		else
+			echo -e $RED"  !-> Google Chrome Repository Not Found!!$NORMAL"
+		fi
+	else
+		echo -e $RED"  !-> Google Chrome Not Found!!$NORMAL"
+	fi
+	return
+}
+
+##########################################################################
 
 echo -e $BLUE"#"
 echo -e $BLUE"# Debug Return:"
@@ -163,8 +293,8 @@ then
 	break;
 else
 	#Add root access
-	/usr/bin/notify-send "Set Your Root Password."
-	PASSWORD=$(zenity --password)
+	notify-send -i $ICO_INFO "INFO" "Enter Root Password!!"
+	PASSWORD=$(zenity --entry --text "Enter root password" --hide-text)
 fi
 done
 
@@ -186,7 +316,6 @@ then
 	if [ $ARCHITECTURE != "x86_64" ]
 	then
 	echo -e  $RED"Sorry, only i686 and x86_64 architectures are supported."$NORMAL
-	/usr/bin/notify-send "Sorry, only i686 and x86_64 architectures are supported."
 	sleep 5
 	exit 1
 	fi
@@ -198,37 +327,27 @@ fi
 while ps -U root -u root u | grep "synaptic" | grep -v grep > /dev/null;
 	do 
 	echo -e $RED"Installation can't continue. Please close Synaptic first then try again."$NORMAL
-	/usr/bin/notify-send "Installation can't continue. Please close Synaptic first then try again."
-	read -sn 1 -p "Press any key to continue…
-"
+	touchanykey
 done
 while ps -e | grep "update-manager" | grep -v grep > /dev/null;
 	do
 	echo -e $RED"Installation can't continue. Please close Update Manager first then try again."$NORMAL
-	/usr/bin/notify-send "Installation can't continue. Please close Update Manager first then try again."
-	read -sn 1 -p "Press any key to continue…
-"
+	touchanykey
 done
 while ps -U root -u root u | grep "software-center" | grep -v grep > /dev/null;
 	do 
 	echo -e $RED"Installation can't continue. Please close Software Center first then try again."$NORMAL
-	/usr/bin/notify-send "Installation can't continue. Please close Software Center first then try again."
-	read -sn 1 -p "Press any key to continue…
-"
+	touchanykey
 done
 while ps -U root -u root u | grep "apt-get" | grep -v grep > /dev/null;
 	do
 	echo -e $RED"Installation can't continue. Please wait for apt-get to finish running, or terminate the process, then try again."$NORMAL
-	/usr/bin/notify-send "Installation can't continue. Please wait for apt-get to finish running, or terminate the process, then try again."
-	read -sn 1 -p "Press any key to continue…
-"
+	touchanykey
 done
 while ps -U root -u root u | grep "dpkg" | grep -v grep > /dev/null;
 	do 
 	echo -e $RED"Installation can't continue. Wait for dpkg to finish running, or exit it, then try again."$NORMAL
-	/usr/bin/notify-send "Installation can't continue. Wait for dpkg to finish running, or exit it, then try again."
-	read -sn 1 -p "Press any key to continue…
-"
+	touchanykey
 done
 
 #Check Internet connection
@@ -237,7 +356,6 @@ then
 	echo -e $GREEN"-> Internet Connection Verified"$NORMAL
 else
 	echo -e $RED"Internet connection not found !!!\n\nCheck your internet connection and restart this script."$NORMAL
-	/usr/bin/notify-send "Internet connection not found !!!\n\nCheck your internet connection and restart this script."
 fi
 
 #Check wget installation
@@ -305,7 +423,7 @@ then
 	echo -e  $GREEN"-> Latest Version Verified"$NORMAL
 else
 	echo -e  $RED"TNT Version $VERSION is obsolete.  Latest version available is $LAST_VERSION"$NORMAL
-		zenity --question --text="You are using BleedingEdge $VERSION .\n\nThe latest version available is $LAST_VERSION .\n\nDo you wish to download version $LAST_VERSION ?"
+		zenity --question --text="You are using TNT $VERSION .\n\nThe latest version available is $LAST_VERSION .\n\nDo you wish to download version $LAST_VERSION ?"
 		if [ $? == 0 ]
 		then
 			NEW_FILE=TNT_$LAST_VERSION.zip
@@ -316,15 +434,13 @@ else
 			cp -a ~/TNT/TNT-master/* ~/TNT/
 			rm -r ~/TNT/TNT-master			
 			echo -e $BLUE"Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION"$NORMAL
-			/usr/bin/notify-send "Done! TNT is up to date. You need to restart TNT to run last version $LAST_VERSION"
 		fi
 fi
 
 zenity --question --text="TNT for Ubuntu version $VERSION\n\nCopyright 2013 - NeoTeam\n\nRun this script in a terminal.\n\nThis script adds software/tools from sources which are not under its control.\n\nNo warranty or guarantee of suitability exists for this software.\n\nUse at your own risk.\n\nAre you sure you wish to proceed?"
 if [ $? == 1 ]
 then
-	/usr/bin/notify-send "TNT Terminated"
-	exit 0
+	quit
 fi
 
 zenity --question --text="Updates may be required before continuing\n\nDo you wish to update?"
@@ -337,75 +453,43 @@ fi
 while :
 do
 ans=$(zenity  --list \
-	--width=350 \
-	--height=335 \
+	--width=770 \
+	--height=670 \
 	--title "TNT $VERSION MAIN MENU" \
 	--text "Choose a options:" \
 	--cancel-label "Exit" \
-	--column "Actions" \
-	"Installations/Modifications" \
-	"Remove" \
-	"Android" \
-	"Clean" \
-	"Update"
+	--column "Actions" --column "Informations" \
+	"Install" "Add Mod/applications." \
+	"Remove" "Remove Mod/applications." \
+	"Android" "Add Tools for Android." \
+	"Clean" "Clean/Remove all old package/kernels." \
+	"Update" "Update all package or distribution." \
+	--separator=":"
 )
 if [ $? == 1 ]
 then
-	unset BLACK
-	unset RED
-	unset YEllOW
-	unset MAGENTA
-	unset CYAN
-	unset WHITE
-	unset VERSION
-	unset DISTRIBUTION
-	unset ARCHITECTURE
-	unset UPDATEREQUIRED
-	unset CODENAME
-	unset PASSWORD
-	if [ $REBOOT = "YES" ]
-	then
-		clear
-		echo -e $BLUE"Done! Your computer auto-restart in 5 seconds to apply the changes."$NORMAL
-		/usr/bin/notify-send "Done! Your computer auto-restart in 5 seconds to apply the changes."
-		unset RESTART
-		unset NORMAL
-		unset BLUE
-		unset GREEN
-		sleep 5
-		sudo reboot
-	else
-		clear
-		echo -e $GREEN"Done!  TNT will end in 5 seconds."$NORMAL
-		/usr/bin/notify-send "Done!  TNT will end in 5 seconds."
-		unset RESTART
-		unset NORMAL
-		unset BLUE
-		unset GREEN
-		sleep 5
-		exit 0
-	fi
+	quit	
 fi
 menu=$(echo $ans | tr "\:" "\n")
 for x in $menu
 do
-	if [ $x = "Installations/Modifications" ]
+	if [ $x = "Install" ]
 	then
 		ans=$(zenity  --list \
-			--width=600 \
+			--width=770 \
 			--height=670 \
-			--title "TNT $VERSION Installations/Modifications" \
+			--title "TNT $VERSION - Install - Add Mod/applications." \
 			--text "Select what you need:" \
 			--cancel-label "Back" \
 			--ok-label "Install Selected" \
 			--checklist \
-			--column "Select" --column "App. Name" --column "Informations" \
-			FALSE "LBreakout" "A clone of the classic game Breakout." \
-			FALSE "OpenArena" "Games Like Quake 3." \
-			FALSE "Cheese" "WebCam Application." \
-			FALSE "Gimp" "GNU Image Manipulation Program." \
-			FALSE "Google-Chrome" "A fast and free Web browser." \
-			FALSE "Nvidia" "Official owner of nvidia driver." \
+			--column "Select" --column "App. Name" --column "Informations" --column "Update?" --column "Reboot?" \
+			FALSE "LBreakout" "A clone of the classic game Breakout." "NO" "NO" \
+			FALSE "OpenArena" "Games Like Quake 3." "NO" "NO" \
+			FALSE "Cheese" "WebCam Application." "NO" "NO" \
+			FALSE "Gimp" "GNU Image Manipulation Program." "YES" "NO" \
+			FALSE "Google-Chrome" "A fast and free Web browser." "YES" "NO" \
+			FALSE "Nvidia" "Official owner of nvidia driver." "NO" "YES" \
 			--separator=":"
 		)
 		if [ $? == 1 ]
@@ -417,7 +501,7 @@ do
 		if [ $? == 0 ]
 		then
 			echo -e $BLUE"#"
-			echo -e $BLUE"# Installer Info:"
+			echo -e $BLUE"#$RED Installer Info:"
 			echo -e $BLUE"#$NORMAL"
 		fi
 
@@ -468,29 +552,81 @@ do
 		done
 	fi
 
-	if [ $x = "Uninstall" ]
+	if [ $x = "Remove" ]
 	then
-		echo "Uninstall MENU"
-		/usr/bin/notify-send "Coming soon"
+		ans=$(zenity  --list \
+			--width=770 \
+			--height=670 \
+			--title "TNT $VERSION - Remove - Remove Mod/applications." \
+			--text "Select what you don't need:" \
+			--cancel-label "Back" \
+			--ok-label "Remove Selected" \
+			--checklist \
+			--column "Select" --column "App. Name" --column "Informations" \
+			FALSE "LBreakout" "A clone of the classic game Breakout." \
+			FALSE "OpenArena" "Games Like Quake 3." \
+			FALSE "Cheese" "WebCam Application." \
+			FALSE "Gimp" "GNU Image Manipulation Program." \
+			FALSE "Google-Chrome" "A fast and free Web browser." \
+			FALSE "Nvidia" "Official owner of nvidia driver."
+		)
+		if [ $? == 1 ]
+		then
+			echo
+		fi
+		arr=$(echo $ans | tr "\:" "\n")
+
+		if [ $? == 0 ]
+		then
+			echo -e $BLUE"#"
+			echo -e $BLUE"#$RED Remover Info:"
+			echo -e $BLUE"#$NORMAL"
+		fi
+
+		for x in $arr
+		do
+			if [ $x = "LBreakout" ]
+			then
+				RMLBreakout
+			fi
+			if [ $x = "OpenArena" ]
+			then
+				RMOpenArena
+			fi
+			if [ $x = "Cheese" ]
+			then
+				RMCheese
+			fi
+			if [ $x = "Gimp" ]
+			then
+				RMGimp
+			fi
+			if [ $x = "Google-Chrome" ]
+			then
+				RMGoogleChrome
+			fi
+			if [ $x = "Nvidia" ]
+			then
+				RMNvidia
+			fi
+			sudo apt-get -qq update
+		done
 	fi
 
 
 	if [ $x = "Android" ]
 	then
-		echo "Android MENU"
-		/usr/bin/notify-send "Coming soon"
+		notify-send -i $ICO_INFO "INFO" "Coming soon"
 	fi
 
 	if [ $x = "Clean" ]
 	then
-		echo "Clean MENU"
-		/usr/bin/notify-send "Coming soon"
+		notify-send -i $ICO_INFO "INFO" "Coming soon"
 	fi
 
 	if [ $x = "Update" ]
 	then
-		echo "Update MENU"
-		/usr/bin/notify-send "Coming soon"
+		notify-send -i $ICO_INFO "INFO" "Coming soon"
 	fi
 done
 done

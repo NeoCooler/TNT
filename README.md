@@ -1,4 +1,4 @@
 TNT
 ===
 
-Ubuntu Script-Shell
+Ubuntu Script-Shell + Zenity + Notification.
