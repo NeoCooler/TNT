@@ -1,0 +1,16 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Check Distro
+if [ $CODENAME != $DISTRIBUTION ]
+then
+	echo -e  $RED"Sorry, you are using $CODENAME.  Only Ubuntu $DISTRIBUTION is supported."$NORMAL
+	notify-send -i $ICO_INFO "INFO" "Sorry, you are using $CODENAME.  Only Ubuntu $DISTRIBUTION is supported."
+	touchanykey
+	quit
+else
+	echo -e $GREEN"-> Distribution Verified"$NORMAL
+fi

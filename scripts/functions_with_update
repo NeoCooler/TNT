@@ -1,0 +1,36 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Fonctions with update
+#############################################################
+function GimpPrep()
+{
+	if [ -f /etc/apt/sources.list.d/otto-kesselgulasch-gimp-$DISTRIBUTION.list ]
+		then
+			echo -e $GREEN"-> Gimp Repository Found"$NORMAL 
+		else
+			echo -e $BLUE"  <-> Adding The Gimp Repository"$NORMAL
+			sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+		fi
+		UPDATEREQUIRED="YES"
+		return
+}
+
+function GoogleChromePrep()
+{
+	if [ -f /etc/apt/sources.list.d/google-chrome.list ]
+		then
+			echo -e $GREEN"-> Google Chrome Repository Found"$NORMAL
+		else
+			echo -e $BLUE"  <-> Adding The Google Chrome Repository"$NORMAL
+			notify-send -i $ICO_CHROME -c TNT "Installer:" "Adding The Google Chrome Repository"
+			wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+			sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+		fi
+		UPDATEREQUIRED="YES"
+		return
+}
+

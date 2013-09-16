@@ -1,0 +1,58 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Check for update
+CURR_MAJOR=`echo $VERSION | sed 's/\([0-9]*\).[0-9]*/\1/'`
+CURR_MINOR=`echo $VERSION | sed 's/[0-9]*.//'`
+
+wget -q https://raw.github.com/NeoCooler/TNT/master/run -O ONLINE_FILE
+
+if [ "$?" == "0" ]
+then
+  
+  
+  ONLINE_VERSION=`more ONLINE_FILE | sed -e '/^VERSION/!d' \
+				   | sed -e 's/VERSION//' \
+				   | sed -e 's/=//'`
+fi
+
+
+rm -f ONLINE_FILE
+LAST_VERSION=`echo $ONLINE_VERSION | sed -e 's/.*VERSION[ ]*\([0-9]*.[0-9]*\) (.*/\1/g' -e 's/[ ]*//g'`
+LAST_MAJOR=`echo $LAST_VERSION | sed 's/\([0-9]*\).[0-9]*/\1/'`
+LAST_MINOR=`echo $LAST_VERSION | sed 's/[0-9]*.//'`
+UPDATE=1
+if [ $CURR_MAJOR -gt $LAST_MAJOR ]
+then
+	UPDATE=0
+else
+	if [ $CURR_MAJOR -eq $LAST_MAJOR ]
+	then
+		if [ $CURR_MINOR -ge $LAST_MINOR ]
+		then
+			UPDATE=0
+		fi
+	fi
+fi
+if [ $UPDATE == 0 ] 
+then
+	echo -e  $GREEN"-> Latest Version Verified"$NORMAL
+else
+	echo -e  $RED"TNT Version $VERSION is obsolete.  Latest version available is $LAST_VERSION"$NORMAL
+		zenity --question --text="You are using TNT $VERSION .\n\nThe latest version available is $LAST_VERSION .\n\nDo you wish to download version $LAST_VERSION ?"
+		if [ $? == 0 ]
+		then
+			NEW_FILE=TNT_$LAST_VERSION.zip
+			URL=https://github.com/NeoCooler/TNT/archive/master.zip
+			wget --no-check-certificate $URL -O $NEW_FILE
+			unzip ~/TNT/$NEW_FILE -d ~/TNT/
+			rm ~/TNT/$NEW_FILE
+			cp -a ~/TNT/TNT-master/* ~/TNT/
+			rm -r ~/TNT/TNT-master			
+			echo -e $BLUE"Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION."$NORMAL
+			notify-send -i $ICO_INFO "INFO" "Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION."
+		fi
+fi

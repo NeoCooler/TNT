@@ -1,0 +1,150 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Fonctions
+#############################################################
+function LBreakout()
+{	
+	if [ -e /usr/games/lbreakout2 ]
+	then
+		echo -e $GREEN"-> LBreakout 2 is up to date!$NORMAL"
+		sudo apt-get -qq install lbreakout2
+	else
+		echo -e $BLUE"  <-> Installing LBreakout 2$NORMAL"
+		sudo apt-get -qq install lbreakout2
+	fi
+	return
+}
+
+function OpenArena()
+{
+	if [ -e /usr/games/openarena ]
+	then
+		echo -e $GREEN"-> Open Arena is up to date!$NORMAL"
+		sudo apt-get -qq install openarena
+	else
+		echo -e $BLUE"  <-> Installing Open Arena$NORMAL"
+		sudo apt-get -qq install openarena
+	fi
+	return
+}
+
+function Cheese()
+{
+	if [ -e /usr/bin/cheese ]
+	then
+		echo -e $GREEN"-> Cheese is up to date!$NORMAL"
+		sudo apt-get -qq install cheese
+	else
+		echo -e $BLUE"  <-> Installing Cheese$NORMAL"
+		sudo apt-get -qq install cheese
+	fi
+	return
+}
+
+function Gimp()
+{
+	if [ -e /usr/bin/gimp ]
+	then
+		echo -e $GRENN"-> Gimp is up to date!$NORMAL"
+		sudo apt-get -qq install gimp
+	else
+		echo -e $BLUE"  <-> Installing Gimp$NORMAL"
+		sudo apt-get -qq install gimp
+	fi
+	return
+}
+
+function GoogleChrome()
+{
+	if [ -e /usr/bin/google-chrome ]
+	then
+		echo -e $GREEN"-> Google Chrome is up to date!$NORMAL"
+		sudo apt-get -qq install google-chrome-stable
+	else
+		echo -e $BLUE"  <-> Installing Google Chrome$NORMAL"
+		sudo apt-get -qq install google-chrome-stable
+	fi
+	return
+}
+
+#Fonctions to remove
+#############################################################
+
+function RMLBreakout()
+{	
+	if [ -e /usr/games/lbreakout2 ]
+	then
+		echo -e $BLUE"-> Removing LBreakout 2$NORMAL"
+		sudo apt-get -qq autoremove --purge lbreakout2
+	else
+		echo -e $RED"  !-> LBreakout 2 Not Found!!$NORMAL"
+	fi
+	return
+}
+
+function RMOpenArena()
+{
+	if [ -e /usr/games/openarena ]
+	then
+		echo -e $BLUE"-> Removing Open Arena$NORMAL"
+		sudo apt-get -qq autoremove --purge openarena
+	else
+		echo -e $RED"  !-> Open Arena Not Found!!$NORMAL"
+	fi
+	return
+}
+
+function RMCheese()
+{
+	if [ -e /usr/bin/cheese ]
+	then
+		echo -e $BLUE"-> Removing Cheese$NORMAL"
+		sudo apt-get -qq autoremove --purge cheese
+	else
+		echo -e $RED"  !-> Cheese Not Found!!$NORMAL"
+	fi
+	return
+}
+
+function RMGimp()
+{
+	if [ -e /usr/bin/gimp ]
+	then
+		echo -e $BLUE"-> Removing Gimp$NORMAL"
+		sudo apt-get -qq autoremove --purge gimp
+		if [ -f /etc/apt/sources.list.d/otto-kesselgulasch-gimp-$DISTRIBUTION.list ]
+		then
+			echo -e $BLUE"-> Removing Gimp Repository"$NORMAL
+			sudo apt-get-repository --remove -y ppa:otto-kesselgulasch/gimp
+		else
+			echo -e $RED"  !-> Gimp Repository Not Found!!$NORMAL"
+		fi
+	elserem
+		echo -e $RED"  !-> Gimp Not Found!!$NORMAL"
+	fi
+	return
+}
+
+function RMGoogleChrome()
+{
+	if [ -e /usr/bin/google-chrome ]
+	then
+		echo -e $BLUE"-> Removing Google Chrome$NORMAL"
+		sudo apt-get -qq autoremove --purge google-chrome-stable
+		if [ -f /etc/apt/sources.list.d/google-chrome.list ]
+		then
+			echo -e $BLUE"-> Removing Google Chrome Repository"$NORMAL
+			sudo apt-get autoremove
+		else
+			echo -e $RED"  !-> Google Chrome Repository Not Found!!$NORMAL"
+		fi
+	else
+		echo -e $RED"  !-> Google Chrome Not Found!!$NORMAL"
+	fi
+	return
+}
+

@@ -1,0 +1,23 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Color injection
+scripts/colors
+
+clear
+
+echo
+echo -e "$BLUE#############################################################################################"
+echo -e "#$NORMAL  $RED-----------------------------------                                                      $BLUE#"
+echo -e "#$NORMAL  $RED| $GREEN######## ###   ## ########      $RED|$GREEN Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) $BLUE#"
+echo -e "#$NORMAL  $RED|    $GREEN##    ####  ##    ##         $RED---                                                    $BLUE#"
+echo -e "#$NORMAL  $RED|    $GREEN##    ## ## ##    ##            $RED|-------------------------------------------$YELLOW----    $BLUE#"
+echo -e "#$NORMAL  $RED|    $GREEN##    ##  ####    ##         $RED---                                                    $BLUE#"
+echo -e "#$NORMAL  $RED|    $GREEN##    ##   ###    ##         $RED|$GREEN TNT(Tools NeoTeam) is 100% free.                     $BLUE#"
+echo -e "#$NORMAL  $RED-----------------------------------$GREEN It may not be duplicated for monetary benefit or any $BLUE#"
+echo -e "#$NORMAL                                   $GREEN other purpose Without the permission of the developer. $BLUE#"
+echo -e "#############################################################################################$NORMAL"
+echo

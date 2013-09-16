@@ -1,0 +1,8 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Icone injection
+ICO_INFO=/usr/share/app-install/icons/gtk-info.svg

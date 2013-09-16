@@ -1,0 +1,33 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Check needed Package
+##Check wget installation
+if [ -e /usr/bin/wget ]
+then
+	echo -e $GREEN"-> Wget Verified"$NORMAL
+else
+	echo -e $RED"Wget is needed for this script to run properly.  Installing wget"$NORMAL
+	sudo apt-get -qq install wget
+fi
+
+##Check zenity installation
+if [ -e /usr/bin/zenity ]
+then
+	echo -e $GREEN"-> Zenity Verified"$NORMAL
+else
+	echo -e $RED"Zenity is needed for this script to run properly.  Installing Zenity"$NORMAL
+	sudo apt-get -qq install zenity
+fi
+
+##Check notigy-osd installation
+if [ -e /usr/bin/notify-send ]
+then
+	echo -e  $GREEN"-> Notify-osd Verified"$NORMAL
+else
+	echo -e  $RED"notify-osd is needed for this script to run properly.  Installing notify-osd"$NORMAL
+	sudo apt-get -qq install notify-osd libnotify-bin
+fi

@@ -1,0 +1,32 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Check programm open
+while ps -U root -u root u | grep "synaptic" | grep -v grep > /dev/null;
+	do 
+	echo -e $RED"Installation can't continue. Please close Synaptic first then try again."$NORMAL
+	touchanykey
+done
+while ps -e | grep "update-manager" | grep -v grep > /dev/null;
+	do
+	echo -e $RED"Installation can't continue. Please close Update Manager first then try again."$NORMAL
+	touchanykey
+done
+while ps -U root -u root u | grep "software-center" | grep -v grep > /dev/null;
+	do 
+	echo -e $RED"Installation can't continue. Please close Software Center first then try again."$NORMAL
+	touchanykey
+done
+while ps -U root -u root u | grep "apt-get" | grep -v grep > /dev/null;
+	do
+	echo -e $RED"Installation can't continue. Please wait for apt-get to finish running, or terminate the process, then try again."$NORMAL
+	touchanykey
+done
+while ps -U root -u root u | grep "dpkg" | grep -v grep > /dev/null;
+	do 
+	echo -e $RED"Installation can't continue. Wait for dpkg to finish running, or exit it, then try again."$NORMAL
+	touchanykey
+done

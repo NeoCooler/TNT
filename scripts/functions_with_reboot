@@ -1,0 +1,24 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Function with reboot
+#############################################################
+function Nvidia()
+{
+	if [ -e /usr/bin/nvidia-smi ]
+	then
+		echo -e $GREEN"-> Update Nvidia$NORMAL"
+		sudo apt-get -qq install nvidia-current-updates
+	else
+		echo -e $BLUE"  <-> Installing Nvidia$NORMAL"
+		sudo apt-get -qq install linux-source
+		sudo apt-get -qq install linux-headers-generic
+		sudo apt-get -qq install nvidia-current-updates
+	fi
+	REBOOT="YES"
+	return
+}
+

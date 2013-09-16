@@ -1,0 +1,16 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#System info
+VERSION=0.023
+
+DISTRIBUTION="raring"
+ARCHITECTURE=`uname -m`
+RESTART="NO"
+REBOOT="NO"
+UPDATEREQUIRED="NO"
+CODENAME=$(lsb_release -cs)
+PASSWORD=

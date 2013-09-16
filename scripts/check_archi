@@ -1,0 +1,19 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Check Architecture
+if [ $ARCHITECTURE != "i686" ]
+then
+	if [ $ARCHITECTURE != "x86_64" ]
+	then
+	echo -e  $RED"Sorry, only i686 and x86_64 architectures are supported."$NORMAL
+	notify-send -i $ICO_INFO "INFO" "Sorry, only i686 and x86_64 architectures are supported."
+	touchanykey
+	quit
+	fi
+else
+	echo -e $GREEN"-> Architecture Verified"$NORMAL
+fi

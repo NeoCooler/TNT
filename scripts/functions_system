@@ -1,0 +1,76 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#System Fonction
+#############################################################
+function quit()
+{
+	if [ $REBOOT = "YES" ]
+	then
+		zenity --question --text="Done! Your computer need to restart to apply the change.\n\nDo you want reboot now???"
+		if [ $? == 0 ]
+			notify-send -i $ICO_INFO "INFO" "Your computer will reboot in 5 seconds"
+			sleep 5
+			echo -e "$BLUE Thanks for using TNT. See You soon...$NORMAL"
+			sudo reboot
+		then
+			clear
+			echo -ne "$GREEN Done!  TNT will end in 3 seconds.$NORMAL\r"
+			sleep 1
+			echo -ne "$GREEN Done!  TNT will end in 2 seconds.$NORMAL\r"
+			sleep 1			
+			echo -ne "$GREEN Done!  TNT will end in 1 seconds.$NORMAL\r"
+			sleep 1			
+			echo -ne "$GREEN Done!  TNT will end in 0 seconds.$NORMAL\r"
+			echo -ne "\n"
+			clear
+			echo -e "$BLUE Thanks for using TNT. See You soon...$NORMAL"		
+			exit 0
+		fi
+	else
+			clear
+			echo -ne "$GREEN Done!  TNT will end in 3 seconds.$NORMAL\r"
+			sleep 1
+			echo -ne "$GREEN Done!  TNT will end in 2 seconds.$NORMAL\r"
+			sleep 1			
+			echo -ne "$GREEN Done!  TNT will end in 1 seconds.$NORMAL\r"
+			sleep 1			
+			echo -ne "$GREEN Done!  TNT will end in 0 seconds.$NORMAL\r"
+			echo -ne "\n"
+			clear
+			echo -e "$BLUE Thanks for using TNT. See You soon...$NORMAL"
+			exit 0
+	fi	
+}
+
+function touchanykey()
+{
+	read -sn 1 -p "Press any key to continue…"
+}
+
+function progressbar()
+{
+	zenity --progress \
+ 		--title="Waiting box..." \
+  		--text="Wait Please..\nTNT do only what you have choose!" \
+		--percentage=0 \
+		--pulsate \
+		--no-cancel \
+		--auto-close
+}
+
+function Oldpack()
+{
+	sudo apt-get -qq autoclean
+	echo -e  $GREEN"-> Old Packages are delleted."$NORMAL
+}
+
+function Cachepack()
+{
+	sudo apt-get -qq clean
+	echo -e  $GREEN"-> All Packages in cache are delleted."$NORMAL
+}
+

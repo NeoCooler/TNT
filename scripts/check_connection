@@ -1,0 +1,13 @@
+##########################################################
+## Copyright (c) 2013 - NeoTeam (neocooler29@gmail.com) ##
+##########################################################
+##   TNT - Tools NeoTeam - Easy utils tools for ubuntu  ##
+##########################################################
+
+#Check Internet connection
+if ping -W 5 -c 1 8.8.4.4 >/dev/null; 
+then
+	echo -e $GREEN"-> Internet Connection Verified"$NORMAL
+else
+	echo -e $RED"Internet connection not found !!!\n\nCheck your internet connection and restart this script."$NORMAL
+fi
