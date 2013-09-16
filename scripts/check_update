@@ -8,7 +8,7 @@
 CURR_MAJOR=`echo $VERSION | sed 's/\([0-9]*\).[0-9]*/\1/'`
 CURR_MINOR=`echo $VERSION | sed 's/[0-9]*.//'`
 
-wget -q https://raw.github.com/NeoCooler/TNT/master/run -O ONLINE_FILE
+wget -q https://raw.github.com/NeoCooler/TNT/master/info_system -O ONLINE_FILE
 
 if [ "$?" == "0" ]
 then
