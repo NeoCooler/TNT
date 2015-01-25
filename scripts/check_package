@@ -40,3 +40,12 @@ else
 	echo -e  $RED"GTK2 Engines is needed for this script to run properly.  Installing GTK2 Engines"$NORMAL
 	sudo apt-get -qq install gtk2-engines-pixbuf
 fi
+
+##Check Glade
+if [ -e /usr/bin/glade ]
+then
+	echo -e  $GREEN"-> Glade"$NORMAL
+else
+	echo -e  $RED"Glade is needed for this script to run properly.  Installing Glade"$NORMAL
+	sudo apt-get -qq install glade
+fi
