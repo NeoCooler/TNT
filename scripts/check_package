@@ -31,3 +31,12 @@ else
 	echo -e  $RED"notify-osd is needed for this script to run properly.  Installing notify-osd"$NORMAL
 	sudo apt-get -qq install notify-osd libnotify-bin
 fi
+
+##Check pixbuf-based theme for GTK+ 2.x
+if [ -e /usr/share/doc/gtk2-engines-pixbuf ]
+then
+	echo -e  $GREEN"-> GTK2 Engines"$NORMAL
+else
+	echo -e  $RED"GTK2 Engines is needed for this script to run properly.  Installing GTK2 Engines"$NORMAL
+	sudo apt-get -qq install gtk2-engines-pixbuf
+fi
