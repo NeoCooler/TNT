@@ -5,7 +5,7 @@
 ##########################################################
 
 #System info
-VERSION=0.024
+VERSION=0.025
 
 DISTRIBUTION="utopic"
 ARCHITECTURE=`uname -m`
