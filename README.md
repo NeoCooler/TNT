@@ -38,8 +38,8 @@ Contents
     Android
         Comming Soon
     Clean
-        Update System
-        Clean System (Old & Cache packages)
+        Old Package
+        Cache Package
     Update
         Comming Soon
     Admin
