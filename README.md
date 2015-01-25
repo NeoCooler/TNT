@@ -12,14 +12,38 @@ SIMPLE TRUE FREE ->->->-> TNT is here for you... for me... ;-)
 Installation
 -----------
 
+    Open Terminal with (ctrl + alt + T)
     $ sudo apt-get install git-core
     $ git clone git://github.com//NeoCooler/TNT.git TNT
 
 Usage
 -----
 
+    Open Terminal with (ctrl + alt + T)
     $ cd TNT
     $ ./run
+
+Contents
+-----
+
+    Install
+        LBreakout
+        OpenArena
+        Cheese
+        Gimp
+        Google Chrome
+        Nvidia
+    Remouve
+        Comming Soon
+    Android
+        Comming Soon
+    Clean
+        Update System
+        Clean System (Old & Cache packages)
+    Update
+        Comming Soon
+    Admin
+        Comming Soon
     
 Contributor
 -------
