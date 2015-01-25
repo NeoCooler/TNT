@@ -1,4 +1,4 @@
-TNT
+Tools by Neo Team
 ===
 
 I just want create a simple tools to install easily all i need after fresh install or just for manage some pakcage.
