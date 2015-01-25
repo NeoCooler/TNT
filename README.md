@@ -7,6 +7,13 @@ Install application like Google Chrome, Driver Nvidia,...
 Clean System, manage old package...
 Uptade application, tools, or system...
 
+TNT(Tools NeoTeam) is 100% free.
+-----
+
+    It may not be duplicated for monetary benefit 
+    or
+    Any other purpose Without the permission of the developer.
+
 SIMPLE TRUE FREE ->->->-> TNT is here for you... for me... ;-)
 
 Installation
