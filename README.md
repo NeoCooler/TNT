@@ -25,13 +25,14 @@ Usage
 
 Contents
 -----
-
-|Install|   LBreakout, OpenArena, Cheese, Gimp, Google Chrome, Nvidia.
-|Remouve|   Comming Soon
-|Android|   Comming Soon
-|Clean|     Old Package, Cache Package
-|Update|    Comming Soon
-|Admin|     Comming Soon
+|Menu | Contents
+|------|----------
+|Install | `LBreakout`, `OpenArena`, `Cheese`, `Gimp`, `Google Chrome`, `Nvidia`.
+|Remouve | `Comming Soon`
+|Android | `Comming Soon`
+|Clean | `Old Package`, `Cache Package`
+|Update | `Comming Soon`
+|Admin | `Comming Soon`
     
 Contributor
 -------
