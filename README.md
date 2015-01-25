@@ -37,4 +37,4 @@ Contents
 Contributor
 -------
 
-    NeoCooler aka krisjanne
+    [NeoCooler aka krisjanne](neocooler29@gmail.com)
