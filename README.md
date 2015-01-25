@@ -38,5 +38,5 @@ Contributor
 -------
 
 [NeoCooler aka krisjanne](mailto:neocooler29@gmail.com?subject=Tools by Neo Team&body=Hello I touch you about TNT on Github!
-I am: ???
+I am:"I write your status here"
 "I write your message here")
