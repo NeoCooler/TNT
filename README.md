@@ -37,4 +37,4 @@ Contents
 Contributor
 -------
 
-[NeoCooler aka krisjanne](mailto:neocooler29@gmail.com)
+[NeoCooler aka krisjanne](mailto:neocooler29@gmail.com?subject=Tools by Neo Team&body=Hello i contact you about TNT on Github...)
