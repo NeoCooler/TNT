@@ -229,19 +229,6 @@ do
 			echo -e $BLUE"#$NORMAL"
 		fi
 
-
-		for x in $arr
-		do
-			if [ $x = "Gimp" ]
-			then
-				GimpPrep
-			fi
-			if [ $x = "Google-Chrome" ]
-			then
-				GoogleChromePrep
-			fi
-		done
-
 		if [ $UPDATEREQUIRED == YES ]
 		then
 			(
