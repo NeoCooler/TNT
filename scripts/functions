@@ -71,7 +71,7 @@ function GoogleChrome()
 	return
 }
 
-function GoogleMusic()
+function GoogleMusicManager()
 {
 	if [ -e /usr/bin/google-musicmanager ]
 	then
