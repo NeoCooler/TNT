@@ -71,6 +71,22 @@ function GoogleChrome()
 	return
 }
 
+function GoogleMusic()
+{
+	if [ -e /usr/bin/google-musicmanager ]
+	then
+		echo -e $GREEN"-> Google Musique is up to date!$NORMAL"
+		sudo apt-get install google-musicmanager-beta
+	else
+		echo -e $BLUE"  <-> Installing Google Musique$NORMAL"
+		wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+		sudo sh -c 'echo "deb http://dl.google.com/linux/musicmanager/deb/ stable main" >> /etc/apt/sources.list.d/google.list' 
+		sudo apt-get update
+		sudo apt-get install google-musicmanager-beta
+	fi
+	return
+}
+
 #Fonctions to remove
 #############################################################
 
