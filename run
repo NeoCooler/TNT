@@ -198,7 +198,91 @@ do
 
 	if [ $x = "Remove" ]
 	then
-		notify-send -i $ICO_INFO "INFO" "Coming soon"
+		ans=$(zenity  --list \
+			--width=770 \
+			--height=670 \
+			--title "TNT $VERSION - Remove - Remove Mod/applications." \
+			--text "Select what you want to remove:" \
+			--cancel-label "Back" \
+			--ok-label "Remove Selected" \
+			--checklist \
+			--column "Select" --column "App. Name" --column "Informations" --column "Update?" --column "Reboot?" \
+			FALSE "LBreakout" "A clone of the classic game Breakout." "NO" "NO" \
+			FALSE "OpenArena" "Games Like Quake 3." "NO" "NO" \
+			FALSE "Cheese" "WebCam Application." "NO" "NO" \
+			FALSE "Gimp" "GNU Image Manipulation Program." "YES" "NO" \
+			FALSE "Google-Chrome" "A fast and free Web browser." "YES" "NO" \
+			FALSE "Nvidia" "Official owner of nvidia driver." "NO" "YES" \
+			FALSE "Google-Music-Manager" "Official Google Musique Uploader." "YES" "NO" \
+			--separator=":"
+		)
+		if [ $? == 1 ]
+		then
+			echo
+		fi
+		arr=$(echo $ans | tr "\:" "\n")
+
+		if [ $? == 0 ]
+		then
+			echo -e $BLUE"#"
+			echo -e $BLUE"#$RED Remove Info:"
+			echo -e $BLUE"#$NORMAL"
+		fi
+
+
+		for x in $arr
+		do
+			if [ $x = "Gimp" ]
+			then
+				GimpPrep
+			fi
+			if [ $x = "Google-Chrome" ]
+			then
+				GoogleChromePrep
+			fi
+		done
+
+		if [ $UPDATEREQUIRED == YES ]
+		then
+			(
+			echo "# Update All Packages..." ;
+			sudo apt-get -qq update
+			) |
+			progressbar
+			echo -e  $GREEN"-> Latest Package Version Verified"$NORMAL
+		fi
+
+		for x in $arr
+		do
+			if [ $x = "LBreakout" ]
+			then
+				RMLBreakout
+			fi
+			if [ $x = "OpenArena" ]
+			then
+				RMOpenArena
+			fi
+			if [ $x = "Cheese" ]
+			then
+				RMCheese
+			fi
+			if [ $x = "Gimp" ]
+			then
+				RMGimp
+			fi
+			if [ $x = "Google-Chrome" ]
+			then
+				RMGoogleChrome
+			fi
+			if [ $x = "Nvidia" ]
+			then
+				RMNvidia
+			fi
+			if [ $x = "Google-Music-Manager" ]
+			then
+				RMGoogleMusicManager
+			fi
+		done
 	fi
 
 
