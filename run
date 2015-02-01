@@ -124,6 +124,7 @@ do
 			FALSE "Gimp" "GNU Image Manipulation Program." "YES" "NO" \
 			FALSE "Google-Chrome" "A fast and free Web browser." "YES" "NO" \
 			FALSE "Nvidia" "Official owner of nvidia driver." "NO" "YES" \
+			FALSE "Google-Music" "Official Google Musique Uploader." "YES" "NO" \
 			--separator=":"
 		)
 		if [ $? == 1 ]
@@ -187,6 +188,10 @@ do
 			if [ $x = "Nvidia" ]
 			then
 				Nvidia
+			fi
+			if [ $x = "Google-Music" ]
+			then
+				GoogleMusic
 			fi
 		done
 	fi
