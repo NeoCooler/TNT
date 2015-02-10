@@ -7,8 +7,11 @@ echo -e $BLUE"#$NORMAL"
 echo -e $BLUE"# Debug Return:"
 echo -e $BLUE"#$NORMAL"
 
+#Check root
+source scripts/check_root
+
 #Fixe Permission
-chmod 775 scripts/*
+sudo chmod 775 scripts/*
 echo -e $GREEN"-> Permissions Verified"$NORMAL
 
 #System Functions
@@ -42,9 +45,6 @@ echo -e $GREEN"-> Add All Functions With Reboot Verified"$NORMAL
 #Fonctions
 source scripts/functions
 echo -e $GREEN"-> Add All others Functions Verified"$NORMAL
-
-#Check root
-source scripts/check_root
 
 #Check Distro
 source scripts/check_distro
