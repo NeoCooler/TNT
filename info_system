@@ -7,7 +7,7 @@
 #System info
 VERSION=0.031
 
-DISTRIBUTION="utopic" | "wheezy"
+DISTRIBUTION="utopic" || "wheezy"
 ARCHITECTURE=`uname -m`
 RESTART="NO"
 REBOOT="NO"
