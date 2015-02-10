@@ -5,9 +5,9 @@
 ##########################################################
 
 #System info
-VERSION=0.031
+VERSION=0.032
 
-DISTRIBUTION="utopic"
+DISTRIBUTION="trusty"
 ARCHITECTURE=`uname -m`
 RESTART="NO"
 REBOOT="NO"
