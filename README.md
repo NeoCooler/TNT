@@ -20,8 +20,10 @@ Installation
 -----------
 
     Open Terminal with (ctrl + alt + T)
-    $ sudo apt-get install git-core
-    $ git clone git://github.com//NeoCooler/TNT.git TNT
+    $ sudo wget https://github.com/NeoCooler/TNT/archive/master.zip
+    $ sudo unzip master.zip
+    $ sudo rm master.zip
+    $ sudo mv TNT-master TNT
 
 Usage
 -----
