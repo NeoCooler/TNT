@@ -63,5 +63,3 @@ echo -e $GREEN"-> Update Verified"$NORMAL
 #Title TNT
 source scripts/title
 
-#Copyright
-source scripts/copyright
