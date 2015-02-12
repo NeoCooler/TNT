@@ -50,6 +50,7 @@ else
 			wget --no-check-certificate $URL -O $NEW_FILE
 			unzip ~/TNT/$NEW_FILE -d ~/TNT/
 			rm ~/TNT/$NEW_FILE
+			sudo chmod -R 777 ~/TNT
 			cp -a ~/TNT/TNT-master/* ~/TNT/
 			rm -r ~/TNT/TNT-master
 			sudo chmod -R 777 ~/TNT
