@@ -51,7 +51,6 @@ echo -e $GREEN"-> Open Verified"$NORMAL
 #Check Internet connection
 source scripts/check_connection
 
-
 #Check needed Package
 source scripts/check_package
 echo -e $GREEN"-> Package Verified"$NORMAL
@@ -62,4 +61,40 @@ echo -e $GREEN"-> Update Verified"$NORMAL
 
 #Title TNT
 source scripts/title
+
+echo -e $BLUE"#"
+			echo -e $BLUE"#$RED Installer Info:"
+			echo -e $BLUE"#$NORMAL"
+
+echo "# Update All Packages..." ;
+	sudo apt-get -qq update
+	) |
+	progressbar
+	echo -e  $GREEN"-> Latest Package Version Verified"$NORMAL
+	
+GimpPrep
+GoogleChromePrep
+sudo apt-get -qq update
+Cheese
+Gimp
+GoogleChrome
+Nvidia
+GoogleMusicManager
+
+echo -e $BLUE"#"
+			echo -e $BLUE"#$RED Update Info:"
+			echo -e $BLUE"#$NORMAL"
+			
+sudo apt-get -qq update
+sudo apt-get -qq dist-upgrade
+sudo apt-get -qq upgrade
+sudo apt-get -qq update
+
+echo -e $BLUE"#"
+			echo -e $BLUE"#$RED Cleanner Info:"
+			echo -e $BLUE"#$NORMAL"
+			
+sudo apt-get -qq update
+Oldpack
+Cachepack
 
