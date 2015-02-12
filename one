@@ -68,19 +68,12 @@ echo -e $BLUE"#"
 
 sudo apt-get -qq update
 echo -e $GREEN"-> Update all Package"$NORMAL
-GimpPrep
-echo -e $GREEN"-> Prepare Gimp files"$NORMAL
-GoogleChromePrep
-echo -e $GREEN"-> Prepare Google Chrome files"$NORMAL
-sudo apt-get -qq update
-echo -e $GREEN"-> Update all Package"$NORMAL
+
 Cheese
 
 Gimp
 
 GoogleChrome
-
-Nvidia
 
 GoogleMusicManager
 
