@@ -11,7 +11,7 @@ echo -e $BLUE"#$NORMAL"
 source scripts/check_root
 
 #Fixe Permission
-sudo chmod -R 775 scripts/*
+sudo chmod -R 777 scripts/*
 echo -e $GREEN"-> Permissions Verified"$NORMAL
 
 #System Functions
