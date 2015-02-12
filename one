@@ -1,0 +1,11 @@
+#!/bin/bash
+clear
+
+echo -e $MAGENTA"    <= !!! Welcome to TNT ONE, one command all is done !!! =>"
+echo -e $BLUE"#$NORMAL"
+
+echo -e $BLUE"# Debug Return:"
+echo -e $BLUE"#$NORMAL"
+
+#Check root
+source scripts/check_root
