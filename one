@@ -50,7 +50,7 @@ echo -e $GREEN"-> Open Verified"$NORMAL
 
 #Check Internet connection
 source scripts/check_connection
-echo -e $GREEN"-> Internet connection Verified"$NORMAL
+
 
 #Check needed Package
 source scripts/check_package
