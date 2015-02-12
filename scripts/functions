@@ -49,7 +49,7 @@ function Gimp()
 {
 	if [ -e /usr/bin/gimp ]
 	then
-		echo -e $GRENN"-> Gimp is up to date!$NORMAL"
+		echo -e $GREEN"-> Gimp is up to date!$NORMAL"
 		sudo apt-get -qq install gimp
 	else
 		echo -e $BLUE"  <-> Installing Gimp$NORMAL"
