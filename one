@@ -98,7 +98,10 @@ echo -e $BLUE"#"
 sudo apt-get -qq update
 echo -e $GREEN"-> Update all Package"$NORMAL
 Oldpack
-echo -e $GREEN"-> Clean Old Package"$NORMAL
-Cachepack
-echo -e $GREEN"-> Clean Cache"$NORMAL
 
+Cachepack
+
+clear
+
+#Title TNT
+source scripts/title
