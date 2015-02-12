@@ -67,3 +67,16 @@ source scripts/title
 
 #Copyright
 source scripts/copyright
+
+#Update before continue
+zenity --question --text="Updates your packages,\nMay be required before continuing...\n\nDo you wish to update?"
+if [ $? == 0 ]
+then
+	(
+	echo "# Update All Packages..." ;
+	sudo apt-get -qq update
+	) |
+	progressbar
+	echo -e  $GREEN"-> Latest Package Version Verified"$NORMAL
+fi
+
