@@ -5,7 +5,7 @@
 ##########################################################
 
 #System info
-VERSION=0.037
+VERSION=0.038
 
 DISTRIBUTION="trusty"
 ARCHITECTURE=`uname -m`
