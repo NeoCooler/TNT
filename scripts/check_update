@@ -56,3 +56,5 @@ else
 			notify-send -i $ICO_INFO "INFO" "Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION."
 		fi
 fi
+
+sudo chmod -R 777 ~/TNT
