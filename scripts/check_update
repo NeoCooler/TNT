@@ -57,4 +57,4 @@ else
 		fi
 fi
 
-sudo chmod -R 777 ~/TNT
+sudo chmod -R 775 ~/TNT
