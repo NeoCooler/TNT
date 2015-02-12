@@ -24,7 +24,7 @@ Installation
     $ sudo unzip master.zip
     $ sudo rm master.zip
     $ sudo mv TNT-master TNT
-    $ sudo chmod -R 775 TNT
+    $ sudo chmod -R 777 TNT
 
 Usage
 -----
