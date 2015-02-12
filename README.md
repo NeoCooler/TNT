@@ -26,12 +26,19 @@ Installation
     $ sudo mv TNT-master TNT
     $ sudo chmod -R 777 TNT
 
-Usage
+Usage-1
 -----
 
     Open Terminal with (ctrl + alt + T)
     $ cd TNT
     $ ./run
+
+Usage-2
+-----
+
+    Open Terminal with (ctrl + alt + T)
+    $ cd TNT
+    $ ./one
 
 Contents
 -----
