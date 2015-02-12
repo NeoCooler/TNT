@@ -75,15 +75,15 @@ echo -e $GREEN"-> Prepare Google Chrome files"$NORMAL
 sudo apt-get -qq update
 echo -e $GREEN"-> Update all Package"$NORMAL
 Cheese
-echo -e $GREEN"-> Install/Update Cheese"$NORMAL
+
 Gimp
-echo -e $GREEN"-> Install/Update Gimp"$NORMAL
+
 GoogleChrome
-echo -e $GREEN"-> Install/Update Google Chrome"$NORMAL
+
 Nvidia
-echo -e $GREEN"-> Install/Update Nvidia"$NORMAL
+
 GoogleMusicManager
-echo -e $GREEN"-> Install/Update Google Music Manager"$NORMAL
+
 
 echo -e $BLUE"#"
 			echo -e $BLUE"#$RED Update Info:"
