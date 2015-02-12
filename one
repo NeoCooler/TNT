@@ -1,11 +1,67 @@
 #!/bin/bash
 clear
 
-echo -e $MAGENTA"    <= !!! Welcome to TNT ONE, one command all is done !!! =>"
-echo -e $BLUE"#$NORMAL"
+echo -e $MAGENTA"    <= !!! Welcome to TNT ONE, one command all is done !!! =>"$NORMAL
 
-echo -e $BLUE"# Debug Return:"
-echo -e $BLUE"#$NORMAL"
+echo -e $BLUE"# Debug Return:"$NORMAL
 
 #Check root
 source scripts/check_root
+
+#Fixe Permission
+sudo chmod -R 777 scripts/*
+echo -e $GREEN"-> Permissions Verified"$NORMAL
+
+#Color injection
+source scripts/colors
+echo -e $GREEN"-> Add Colorisation for Terminal Verified"$NORMAL
+
+#System Functions
+source scripts/functions_system
+echo -e $GREEN"-> Add All System Functions Verified"$NORMAL
+
+#Ajust Terminal Dimension
+echo -ne '\e[8;13;93t'
+echo -e $GREEN"-> Terminal Dimension Verified"$NORMAL
+
+#Icone injection
+source scripts/icones
+echo -e $GREEN"-> Add some links to icone from system Verified"$NORMAL
+
+#System info
+source info_system
+echo -e $GREEN"-> Information system Verified"$NORMAL
+
+#Fonctions
+source scripts/functions
+echo -e $GREEN"-> Ohers Functions Verified"$NORMAL
+
+#Check Distro
+source scripts/check_distro
+echo -e $GREEN"-> Distro Verified"$NORMAL
+
+#Check Architecture
+source scripts/check_archi
+echo -e $GREEN"-> Archi Verified"$NORMAL
+
+#Check programm open
+source scripts/check_open
+echo -e $GREEN"-> Open Verified"$NORMAL
+
+#Check Internet connection
+source scripts/check_connection
+echo -e $GREEN"-> Internet connection Verified"$NORMAL
+
+#Check needed Package
+source scripts/check_package
+echo -e $GREEN"-> Package Verified"$NORMAL
+
+#Check for update
+source scripts/check_update
+echo -e $GREEN"-> Update Verified"$NORMAL
+
+#Title TNT
+source scripts/title
+
+#Copyright
+source scripts/copyright
