@@ -51,10 +51,11 @@ else
 			unzip ~/TNT/$NEW_FILE -d ~/TNT/
 			rm ~/TNT/$NEW_FILE
 			cp -a ~/TNT/TNT-master/* ~/TNT/
-			rm -r ~/TNT/TNT-master			
+			rm -r ~/TNT/TNT-master
+			sudo chmod -R 775 ~/TNT
 			echo -e $BLUE"Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION."$NORMAL
 			notify-send -i $ICO_INFO "INFO" "Done! TNT is up to date.\nYou need to restart TNT to run last version $LAST_VERSION."
 		fi
 fi
 
-sudo chmod -R 775 ~/TNT
+
