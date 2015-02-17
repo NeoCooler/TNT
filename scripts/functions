@@ -87,6 +87,38 @@ function GoogleMusicManager()
 	return
 }
 
+function Skype()
+{
+	if [ -e /usr/bin/skype ]
+	then
+		echo -e $GREEN"-> Skype is up to date!$NORMAL"
+		sudo apt-get -qq install skype
+	else
+		echo -e $BLUE"  <-> Installing Skype$NORMAL"
+		sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+		sudo apt-get -qq update
+		sudo apt-get -qq install libasound2
+		sudo apt-get -qq install libc6
+		sudo apt-get -qq install libgcc1
+		sudo apt-get -qq install libqt4-dbus
+		sudo apt-get -qq install libqt4-network
+		sudo apt-get -qq install libqt4-xml
+		sudo apt-get -qq install libqtcore4
+		sudo apt-get -qq install libqtgui4
+		sudo apt-get -qq install libqtwebkit4
+		sudo apt-get -qq install libstdc++6
+		sudo apt-get -qq install libx11-6
+		sudo apt-get -qq install libxext6
+		sudo apt-get -qq install libxss1
+		sudo apt-get -qq install libxv1
+		sudo apt-get -qq install libssl1.0.0
+		sudo apt-get -qq install libasoud2-plugins
+		sudo apt-get -qq install skype
+		sudo apt-get -qq update
+	fi
+	return
+}
+
 #Fonctions to remove
 #############################################################
 
