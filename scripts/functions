@@ -112,7 +112,7 @@ function Skype()
 		sudo apt-get -qq install libxss1
 		sudo apt-get -qq install libxv1
 		sudo apt-get -qq install libssl1.0.0
-		sudo apt-get -qq install libasoud2-plugins
+		sudo apt-get -qq install libasound2-plugins
 		sudo apt-get -qq install skype
 		sudo apt-get -qq update
 	fi
