@@ -125,6 +125,7 @@ do
 			FALSE "Google-Chrome" "A fast and free Web browser." "YES" "NO" \
 			FALSE "Nvidia" "Official owner of nvidia driver." "NO" "YES" \
 			FALSE "Google-Music-Manager" "Official Google Musique Uploader." "YES" "NO" \
+			FALSE "Skype" "Official Skype application." "YES" "NO" \
 			--separator=":"
 		)
 		if [ $? == 1 ]
@@ -192,6 +193,10 @@ do
 			if [ $x = "Google-Music-Manager" ]
 			then
 				GoogleMusicManager
+			fi
+			if [ $x = "Skype" ]
+			then
+				Skype
 			fi
 		done
 	fi
