@@ -77,6 +77,8 @@ GoogleChrome
 
 GoogleMusicManager
 
+Skype
+
 
 echo -e $BLUE"#"
 			echo -e $BLUE"#$RED Update Info:"
